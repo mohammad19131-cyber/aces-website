@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABC XIV — Category Study Guide</title>
+<meta name="description" content="Official Study Guide for Aitchison Business Concept XIV categories. Strategic frameworks, rules, case preparation, and master tactics.">
+<style>
+  :root {
+    --bg-void: #040A12;
+    --bg-deep: #060d16;
+    --bg-surface: #0a111c;
+    --border-subtle: #141b26;
+    --border-medium: #1e2630;
+    --text-primary: #e2e8f0;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --accent-bronze: #b8860b;
+    --accent-gold: #d4af37;
+    --accent-gold-bright: #ffd700;
+    --accent-gold-dim: rgba(212,175,55,0.12);
+    --accent-steel: #4a5568;
+    --card-hover-border: #ffd700;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg-void);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg-void); }
+  ::-webkit-scrollbar-thumb { background: var(--border-medium); border-radius: 0; }
+
+  /* NAVIGATION */
+  nav {
+    position: fixed;
+    top: 0; width: 100%;
+    background: rgba(4,10,18,0.94);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-subtle);
+    z-index: 1000;
+    padding: 0.875rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    text-decoration: none;
+  }
+
+  .nav-brand img {
+    height: 40px;
+    width: auto;
+  }
+
+  .nav-brand span {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .nav-brand span strong {
+    color: var(--accent-gold-bright);
+    font-weight: 800;
+    font-family: 'Cinzel', serif;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.25s;
+  }
+
+  .nav-links a:hover, .nav-links a.active {
+    color: var(--accent-gold-bright);
+  }
+
+  .mobile-menu-btn {
+    display: none;
+    background: transparent;
+    border: 1px solid var(--accent-gold);
+    border-radius: 4px;
+    padding: 0.5rem;
+    cursor: pointer;
+    z-index: 1001;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.2);
+  }
+
+  .mobile-menu-btn svg {
+    display: block;
+    width: 22px;
+    height: 22px;
+  }
+
+  /* CONTAINER */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 5% 4rem;
+  }
+
+  /* HERO HEADER */
+  .header-section {
+    text-align: center;
+    padding: 2.5rem 0 3rem;
+    font-family: 'Cinzel', serif;
+  }
+
+  .header-section h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    color: #fff;
+  }
+
+  .header-section h1 span {
+    color: var(--accent-gold-bright);
+  }
+
+  .header-section .subtitle {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    max-width: 750px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .badge-tag {
+    display: inline-block;
+    padding: 0.35rem 1rem;
+    border: 1px solid var(--accent-bronze);
+    background: var(--accent-gold-dim);
+    color: var(--accent-gold-bright);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    border-radius: 50px;
+    margin-bottom: 1.5rem;
+  }
+
+  /* SEARCH & CONTROLS */
+  .controls-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    background: var(--bg-surface);
+    padding: 1.25rem 1.5rem;
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+  }
+
+  .search-box {
+    position: relative;
+    flex: 1;
+    min-width: 260px;
+  }
+
+  .search-box input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
+    background: var(--bg-deep);
+    border: 1px solid var(--border-medium);
+    border-radius: 6px;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+
+  .search-box input:focus {
+    border-color: var(--accent-gold-bright);
+  }
+
+  .search-box i {
+    position: absolute;
+    left: 0.85rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+  }
+
+  .filter-pills {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    background: var(--bg-deep);
+    border: 1px solid var(--border-medium);
+    color: var(--text-secondary);
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.25s;
+  }
+
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--accent-gold-bright);
+    color: var(--bg-void);
+    border-color: var(--accent-gold-bright);
+  }
+
+  /* CATEGORIES GRID */
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+
+  .category-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.35s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    cursor: pointer;
+    opacity: 1;
+  }
+
+  .category-card:hover {
+    border-color: var(--card-hover-border);
+    transform: translateY(-4px);
+    opacity: 1;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5), 0 0 20px rgba(255,215,0,0.25);
+  }
+
+  .card-banner {
+    position: relative;
+    height: 180px;
+    background-color: var(--bg-void);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--border-subtle);
+    
+  }
+
+  .card-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    opacity: 0.5;
+  }
+
+  .category-card:hover .card-banner img {
+    transform: scale(1.06);
+  }
+
+  .card-category-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(4,10,18,0.85);
+    border: 1px solid var(--border-medium);
+    color: var(--accent-gold-bright);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 0.3rem 0.75rem;
+    border-radius: 4px;
+    backdrop-filter: blur(4px);
+  }
+
+  .card-body {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+    background-color: var(--bg-surface)
+
+  }
+
+  .category-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+    margin-bottom: 0.35rem;
+    text-transform: uppercase;
+    opacity: 1;
+  }
+
+  .category-tagline {
+    font-size: 0.8rem;
+    color: var(--accent-gold-bright);
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    opacity: 1;
+  }
+
+  .category-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+    flex: 1;
+    opacity: 1;
+  }
+
+  .guide-section-box {
+    background: var(--bg-deep);
+    padding: 0.875rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .guide-section-box h4 {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent-gold-bright);
+    margin-bottom: 0.35rem;
+  }
+
+  .guide-section-box p, .guide-section-box ul {
+    font-size: 0.825rem;
+    color: var(--text-primary);
+  }
+
+  .guide-section-box ul {
+    padding-left: 1.2rem;
+  }
+
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-subtle);
+    margin-top: auto;
+  }
+
+  .pro-tip {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  /* MODAL FOR FULL STUDY GUIDE */
+  .modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: var(--bg-void);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .modal-content {
+    background: var(--bg-deep);
+    border: 1px solid var(--accent-gold);
+    border-radius: 8px;
+    max-width: 800px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 2.5rem;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.9);
+  }
+
+  .close-modal {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    background: transparent;
+    border: 1px solid var(--border-medium);
+    color: var(--text-secondary);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: all 0.25s;
+  }
+
+  .close-modal:hover {
+    color: var(--accent-gold-bright);
+    border-color: var(--accent-gold-bright);
+  }
+
+  .modal-header {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 1rem;
+  }
+
+  .modal-header h2 {
+    font-size: 1.75rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .modal-header p {
+    color: var(--accent-gold-bright);
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .modal-body h3 {
+    font-size: 0.9rem;
+    color: var(--accent-gold-bright);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 1.5rem 0 0.5rem;
+  }
+
+  .modal-body p, .modal-body ul {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .modal-body ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .modal-body li {
+    margin-bottom: 0.4rem;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    border-top: 1px solid var(--border-subtle);
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 5rem;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .header-section h1 { font-size: 1.75rem; }
+    .categories-grid { grid-template-columns: 1fr; }
+    .controls-bar { flex-direction: column; align-items: stretch; }
+    .mobile-menu-btn { display: flex; }
+    .nav-links {
+      display: none;
+      position: fixed;
+      top: 0; right: 0;
+      width: 75%; height: 100vh;
+      background: var(--bg-deep);
+      flex-direction: column;
+      padding: 5rem 2rem;
+      border-left: 1px solid var(--border-subtle);
+      z-index: 1000;
+    }
+    .nav-links.show { display: flex; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="index.html" class="nav-brand">
+    <img src="lg.png" alt="ABC Logo" onerror="this.style.display='none'">
+    <span><strong>ABC</strong> XIV</span>
+  </a>
+  <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle Navigation">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffd700" stroke-width="2.5" stroke-linecap="round">
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Main Portal</a></li>
+    <li><a href="l.html" class="active">Study Guide</a></li>
+  </ul>
+</nav>
+
+<!-- MAIN CONTAINER -->
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header-section">
+    <h1>Category <span>Study Guide</span></h1>
+    <p class="subtitle">
+      Explore the official category formats and competition details for Aitchison Business Concept XIV.
+    </p>
+  </div>
+
+
+  <!-- CATEGORIES GRID -->
+  <div class="categories-grid" id="categoriesGrid"></div>
+
+</div>
+
+<!-- MODAL OVERLAY FOR FULL DETAILS -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <button class="close-modal" onclick="closeModalDirect()">&times;</button>
+    <div class="modal-header">
+      <h2 id="modalTitle">Category Title</h2>
+      <p id="modalTagline">Category Tagline</p>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  Aitchison Business Concept XIV &mdash; Official Category Study Guide
+</footer>
+
+<script>
+  // ==========================================
+// OFFICIAL CATEGORY DATA
+// ==========================================
+
+const studyGuideData = [
+  {
+    id: "byoi",
+    page: 1,
+    name: "Build Your Own Idea",
+    tagline: "Product Creation & Business Thinking",
+    type: "entrepreneurship",
+    img: "XIII Vectors/BYOI raw.png",
+    overview:
+      "This category involves delegates coming up with their own business ideas that they will pitch to investors. As they battle for investment into their business idea, teams are expected to create a well thought out business idea, as well as conduct appropriate research in order to give a skeleton to their raw idea.",
+
+    details:
+      "Build Your Own Idea combines creative product development with business knowledge. Teams manage limited resources, develop a product from their available materials, build a coherent business concept, and defend the idea through presentation and questioning."
+  },
+
+  {
+    id: "ad",
+    page: 2,
+    name: "Ad Making",
+    tagline: "Advertising & Creative Strategy",
+    type: "creative",
+    img: "XIII Vectors/AD raw.png",
+    overview:
+      "Media has become an important aspect of our lives, and it is utilized by all multinational corporations. In this category, delegates will be required to create an ad and set up stalls for allotted companies, allowing them to show their mettle and prowess in the fields of creativity, cinematography, and editing.",
+
+    details:
+      "Ad Making tests creativity, marketing insight, storytelling, cinematography, editing, and the ability to defend advertising decisions under pressure."
+  },
+
+  {
+    id: "investomania",
+    page: 3,
+    name: "Investomania",
+    tagline: "Interactive Stock Market Simulation",
+    type: "finance",
+    img: "XIII Vectors/Investo raw.png",
+    overview:
+      "This category introduces the stock market to the delegates who will role-play as investors. Teams will use the money allotted to them to invest in the stock market throughout the event. There will be regular updates to the stock market, and delegates are expected to invest accordingly.",
+
+    details:
+      "Investomania is an interactive stock market simulation. Teams manage an allocated budget, respond to market updates, buy and sell shares, and make strategic investment decisions across a fictional portfolio of companies. The winner is determined by the value of the team's capital after the investment period."
+  },
+
+  {
+    id: "socio",
+    page: 4,
+    name: "Social Entrepreneurship",
+    tagline: "Business Solutions & Social Responsibility",
+    type: "entrepreneurship",
+    img: "XIII Vectors/Socio raw.png",
+    overview:
+      "In this category, delegates will tackle social or environmental problems by developing a feasible business plan for a struggling business, that is environmentally friendly or socially beneficial whilst remaining profitable.",
+
+    details:
+      "Social Entrepreneurship challenges teams to identify a company's core problem, develop a feasible and profitable solution, and consider customers, employees, communities, environmental responsibility, ethics, and long-term social value."
+  },
+
+  {
+    id: "espionage",
+    page: 5,
+    name: "Corporate Espionage",
+    tagline: "Investigation & Corporate Intelligence",
+    type: "strategy",
+    img: "XIII Vectors/Espionage raw.png",
+    overview:
+      "Corporate Espionage challenges teams to investigate a corporate incident, distinguish useful evidence from deliberate misdirection, identify suspects and motives, and build a coherent theory from fragmented information.",
+    
+    details:
+      "Teams receive a confidential corporate case file containing company background, incident summaries, employee profiles, communications, security logs, and media leaks. They analyze evidence, build a timeline, identify prime suspects and motives, solve ciphers, interrogate witnesses, construct an evidence board, and present a coherent theory."
+  },
+
+  {
+    id: "ff",
+    page: 6,
+    name: "Fiscal Frontier",
+    tagline: "Finance & Accounting",
+    type: "finance",
+    img: "XIII Vectors/FF raw.png",
+    overview:
+      "Fiscal Frontier tests delegates' understanding of accounting and finance through timed questions, numerical reasoning, and practical financial decision-making.",
+    
+    details:
+      "Fiscal Frontier consists of timed questions covering liquidity, profit versus cash, cost classification, receivables, payables, financing decisions, financial ratios, working capital, costs, cash flow, financing, and pricing."
+  },
+
+  {
+    id: "wall",
+    page: 7,
+    name: "Wall Street",
+    tagline: "Interactive Investment Challenge",
+    type: "finance",
+    img: "XIII Vectors/Mall raw.png",
+    overview:
+      "Every entrepreneur needs to be frugal, especially when they are handling a startup with little investment. This category will put the frugality of participants to the test, as they step into the shoes of a cash-strapped business.",
+
+    details:
+      "Mall Street tests financial judgment and frugality. Teams operate with limited resources and must make careful business decisions while balancing investment, spending, risk, and the needs of a cash-strapped company."
+  },
+
+  {
+    id: "rubicon",
+    page: 8,
+    name: "Rubicon",
+    tagline: "Business Negotiation & Strategic Decision-Making",
+    type: "strategy",
+    img: "XIII Vectors/Rubicon raw.png",
+    overview:
+      "The category will test the economic prowess of the delegates taking part in it. The delegates shall be tested regarding various aspects of economics through quizzes, case studies, and economic crises.",
+
+    details:
+      "Rubicon tests economic knowledge and strategic decision-making through quizzes, case studies, economic scenarios, and crisis-based challenges. Teams must apply economic concepts quickly and defend their decisions under pressure."
+  },
+
+  {
+    id: "chess",
+    page: 9,
+    name: "Chess",
+    tagline: "Strategy & Business Acumen",
+    type: "strategy",
+    img: "XIII Vectors/Chess raw.png",
+    overview:
+      "Chess combines strategic thinking, foresight, and composure with a business-focused rapid-fire challenge that tests knowledge and decision-making under pressure.",
+    
+    details:
+      "Chess combines strategic thinking, foresight, composure, and business-focused rapid-fire decision-making. Delegates must think several moves ahead while applying knowledge quickly and accurately under pressure."
+  },
+
+  {
+    id: "muney",
+    page: 10,
+    name: "MUNey",
+    tagline: "CEO Diplomacy & Crisis Simulation",
+    type: "finance",
+    img: "XIII Vectors/Muney raw.png",
+    overview:
+      "MUNey reimagines Model United Nations by placing delegates in the roles of global CEOs, combining traditional MUN procedure with corporate strategy, alliances, and crisis management.",
+    
+    details:
+      "The flagship public speaking category of the Aitchison Business Concept will follow the rules and technicalities of a Model United Nations conference, where delegates will discuss solutions to the crises pertaining to the business that will be announced during the event. Delegates represent renowned CEOs rather than countries and combine diplomacy, corporate strategy, alliances, private directives, and crisis management."
+  },
+
+  {
+    id: "canvas",
+    page: 11,
+    name: "Corporate Canvas",
+    tagline: "Brand Identity & Visual Marketing",
+    type: "creative",
+    img: "XIII Vectors/Canvas raw.png",
+    overview:
+      "The category will test a plethora of skills in the world of corporate espionage, ranging from quick thinking to the financial prowess. Based on a case study, delegates will be required to interrogate, arbitrate and come to conclusion.",
+    details:
+      "Corporate Canvas tests corporate strategy, visual branding, marketing consistency, and the ability to translate a brand identity into a convincing public-facing experience."
+  },
+
+  {
+    id: "tech",
+    page: 12,
+    name: "Techeneurship",
+    tagline: "Startup Creation, Expansion & Crisis Management",
+    type: "entrepreneurship",
+    img: "XIII Vectors/Tech raw.png",
+    overview:
+      "Techeneurship challenges delegates to develop an innovative start-up, turn it into a viable business model, and defend its value under a high-pressure crisis.",
+    
+    details:
+      "Techeneurship challenges delegates to develop an innovative start-up, turn it into a viable business model, present an investment-ready concept, and defend its value under a high-pressure crisis. The category emphasizes innovation, feasibility, pitching, risk mitigation, negotiation, and leadership."
+  },
+
+  {
+    id: "race",
+    page: 13,
+    name: "The Amazing Race",
+    tagline: "Scavenger Hunt & Problem Solving",
+    type: "creative",
+    img: "XIII Vectors/Race raw.png",
+    overview:
+      "The Amazing Race is an interactive category designed to test delegates' thinking and detective skills through a simulated scavenger hunt.",
+   
+    details:
+      "The competition is simulated as a scavenger hunt and is designed to test delegates' thinking skills alongside their detective skills."
+  },
+
+  {
+    id: "juris",
+    page: 14,
+    name: "Jurisprudential",
+    tagline: "Corporate Law & Courtroom Advocacy",
+    type: "strategy",
+    img: "XIII Vectors/Juris raw.png",
+    overview:
+      "This category tests delegates' ability to understand legal issues in a corporate setting, propose practical legal corrections, and apply legal principles through structured argument and courtroom advocacy.",
+    
+    details:
+      "The category combines corporate legal analysis with courtroom advocacy. Delegates work through legal issues and propose corrections before applying legal principles through structured arguments and cross-questioning in a moot-court setting."
+  }
+];
+
+
+// ==========================================
+// RENDER CATEGORY CARDS
+// ==========================================
+
+function renderCategories(items) {
+  const grid = document.getElementById("categoriesGrid");
+
+  if (!grid) return;
+
+  grid.innerHTML = "";
+
+  if (items.length === 0) {
+    grid.innerHTML = `
+      <div style="
+        grid-column: 1/-1;
+        text-align: center;
+        padding: 4rem;
+        color: var(--text-muted);
+      ">
+        No categories match your search query.
+      </div>
+    `;
+    return;
+  }
+
+  items.forEach((cat) => {
+
+    const card = document.createElement("div");
+
+    card.className = "category-card";
+
+    // OPEN EVENT PAGE
+    //card.addEventListener("click", function () {
+    //  window.location.href = `event-${cat.page}.html`;
+   // });
+
+    card.innerHTML = `
+      <div class="card-banner">
+        <img
+          src="${cat.img}"
+          alt="${cat.name}"
+          loading="lazy"
+        >
+      </div>
+
+      <div class="card-body">
+
+        <h3 class="category-title">
+          ${cat.name}
+        </h3>
+
+        <div class="category-tagline">
+          ${cat.tagline}
+        </div>
+
+        <p class="category-desc">
+          ${cat.overview}
+        </p>
+
+        <div class="card-footer">
+          <span class="pro-tip">
+            <i
+              class="fas fa-lightbulb"
+              style="color:var(--accent-gold-bright);"
+            ></i>
+          </span>
+        </div>
+
+      </div>
+    `;
+
+    grid.appendChild(card);
+  });
+}
+
+
+// ==========================================
+// INITIAL RENDER
+// ==========================================
+
+renderCategories(studyGuideData);
+
+
+// ==========================================
+// SEARCH FILTER
+// ==========================================
+
+function filterCategories() {
+
+  const searchInput = document.getElementById("searchInput");
+
+  if (!searchInput) return;
+
+  const query = searchInput.value.toLowerCase().trim();
+
+  const filtered = studyGuideData.filter((cat) => {
+
+    return (
+      cat.name.toLowerCase().includes(query) ||
+      cat.tagline.toLowerCase().includes(query) ||
+      cat.overview.toLowerCase().includes(query) ||
+      cat.type.toLowerCase().includes(query)
+    );
+
+  });
+
+  renderCategories(filtered);
+}
+
+
+// ==========================================
+// PILL FILTER
+// ==========================================
+
+function filterPill(categoryType, btn) {
+
+  document
+    .querySelectorAll(".filter-btn")
+    .forEach((b) => b.classList.remove("active"));
+
+  if (btn) {
+    btn.classList.add("active");
+  }
+
+  if (categoryType === "all") {
+
+    renderCategories(studyGuideData);
+
+  } else {
+
+    const filtered = studyGuideData.filter(
+      (cat) =>
+        cat.type.toLowerCase() === categoryType.toLowerCase()
+    );
+
+    renderCategories(filtered);
+  }
+}
+
+
+// ==========================================
+// MOBILE MENU
+// ==========================================
+
+function toggleMenu() {
+
+  const navLinks = document.getElementById("navLinks");
+
+  if (!navLinks) return;
+
+  navLinks.classList.toggle("show");
+}
+
+
+// ==========================================
+// CLOSE MOBILE MENU WHEN LINK IS CLICKED
+// ==========================================
+
+document.querySelectorAll(".nav-links a").forEach((link) => {
+
+  link.addEventListener("click", () => {
+
+    const navLinks = document.getElementById("navLinks");
+
+    if (navLinks) {
+      navLinks.classList.remove("show");
+    }
+
+  });
+
+});
+
+
+// ==========================================
+// SEARCH INPUT LISTENER
+// ==========================================
+
+const searchInput = document.getElementById("searchInput");
+
+if (searchInput) {
+
+  searchInput.addEventListener("input", filterCategories);
+
+}
+
+
+// ==========================================
+// ESCAPE KEY
+// ==========================================
+
+document.addEventListener("keydown", (event) => {
+
+  if (event.key === "Escape") {
+
+    const navLinks = document.getElementById("navLinks");
+
+    if (navLinks) {
+      navLinks.classList.remove("show");
+    }
+
+  }
+
+});
+</script>
+</body>
+</html>

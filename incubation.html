@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACES — Aitchison Incubation Programme</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root{
+  --bg-void:#040A12;
+  --bg-deep:#060d16;
+  --bg-surface:#0a111c;
+  --border-subtle:#141b26;
+  --border-medium:#1e2630;
+  --text-primary:#c3c7cd;
+  --text-secondary:#737b88;
+  --text-muted:#464e5b;
+  --accent-bronze:#8b6914;
+  --accent-gold:#c9a44d;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter','Segoe UI',sans-serif;
+  background:var(--bg-void);
+  color:var(--text-primary);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+body::before{
+  content:"";
+  position:fixed;inset:0;pointer-events:none;z-index:-1;
+  background:radial-gradient(circle at 50% 0%,rgba(201,164,77,.055),transparent 38%);
+}
+nav{
+  position:fixed;top:0;left:0;width:100%;z-index:1000;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.85rem 5%;
+  background:rgba(4,10,18,.92);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border-subtle);
+}
+.nav-brand{
+  display:flex;align-items:center;gap:.8rem;
+  text-decoration:none;color:var(--text-primary);
+}
+.nav-brand img{width:42px;height:42px;object-fit:contain}
+.nav-brand span{
+  font-family:'Cinzel',serif;
+  letter-spacing:2px;font-size:.9rem;text-transform:uppercase;
+}
+.nav-brand strong{color:var(--accent-gold)}
+.nav-back{
+  color:var(--text-secondary);text-decoration:none;
+  font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  transition:.25s;
+}
+.nav-back:hover{color:var(--accent-gold)}
+.container{max-width:1150px;margin:auto;padding:110px 5% 70px}
+.hero{text-align:center;padding:35px 0 55px}
+.hero-logo{width:120px;height:120px;object-fit:contain;margin-bottom:1.5rem}
+.eyebrow{
+  color:var(--accent-gold);font-size:.68rem;font-weight:700;
+  letter-spacing:4px;text-transform:uppercase;margin-bottom:.8rem;
+}
+h1{
+  font-family:'Cinzel',serif;
+  font-size:clamp(2rem,5vw,4rem);
+  letter-spacing:4px;text-transform:uppercase;
+  color:#d5d8dd;line-height:1.15;margin-bottom:1rem;
+}
+.hero p{
+  max-width:720px;margin:auto;color:var(--text-secondary);
+  font-size:.98rem;line-height:1.9;
+}
+.divider{width:65px;height:1px;background:var(--accent-gold);margin:2rem auto;opacity:.7}
+.gallery-title{
+  font-size:.72rem;font-weight:700;letter-spacing:4px;
+  text-transform:uppercase;color:var(--text-muted);
+  border-bottom:1px solid var(--border-subtle);
+  padding-bottom:.8rem;margin-bottom:1.5rem;
+}
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+.photo{
+  position:relative;overflow:hidden;
+  height:360px;border:1px solid var(--border-subtle);
+  background:var(--bg-deep);
+}
+.photo:nth-child(1){height:430px}
+.photo:nth-child(4){height:430px}
+.photo img{
+  width:100%;height:100%;object-fit:cover;
+  display:block;filter:grayscale(20%) contrast(1.05);
+  transition:transform .6s ease,filter .6s ease;
+}
+.photo::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(4,10,18,.72),transparent 55%);
+  pointer-events:none;
+}
+.photo:hover img{transform:scale(1.045);filter:grayscale(0%) contrast(1.05)}
+.photo-label{
+  position:absolute;left:1.2rem;bottom:1rem;z-index:2;
+  color:var(--accent-gold);font-size:.62rem;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;
+}
+.info{
+  margin-top:3.5rem;
+  border-top:1px solid var(--border-subtle);
+  border-bottom:1px solid var(--border-subtle);
+  padding:2.5rem 0;
+}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.info-item h3{
+  font-size:.68rem;letter-spacing:2px;text-transform:uppercase;
+  color:var(--accent-gold);margin-bottom:.45rem;
+}
+.info-item p{color:var(--text-secondary);font-size:.85rem;line-height:1.7}
+footer{
+  text-align:center;padding:2.5rem;color:var(--text-muted);
+  border-top:1px solid var(--border-subtle);
+  font-size:.65rem;letter-spacing:2px;text-transform:uppercase;
+}
+
+/* HELP BUTTON */
+.help-wrap{
+  position:fixed;right:24px;bottom:24px;z-index:3000;
+  display:flex;flex-direction:column;align-items:flex-end;gap:10px;
+}
+.help-options{
+  display:flex;flex-direction:column;gap:8px;
+  opacity:0;transform:translateY(12px) scale(.96);
+  pointer-events:none;transition:.25s ease;
+}
+.help-wrap.open .help-options{
+  opacity:1;transform:translateY(0) scale(1);pointer-events:auto;
+}
+.help-option{
+  display:flex;align-items:center;gap:10px;
+  min-width:175px;padding:.75rem 1rem;
+  border:1px solid rgba(201,164,77,.55);
+  background:rgba(6,13,22,.96);
+  color:var(--accent-gold);text-decoration:none;
+  font-size:.68rem;font-weight:700;letter-spacing:1.5px;
+  text-transform:uppercase;backdrop-filter:blur(12px);
+  box-shadow:0 10px 30px rgba(0,0,0,.35);
+  transition:.25s;
+}
+.help-option:hover{background:var(--accent-gold);color:#07101a}
+.help-option i{width:18px;text-align:center}
+.help-button{
+  width:58px;height:58px;border-radius:50%;
+  border:1px solid var(--accent-gold);
+  background:var(--bg-deep);color:var(--accent-gold);
+  cursor:pointer;font-size:1.1rem;
+  box-shadow:0 8px 30px rgba(0,0,0,.45),0 0 18px rgba(201,164,77,.1);
+  transition:.3s;
+}
+.help-button:hover{background:var(--accent-gold);color:#07101a;transform:scale(1.05)}
+.help-wrap.open .help-button{transform:rotate(45deg)}
+
+@media(max-width:700px){
+  nav{padding:.75rem 4%}
+  .nav-brand span{display:none}
+  .container{padding:95px 5% 55px}
+  .hero{padding-top:15px}
+  .hero-logo{width:90px;height:90px}
+  h1{letter-spacing:2px}
+  .gallery{grid-template-columns:1fr}
+  .photo,.photo:nth-child(1),.photo:nth-child(4){height:300px}
+  .info-grid{grid-template-columns:1fr;gap:1.5rem}
+  .help-wrap{right:16px;bottom:16px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index(7).html" class="nav-brand">
+    <img src="lg.png" alt="ACES">
+    <span><strong>ACES</strong> · Aitchison College</span>
+  </a>
+  <a href="index(7).html" class="nav-back"><i class="fas fa-arrow-left"></i>&nbsp; Back to ACES</a>
+</nav>
+
+<main class="container">
+  <section class="hero">
+    <img src="lg.png" alt="ACES" class="hero-logo">
+    <div class="eyebrow">Startup Incubator</div>
+    <h1>Aitchison Incubation Programme</h1>
+    <div class="divider"></div>
+    <p>A dedicated platform for student entrepreneurs to develop ideas into viable ventures through structured incubation, mentorship, commercial guidance, and access to early-stage support.</p>
+  </section>
+
+  <section>
+    <div class="gallery-title">Programme Archive · Four Photographs</div>
+    <div class="gallery">
+      <figure class="photo">
+  <img src="incubation-1.jpg" alt="Aitchison Incubation Programme — photograph 1">
+  <figcaption class="photo-label">Photograph 1</figcaption>
+</figure>
+<figure class="photo">
+  <img src="incubation-2.jpg" alt="Aitchison Incubation Programme — photograph 2">
+  <figcaption class="photo-label">Photograph 2</figcaption>
+</figure>
+<figure class="photo">
+  <img src="incubation-3.jpg" alt="Aitchison Incubation Programme — photograph 3">
+  <figcaption class="photo-label">Photograph 3</figcaption>
+</figure>
+<figure class="photo">
+  <img src="incubation-4.jpg" alt="Aitchison Incubation Programme — photograph 4">
+  <figcaption class="photo-label">Photograph 4</figcaption>
+</figure>
+    </div>
+  </section>
+
+  <section class="info">
+    <div class="info-grid">
+      <div class="info-item"><h3>Purpose</h3><p>Transform promising student ideas into structured, testable and commercially viable ventures.</p></div>
+<div class="info-item"><h3>Development</h3><p>Participants can work through idea development, pitching, mentorship and venture-building milestones.</p></div>
+<div class="info-item"><h3>Support</h3><p>The programme is designed around guidance, entrepreneurial learning and opportunities to develop a venture beyond the classroom.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer>Aitchison College Entrepreneurship &amp; Co-Curricular Society</footer>
+
+<!-- Help circle -->
+
+
+<script>
+const helpWrap = document.getElementById('helpWrap');
+const helpButton = document.getElementById('helpButton');
+
+helpButton.addEventListener('click', () => {
+  const open = helpWrap.classList.toggle('open');
+  helpButton.setAttribute('aria-expanded', open ? 'true' : 'false');
+});
+
+document.addEventListener('click', (e) => {
+  if (!helpWrap.contains(e.target)) {
+    helpWrap.classList.remove('open');
+    helpButton.setAttribute('aria-expanded', 'false');
+  }
+});
+</script>
+</body>
+</html>

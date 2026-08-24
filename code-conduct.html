@@ -1,0 +1,1792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Code of Conduct | ACES</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  >
+
+  <style>
+
+    /* =====================================================
+       RESET
+    ===================================================== */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background:
+        radial-gradient(
+          circle at 50% 0%,
+          rgba(198, 158, 73, 0.07),
+          transparent 38%
+        ),
+        #070d12;
+
+      color: #e9e2d4;
+
+      font-family: "Montserrat", sans-serif;
+
+      line-height: 1.75;
+
+      min-height: 100vh;
+    }
+
+    ::selection {
+      background: #c9a44d;
+      color: #071018;
+    }
+
+
+    /* =====================================================
+       NAVBAR
+    ===================================================== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      height: 76px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 0 6vw;
+
+      background: rgba(7, 13, 18, 0.94);
+
+      border-bottom:
+        1px solid rgba(201, 164, 77, 0.18);
+
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+    }
+
+    .nav-logo {
+      color: #c9a44d;
+
+      text-decoration: none;
+
+      font-family: "Bodoni Moda", serif;
+
+      font-size: 1.45rem;
+
+      letter-spacing: 3px;
+    }
+
+    .nav-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+
+      color: #aaa59b;
+
+      text-decoration: none;
+
+      font-size: 0.72rem;
+      font-weight: 600;
+
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+
+      transition: 0.25s ease;
+    }
+
+    .nav-back:hover {
+      color: #c9a44d;
+    }
+
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+
+    .hero {
+      position: relative;
+
+      max-width: 1200px;
+
+      margin: auto;
+
+      padding:
+        115px 6vw
+        90px;
+
+      text-align: center;
+    }
+
+    .hero::after {
+      content: "";
+
+      position: absolute;
+
+      left: 50%;
+      bottom: 0;
+
+      transform: translateX(-50%);
+
+      width: 90px;
+      height: 1px;
+
+      background: #c9a44d;
+    }
+
+    .eyebrow {
+      color: #c9a44d;
+
+      font-size: 0.68rem;
+      font-weight: 700;
+
+      letter-spacing: 4px;
+
+      text-transform: uppercase;
+
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-family: "Bodoni Moda", serif;
+
+      font-size: clamp(
+        3rem,
+        7vw,
+        6rem
+      );
+
+      line-height: 1;
+
+      font-weight: 400;
+
+      color: #eee8dc;
+
+      margin-bottom: 30px;
+    }
+
+    .hero p {
+      max-width: 720px;
+
+      margin: auto;
+
+      color: #9f9a90;
+
+      font-size: 0.95rem;
+
+      line-height: 1.9;
+    }
+
+
+    /* =====================================================
+       MAIN LAYOUT
+    ===================================================== */
+
+    .content-wrapper {
+
+      max-width: 1250px;
+
+      margin: auto;
+
+      padding:
+        80px 6vw
+        120px;
+
+      display: grid;
+
+      grid-template-columns:
+        240px
+        minmax(0, 1fr);
+
+      gap: 80px;
+    }
+
+
+    /* =====================================================
+       SIDEBAR
+    ===================================================== */
+
+    .sidebar {
+      position: sticky;
+
+      top: 105px;
+
+      align-self: start;
+    }
+
+    .sidebar-title {
+      color: #c9a44d;
+
+      font-size: 0.65rem;
+
+      font-weight: 700;
+
+      letter-spacing: 2.5px;
+
+      text-transform: uppercase;
+
+      margin-bottom: 22px;
+    }
+
+    .toc {
+      list-style: none;
+
+      border-left:
+        1px solid
+        rgba(201, 164, 77, 0.2);
+    }
+
+    .toc li a {
+      display: block;
+
+      padding:
+        8px 0
+        8px 18px;
+
+      color: #77766f;
+
+      text-decoration: none;
+
+      font-size: 0.72rem;
+
+      line-height: 1.5;
+
+      transition:
+        color 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .toc li a:hover {
+      color: #c9a44d;
+    }
+
+    .toc li a.active {
+      color: #c9a44d;
+
+      border-left:
+        2px solid #c9a44d;
+
+      margin-left: -1px;
+    }
+
+
+    /* =====================================================
+       RULES
+    ===================================================== */
+
+    .rules {
+      min-width: 0;
+    }
+
+    .rule-section {
+
+      padding-bottom: 65px;
+
+      margin-bottom: 65px;
+
+      border-bottom:
+        1px solid
+        rgba(255,255,255,0.07);
+    }
+
+    .rule-section:last-child {
+      border-bottom: none;
+    }
+
+    .section-number {
+
+      color: #c9a44d;
+
+      font-family: "Bodoni Moda", serif;
+
+      font-size: 0.95rem;
+
+      margin-bottom: 8px;
+    }
+
+    .rule-section h2 {
+
+      font-family: "Bodoni Moda", serif;
+
+      font-size: clamp(
+        1.8rem,
+        3vw,
+        2.65rem
+      );
+
+      font-weight: 400;
+
+      color: #eee8dc;
+
+      line-height: 1.2;
+
+      margin-bottom: 28px;
+    }
+
+    .rule-section > p {
+
+      color: #a9a49a;
+
+      font-size: 0.88rem;
+
+      margin-bottom: 22px;
+
+      line-height: 1.9;
+    }
+
+
+    /* =====================================================
+       SUB RULES
+    ===================================================== */
+
+    .sub-rule {
+
+      margin: 26px 0;
+
+      padding-left: 22px;
+
+      border-left:
+        1px solid
+        rgba(201,164,77,0.22);
+    }
+
+    .sub-rule h3 {
+
+      color: #d8d0c1;
+
+      font-size: 0.82rem;
+
+      font-weight: 600;
+
+      letter-spacing: 0.3px;
+
+      margin-bottom: 7px;
+    }
+
+    .sub-rule p {
+
+      color: #96938c;
+
+      font-size: 0.82rem;
+
+      line-height: 1.85;
+    }
+
+
+    /* =====================================================
+       LIST
+    ===================================================== */
+
+    .rule-list {
+
+      list-style: none;
+
+      margin-top: 20px;
+    }
+
+    .rule-list li {
+
+      position: relative;
+
+      padding:
+        9px 0
+        9px 28px;
+
+      color: #9e9a91;
+
+      font-size: 0.83rem;
+    }
+
+    .rule-list li::before {
+
+      content: "";
+
+      position: absolute;
+
+      left: 3px;
+      top: 19px;
+
+      width: 5px;
+      height: 5px;
+
+      border-radius: 50%;
+
+      background: #c9a44d;
+    }
+
+
+    /* =====================================================
+       DISCIPLINARY BOX
+    ===================================================== */
+
+    .disciplinary-box {
+
+      margin-top: 28px;
+
+      padding: 28px 30px;
+
+      border:
+        1px solid
+        rgba(201,164,77,0.28);
+
+      background:
+        rgba(201,164,77,0.035);
+    }
+
+    .disciplinary-box-title {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+
+      color: #c9a44d;
+
+      font-size: 0.7rem;
+
+      font-weight: 700;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+
+      margin-bottom: 15px;
+    }
+
+    .disciplinary-box p {
+
+      color: #9c988e;
+
+      font-size: 0.82rem;
+
+      line-height: 1.85;
+    }
+
+
+    /* =====================================================
+       FINAL NOTICE
+    ===================================================== */
+
+    .final-notice {
+
+      margin-top: 30px;
+
+      padding: 35px;
+
+      text-align: center;
+
+      border:
+        1px solid
+        rgba(201,164,77,0.3);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(201,164,77,0.07),
+          rgba(201,164,77,0.015)
+        );
+    }
+
+    .final-notice i {
+
+      color: #c9a44d;
+
+      font-size: 1.2rem;
+
+      margin-bottom: 15px;
+    }
+
+    .final-notice p {
+
+      color: #b0aba1;
+
+      font-family: "Bodoni Moda", serif;
+
+      font-size: 1rem;
+
+      line-height: 1.8;
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    footer {
+
+      border-top:
+        1px solid
+        rgba(201,164,77,0.15);
+
+      padding:
+        45px 6vw;
+
+      text-align: center;
+    }
+
+    footer p {
+
+      color: #64635e;
+
+      font-size: 0.65rem;
+
+      letter-spacing: 1.5px;
+
+      text-transform: uppercase;
+    }
+
+    footer span {
+      color: #c9a44d;
+    }
+
+
+    /* =====================================================
+       MOBILE TOC
+    ===================================================== */
+
+    .mobile-toc {
+
+      display: none;
+
+      margin-bottom: 45px;
+    }
+
+    .mobile-toc select {
+
+      width: 100%;
+
+      padding: 14px 16px;
+
+      background: #0c141b;
+
+      color: #bdb7aa;
+
+      border:
+        1px solid
+        rgba(201,164,77,0.25);
+
+      font-family: "Montserrat", sans-serif;
+
+      font-size: 0.75rem;
+
+      outline: none;
+    }
+    .waiver-button-container {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(201, 164, 77, 0.15);
+}
+
+.waiver-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 13px 24px;
+
+  color: #0a1015;
+  background: #c9a44d;
+
+  text-decoration: none;
+
+  font-size: 0.7rem;
+  font-weight: 700;
+
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+
+  transition: 0.25s ease;
+}
+
+.waiver-button:hover {
+  background: #dfbd68;
+  transform: translateY(-2px);
+}
+
+.waiver-button i {
+  font-size: 0.85rem;
+}
+
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+
+    @media (max-width: 850px) {
+
+      .content-wrapper {
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+
+        padding-top: 55px;
+      }
+
+      .sidebar {
+        display: none;
+      }
+
+      .mobile-toc {
+        display: block;
+      }
+
+      .hero {
+        padding-top: 85px;
+      }
+
+    }
+
+
+    @media (max-width: 600px) {
+
+      .navbar {
+
+        height: 65px;
+
+        padding: 0 5vw;
+      }
+
+      .nav-logo {
+        font-size: 1.1rem;
+      }
+
+      .nav-back {
+        font-size: 0.6rem;
+      }
+
+      .hero {
+
+        padding:
+          75px 7vw
+          65px;
+      }
+
+      .hero h1 {
+
+        font-size: 3rem;
+
+        line-height: 1.05;
+      }
+
+      .hero p {
+
+        font-size: 0.8rem;
+
+        line-height: 1.8;
+      }
+
+      .content-wrapper {
+
+        padding:
+          45px 7vw
+          75px;
+      }
+
+      .rule-section {
+
+        padding-bottom: 45px;
+
+        margin-bottom: 45px;
+      }
+
+      .rule-section h2 {
+
+        font-size: 1.9rem;
+      }
+
+      .sub-rule {
+
+        padding-left: 16px;
+      }
+
+      .disciplinary-box {
+
+        padding: 22px;
+      }
+
+      .final-notice {
+
+        padding: 25px 20px;
+      }
+
+
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       NAVIGATION
+  ===================================================== -->
+
+  <nav class="navbar">
+
+    <a href="index.html" class="nav-logo">
+      ACES
+    </a>
+  
+ 
+  
+  </nav>
+
+
+  <!-- =====================================================
+       HERO
+  ===================================================== -->
+
+  <header class="hero">
+
+    <div class="eyebrow">
+      Aitchison College Entrepreneurial Society
+    </div>
+
+    <h1>
+      Code of Conduct
+    </h1>
+
+    <p>
+      The standards of conduct governing participation
+      in ACES activities, competitions, and programmes.
+    </p>
+
+  </header>
+
+
+
+  <main class="content-wrapper">
+
+
+    <!-- =================================================
+         DESKTOP TABLE OF CONTENTS
+    ================================================= -->
+
+    <aside class="sidebar">
+
+      <div class="sidebar-title">
+        Contents
+      </div>
+
+      <ul class="toc">
+
+        <li>
+          <a href="#general">
+            01 &nbsp; General Conduct
+          </a>
+        </li>
+
+        <li>
+          <a href="#competition">
+            02 &nbsp; Competition Conduct
+          </a>
+        </li>
+
+        <li>
+          <a href="#integrity">
+            03 &nbsp; Academic Integrity
+          </a>
+        </li>
+
+        <li>
+          <a href="#technology">
+            04 &nbsp; Technology & AI
+          </a>
+        </li>
+
+        <li>
+          <a href="#prohibited">
+            05 &nbsp; Prohibited Behaviour
+          </a>
+        </li>
+
+        <li>
+          <a href="#equipment">
+            06 &nbsp; Equipment
+          </a>
+        </li>
+
+        <li>
+          <a href="#confidentiality">
+            07 &nbsp; Confidentiality
+          </a>
+        </li>
+
+        <li>
+          <a href="#reporting">
+            08 &nbsp; Reporting
+          </a>
+        </li>
+
+        <li>
+          <a href="#disciplinary">
+            09 &nbsp; Disciplinary Action
+          </a>
+        </li>
+
+        <li>
+          <a href="#appeals">
+            10 &nbsp; Appeals
+          </a>
+        </li>
+
+        <li>
+          <a href="#responsibility">
+            11 &nbsp; Responsibility
+          </a>
+        </li>
+
+        <li>
+          <a href="#authority">
+            12 &nbsp; Final Authority
+          </a>
+        </li>
+
+      </ul>
+
+    </aside>
+
+
+    <!-- =================================================
+         RULE CONTENT
+    ================================================= -->
+
+    <section class="rules">
+
+
+      <!-- MOBILE CONTENTS -->
+
+      <div class="mobile-toc">
+
+      <!--  <select
+          onchange="jumpToSection(this.value)"
+        >
+
+          <option value="">
+            Navigate to a section
+          </option>
+
+          <option value="general">
+            01 — General Conduct
+          </option>
+
+          <option value="competition">
+            02 — Competition Conduct
+          </option>
+
+          <option value="integrity">
+            03 — Academic Integrity
+          </option>
+
+          <option value="technology">
+            04 — Technology & AI
+          </option>
+
+          <option value="prohibited">
+            05 — Prohibited Behaviour
+          </option>
+
+          <option value="equipment">
+            06 — Equipment
+          </option>
+
+          <option value="confidentiality">
+            07 — Confidentiality
+          </option>
+
+          <option value="reporting">
+            08 — Reporting
+          </option>
+
+          <option value="disciplinary">
+            09 — Disciplinary Action
+          </option>
+
+          <option value="appeals">
+            10 — Appeals
+          </option>
+
+          <option value="responsibility">
+            11 — Responsibility
+          </option>
+
+          <option value="authority">
+            12 — Final Authority
+          </option>
+
+        </select> --!>
+
+      </div>
+
+
+      <!-- =================================================
+           01 GENERAL
+      ================================================= -->
+
+      <article
+        class="rule-section"
+        id="general"
+      >
+
+        <div class="section-number">
+          01
+        </div>
+
+        <h2>
+          General Conduct
+        </h2>
+
+        <p>
+          All participants are expected to maintain a
+          respectful, professional, and responsible standard
+          of conduct throughout their participation in ACES.
+        </p>
+
+
+        <div class="sub-rule">
+
+          <h3>
+            1.1 — Respect
+          </h3>
+
+          <p>
+            All participants must treat fellow participants,
+            organizers, judges, faculty, and staff with
+            respect and courtesy. Discrimination, harassment,
+            intimidation, bullying, or threatening behaviour
+            will not be tolerated.
+          </p>
+
+        </div>
+
+
+        <div class="sub-rule">
+
+          <h3>
+            1.2 — Professionalism
+          </h3>
+
+          <p>
+            Participants are expected to conduct themselves
+            professionally throughout all ACES events,
+            including competitions, workshops, presentations,
+            breaks, and interactions with other schools.
+          </p>
+
+        </div>
+
+
+        <div class="sub-rule">
+
+          <h3>
+            1.3 — Following Instructions
+          </h3>
+
+          <p>
+            Participants must follow reasonable instructions
+            issued by ACES organizers, event coordinators,
+            judges, and authorized college personnel.
+          </p>
+
+        </div>
+
+
+        <div class="sub-rule">
+
+          <h3>
+            1.4 — Punctuality
+          </h3>
+
+          <p>
+            Participants are responsible for arriving at
+            designated venues on time. Failure to arrive
+            within the specified timeframe may result in
+            penalties or disqualification where applicable.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- =================================================
+           02 COMPETITION
+      ================================================= -->
+
+      <article
+        class="rule-section"
+        id="competition"
+      >
+
+        <div class="section-number">
+          02
+        </div>
+
+        <h2>
+          Competition Conduct
+        </h2>
+
+
+        <div class="sub-rule">
+
+          <h3>
+            2.1 — Fair Competition
+          </h3>
+
+          <p>
+            All participants must compete fairly and
+            honestly. Deliberately exploiting loopholes,
+            attempting to gain an unfair advantage, or
+            interfering with another team's performance
+            is prohibited.
+          </p>
+
+        </div>
+
+
+        <div class="sub-rule">
+
+          <h3>
+            2.2 — Team Conduct
+          </h3>
+
+          <p>
+            Team members are collectively responsible for
+            their conduct during an event. Serious misconduct
+            by one member may result in consequences for the
+            entire team where appropriate.
+          </p>
+
+        </div>
+
+
+        <div class="sub-rule">
+
+          <h3>
+            2.3 — Judges' Decisions
+          </h3>
+
+          <p>
+            Judges' decisions are final unless an official
+            appeal process has been explicitly provided for
+            a particular event.
+          </p>
+
+        </div>
+
+
+        <div class="sub-rule">
+
+          <h3>
+            2.4 — Disruption
+          </h3>
+
+          <p>
+            Participants must not intentionally disrupt
+            another team's presentation, preparation,
+            performance, or access to competition resources.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- =================================================
+           03 INTEGRITY
+      ================================================= -->
+
+      <article
+        class="rule-section"
+        id="integrity"
+      >
+
+        <div class="section-number">
+          03
+        </div>
+
+        <h2>
+          Academic & Intellectual Integrity
+        </h2>
+
+        <p>
+          ACES values original thinking, honest research,
+          and intellectual responsibility.
+        </p>
+
+
+        <div class="sub-rule">
+
+          <h3>
+            3.1 — Original Work
+          </h3>
+
+          <p>
+            Participants must submit work that is their own
+            or appropriately attributed to its original
+            creator.
+          </p>
+
+        </div>
+
+
+        <div class="sub-rule">
+
+          <h3>
+            3.2 — Plagiarism
+          </h3>
+
+          <p>
+            Plagiarism, including presenting another person's
+            ideas, writing, research, designs, or work as
+            one's own, is prohibited.
+          </p>
+
+        </div>
+
+
+        <div class="sub-rule">
+
+          <h3>
+            3.3 — Misrepresentation
+          </h3>
+
+          <p>
+            Participants must not knowingly provide false
+            information about their team, school, research,
+            business, product, financial figures, or other
+            competition-related material.
+          </p>
+
+        </div>
+
+
+        <div class="sub-rule">
+
+          <h3>
+            3.4 — Sources
+          </h3>
+
+          <p>
+            Where research, statistics, quotations, images,
+            or external material are used, participants should
+            provide appropriate attribution where required
+            by the specific competition.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- =================================================
+           04 TECHNOLOGY
+      ================================================= -->
+
+      <article
+        class="rule-section"
+        id="technology"
+      >
+
+        <div class="section-number">
+          04
+        </div>
+
+        <h2>
+          Technology & Artificial Intelligence
+        </h2>
+
+        <p>
+          Participants must comply with any event-specific
+          rules concerning artificial intelligence, software,
+          and other technological tools.
+        </p>
+
+
+        <div class="sub-rule">
+
+          <h3>
+            4.1 — Permitted Technology
+          </h3>
+
+          <p>
+            Where an event permits the use of AI tools,
+            participants remain responsible for the accuracy,
+            originality, and integrity of their submission.
+          </p>
+
+        </div>
+
+
+        <div class="sub-rule">
+
+          <h3>
+            4.2 — Circumvention
+          </h3>
+
+          <p>
+            Using technology or AI to circumvent a competition
+            restriction, impersonate another participant,
+            fabricate evidence, or obtain an unfair advantage
+            is prohibited.
+          </p>
+
+        </div>
+
+
+        <div class="sub-rule">
+
+          <h3>
+            4.3 — Event-Specific Rules
+          </h3>
+
+          <p>
+            If an individual competition establishes specific
+            AI or technology restrictions, those rules take
+            precedence for that competition.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- =================================================
+           05 PROHIBITED
+      ================================================= -->
+
+      <article
+        class="rule-section"
+        id="prohibited"
+      >
+
+        <div class="section-number">
+          05
+        </div>
+
+        <h2>
+          Prohibited Behaviour
+        </h2>
+
+        <p>
+          The following conduct may result in immediate
+          disciplinary action:
+        </p>
+
+
+        <ul class="rule-list">
+
+          <li>
+            Harassment, bullying, discrimination,
+            or threatening behaviour.
+          </li>
+
+          <li>
+            Physical violence or deliberate attempts
+            to cause harm.
+          </li>
+
+          <li>
+            Cheating or unauthorized collaboration.
+          </li>
+
+          <li>
+            Plagiarism or deliberate misrepresentation.
+          </li>
+
+          <li>
+            Tampering with competition equipment,
+            software, submissions, or infrastructure.
+          </li>
+
+          <li>
+            Unauthorized access to another participant's
+            account, files, or information.
+          </li>
+
+          <li>
+            Deliberately disrupting an event or another
+            participant's performance.
+          </li>
+
+          <li>
+            Falsifying documents or competition-related
+            information.
+          </li>
+
+          <li>
+            Attempting to bribe, manipulate, or improperly
+            influence judges or organizers.
+          </li>
+
+          <li>
+            Any conduct that violates Aitchison College
+            policies or applicable law.
+          </li>
+
+        </ul>
+
+      </article>
+
+
+      <!-- =================================================
+           06 EQUIPMENT
+      ================================================= -->
+
+      <article
+        class="rule-section"
+        id="equipment"
+      >
+
+        <div class="section-number">
+          06
+        </div>
+
+        <h2>
+          Technology & Competition Equipment
+        </h2>
+
+        <p>
+          Participants must use competition equipment,
+          computers, networks, software, and other resources
+          only for their intended purpose.
+        </p>
+
+        <p>
+          Unauthorized modification, interference, damage,
+          or access to competition systems is prohibited.
+        </p>
+
+        <p>
+          Participants are responsible for ensuring that
+          their own devices and materials comply with any
+          technical requirements communicated before an event.
+        </p>
+
+      </article>
+
+
+      <!-- =================================================
+           07 CONFIDENTIALITY
+      ================================================= -->
+
+      <article
+        class="rule-section"
+        id="confidentiality"
+      >
+
+        <div class="section-number">
+          07
+        </div>
+
+        <h2>
+          Confidentiality
+        </h2>
+
+        <p>
+          Participants may receive information, materials,
+          prompts, datasets, business ideas, or other content
+          that is intended to remain confidential during
+          a competition.
+        </p>
+
+        <p>
+          Such information must not be shared with competing
+          teams or external parties where the organizers have
+          designated it as confidential.
+        </p>
+
+      </article>
+
+
+      <!-- =================================================
+           08 REPORTING
+      ================================================= -->
+
+      <article
+        class="rule-section"
+        id="reporting"
+      >
+
+        <div class="section-number">
+          08
+        </div>
+
+        <h2>
+          Reporting Violations
+        </h2>
+
+        <p>
+          Participants who believe that a serious violation
+          has occurred should report the matter to an ACES
+          organizer, event coordinator, or designated authority
+          as soon as reasonably possible.
+        </p>
+
+        <p>
+          Reports should be made honestly and in good faith.
+          False or deliberately malicious accusations may
+          themselves be considered misconduct.
+        </p>
+
+      </article>
+
+
+      <!-- =================================================
+           09 DISCIPLINARY
+      ================================================= -->
+
+      <article
+        class="rule-section"
+        id="disciplinary"
+      >
+
+        <div class="section-number">
+          09
+        </div>
+
+        <h2>
+          Disciplinary Action
+        </h2>
+
+        <p>
+          Depending on the severity of the violation, ACES
+          may take one or more of the following actions:
+        </p>
+
+
+        <ul class="rule-list">
+
+          <li>
+            Verbal or written warning.
+          </li>
+
+          <li>
+            Deduction of competition points.
+          </li>
+
+          <li>
+            Removal from a particular round or activity.
+          </li>
+
+          <li>
+            Disqualification of an individual.
+          </li>
+
+          <li>
+            Disqualification of an entire team.
+          </li>
+
+          <li>
+            Removal from the event.
+          </li>
+
+          <li>
+            Referral of the matter to the appropriate
+            school or college authority.
+          </li>
+
+        </ul>
+
+
+        <div class="disciplinary-box">
+
+          <div class="disciplinary-box-title">
+
+            <i class="fas fa-scale-balanced"></i>
+
+            Enforcement
+
+          </div>
+
+          <p>
+            The severity of the response will depend on the
+            nature and circumstances of the violation. ACES
+            reserves the right to take appropriate action to
+            preserve the integrity and safety of its events.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- =================================================
+           10 APPEALS
+      ================================================= -->
+
+      <article
+        class="rule-section"
+        id="appeals"
+      >
+
+        <div class="section-number">
+          10
+        </div>
+
+        <h2>
+          Appeals
+        </h2>
+
+        <p>
+          Where an event provides an official appeal
+          mechanism, participants must submit appeals through
+          the procedure and within the timeframe communicated
+          by the organizers.
+        </p>
+
+        <p>
+          Appeals must be based on a legitimate procedural
+          or factual concern and must not be used to challenge
+          a judge's decision simply because a participant
+          disagrees with the outcome.
+        </p>
+
+      </article>
+
+
+      <!-- =================================================
+           11 RESPONSIBILITY
+      ================================================= -->
+
+      <article
+        class="rule-section"
+        id="responsibility"
+      >
+
+        <div class="section-number">
+          11
+        </div>
+
+        <h2>
+          Responsibility of Participants
+        </h2>
+
+        <p>
+          By participating in an ACES event, participants
+          acknowledge that they are responsible for understanding
+          and following the applicable rules and instructions.
+        </p>
+
+        <p>
+          Participants should seek clarification from the
+          organizers if they are uncertain about whether a
+          particular action is permitted.
+        </p>
+
+      </article>
+
+
+      <!-- =================================================
+           12 AUTHORITY
+      ================================================= -->
+
+      <article
+        class="rule-section"
+        id="authority"
+      >
+
+        <div class="section-number">
+          12
+        </div>
+
+        <h2>
+          Final Authority
+        </h2>
+
+        <p>
+          ACES reserves the right to interpret and enforce
+          this Code of Conduct in the interests of maintaining
+          a fair, safe, and professional environment.
+        </p>
+
+        <p>
+          Event-specific rules may supplement or override
+          sections of this Code of Conduct where explicitly
+          stated in the relevant competition materials.
+        </p>
+
+        <p>
+          ACES reserves the right to amend these guidelines
+          where necessary due to unforeseen circumstances,
+          operational requirements, or changes to an event.
+        </p>
+
+
+        <div class="final-notice">
+
+          <p>
+            Participation in ACES activities constitutes
+            acceptance of this Code of Conduct.
+          </p>
+
+        </div>
+
+      </article>
+
+      <div class="waiver-button-container">
+        <a href="waiver.pdf" target="_blank" class="waiver-button">
+          <i class="fas fa-file-pdf"></i>
+          Open Waiver Form
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       FOOTER
+  ===================================================== -->
+
+  <footer>
+
+    <p>
+      © ACES · Aitchison College
+      <span>·</span>
+      Code of Conduct
+    </p>
+
+  </footer>
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ===================================================== -->
+
+  <script>
+
+    /* =====================================================
+       MOBILE NAVIGATION
+    ===================================================== */
+
+    function jumpToSection(id) {
+
+      if (!id) return;
+
+      const section =
+        document.getElementById(id);
+
+      if (!section) return;
+
+      const offset = 90;
+
+      const position =
+        section.getBoundingClientRect().top +
+        window.pageYOffset -
+        offset;
+
+      window.scrollTo({
+        top: position,
+        behavior: "smooth"
+      });
+
+    }
+
+
+    /* =====================================================
+       ACTIVE TABLE OF CONTENTS
+    ===================================================== */
+
+    const sections =
+      document.querySelectorAll(
+        ".rule-section"
+      );
+
+    const tocLinks =
+      document.querySelectorAll(
+        ".toc a"
+      );
+
+
+    function updateActiveSection() {
+
+      let current =
+        "";
+
+
+      sections.forEach(
+        section => {
+
+          const sectionTop =
+            section.getBoundingClientRect().top;
+
+          if (
+            sectionTop <= 160
+          ) {
+
+            current =
+              section.id;
+
+          }
+
+        }
+      );
+
+
+      tocLinks.forEach(
+        link => {
+
+          link.classList.remove(
+            "active"
+          );
+
+
+          const href =
+            link.getAttribute(
+              "href"
+            );
+
+
+          if (
+            href === `#${current}`
+          ) {
+
+            link.classList.add(
+              "active"
+            );
+
+          }
+
+        }
+      );
+
+    }
+
+
+    window.addEventListener(
+      "scroll",
+      updateActiveSection,
+      {
+        passive: true
+      }
+    );
+
+
+    updateActiveSection();
+
+  </script>
+
+</body>
+</html>

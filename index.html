@@ -1,0 +1,3248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABC — Aitchison College Business Concept</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/lib/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --bg-void: #040A12;
+      --bg-deep: #060d16;
+      --bg-surface: #0a111c;
+      --border-subtle: #141b26;
+      --border-medium: #1e2630;
+      --text-primary: #8a919c;
+      --text-secondary: #5c6370;
+      --text-muted: #3a404d;
+      --accent-bronze: #8b6914;
+      --accent-gold: #a67c00;
+      --accent-gold-dim: rgba(166, 124, 0, 0.12);
+      --accent-steel: #4a5568;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg-void);
+      color: var(--text-primary);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-void);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--border-medium);
+      border-radius: 0;
+    }
+
+    /* ==================== LOADING SCREEN ==================== */
+    .loader-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--bg-void);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), visibility 1.2s;
+    }
+
+    .loader-screen.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .loader-logo {
+      width: 280px;
+      height: 280px;
+      object-fit: contain;
+      animation: loaderPulse 2.5s ease-in-out infinite;
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes loaderPulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 0.9;
+      }
+
+      50% {
+        transform: scale(1.05);
+        opacity: 1;
+      }
+    }
+
+    .loader-roman {
+      font-family: 'Times New Roman', serif;
+      font-size: 1.5rem;
+      color: var(--accent-gold);
+      letter-spacing: 10px;
+      margin-top: 1.5rem;
+      opacity: 0.6;
+      position: relative;
+      z-index: 2;
+    }
+
+    .loader-bar {
+      width: 120px;
+      height: 1px;
+      background: var(--border-subtle);
+      margin-top: 2rem;
+      position: relative;
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    .loader-bar::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: var(--accent-gold);
+      animation: loaderSlide 1.8s ease-in-out infinite;
+    }
+
+    @keyframes loaderSlide {
+      0% {
+        left: -100%;
+      }
+
+      50% {
+        left: 0;
+      }
+
+      100% {
+        left: 100%;
+      }
+    }
+
+    /* ==================== NAVIGATION ==================== */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(4, 10, 18, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+      z-index: 1000;
+      padding: 0.875rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+      text-decoration: none;
+    }
+
+    .nav-brand img {
+      height: 42px;
+      width: auto;
+      filter: grayscale(30%) brightness(0.9);
+    }
+
+    .nav-brand span {
+      font-family: 'Times New Roman', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .nav-brand span strong {
+      color: var(--accent-gold);
+      font-weight: 800;
+      font-family: 'Cinzel', serif;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      position: relative;
+      padding: 0.5rem 0;
+      transition: color 0.25s;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent-gold);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--accent-gold);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--accent-gold);
+      border-radius: 4px;
+      padding: 0.5rem;
+      cursor: pointer;
+      z-index: 1001;
+      position: relative;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 8px rgba(255, 215, 0, 0.2);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mobile-menu-btn svg {
+      display: block;
+      width: 22px;
+      height: 22px;
+    }
+
+    .mobile-menu-btn:hover {
+      border-color: #ffd700;
+      background: rgba(255, 215, 0, 0.15);
+      box-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+    }
+
+    .menu-backdrop {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
+
+    .menu-backdrop.show {
+      display: block;
+    }
+
+    /* ==================== PAGES ==================== */
+    .page {
+      display: none;
+      padding-top: 76px;
+      min-height: 100vh;
+      position: relative;
+      z-index: 2;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 5%;
+    }
+
+    /* ==================== HERO ==================== */
+    .hero {
+      text-align: center;
+      padding: 3rem 0 2.5rem;
+    }
+
+    .hero-logo {
+      width: 2400px;
+      height: 2400px;
+      object-fit: contain;
+      margin-bottom: 1.5rem;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: 6px;
+      color: var(--text-primary);
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+    .hero img{
+      height: 240px;
+      width: 240px;
+    }
+
+    .hero .roman {
+      font-family: 'Times New Roman', serif;
+      font-size: 1.25rem;
+      color: var(--accent-gold);
+      letter-spacing: 8px;
+      margin-bottom: 1.5rem;
+      opacity: 0.7;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: 0 auto;
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .divider {
+      width: 60px;
+      height: 1px;
+      background: var(--accent-gold);
+      margin: 2rem auto;
+      opacity: 0.5;
+    }
+
+    /* ==================== TIMER ==================== */
+    .timer-section {
+      text-align: center;
+      margin: 2rem auto 4rem;
+      max-width: 700px;
+    }
+
+    .timer-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .timer-display {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .timer-unit {
+      text-align: center;
+    }
+
+    .timer-value {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--accent-gold);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 2px;
+      line-height: 1;
+    }
+
+    .timer-name {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-top: 0.5rem;
+      font-weight: 600;
+    }
+
+    /* ==================== SECTION TITLES ==================== */
+    .section-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    /* ==================== EC TREE ==================== */
+    .ec-tree {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      margin-bottom: 4rem;
+    }
+
+    .ec-node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    .initiative-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.2rem;
+  padding: 0.7rem 1.4rem;
+
+  border: 1px solid #c9a44d;
+  color: #c9a44d;
+  background: transparent;
+
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.initiative-button:hover {
+  background: #c9a44d;
+  color: #07101a;
+  transform: translateY(-2px);
+}
+
+.initiative-button::after {
+  content: " →";
+  margin-left: 0.5rem;
+}
+    .ec-card {
+      text-align: center;
+      transition: all 0.3s;
+      position: relative;
+      padding: 1.25rem 2.5rem;
+    }
+
+    .ec-card.president {
+      border-top: 1px solid var(--accent-gold);
+    }
+
+    .ec-card.gensec {
+      border-left: 1px solid var(--accent-bronze);
+    }
+
+    .ec-card.exec {
+      border-bottom: 1px solid var(--accent-steel);
+    }
+
+    .ec-img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--border-medium);
+      margin-bottom: 0.75rem;
+      filter: grayscale(40%) contrast(1.1);
+      transition: all 0.3s;
+    }
+
+
+    .ec-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+
+    .ec-role {
+      font-size: 0.7rem;
+      color: var(--accent-gold);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .connector-v {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--border-medium), var(--border-subtle));
+    }
+
+    .connector-h-container {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      position: relative;
+      width: 100%;
+      max-width: 700px;
+    }
+
+    .connector-h-bar {
+      width: 60%;
+      max-width: 500px;
+      height: 1px;
+      background: var(--border-subtle);
+      position: relative;
+    }
+
+    .connector-h-bar::before,
+    .connector-h-bar::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--border-subtle), transparent);
+    }
+
+    .connector-h-bar::before {
+      left: 0;
+    }
+
+    .connector-h-bar::after {
+      right: 0;
+    }
+
+    .connector-h-bar .center-drop {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 0;
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--border-subtle), transparent);
+    }
+
+    .ec-row {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 0;
+    }
+
+    /* ==================== EVENTS LIST ==================== */
+    .events-list {
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .event-row {
+      border-bottom: 1px solid var(--border-subtle);
+      transition: background 0.2s;
+    }
+
+    .event-row:last-child {
+      border-bottom: none;
+    }
+
+    .event-row:hover {
+      background: rgba(255, 255, 255, 0.015);
+    }
+
+    .event-row a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 0;
+      text-decoration: none;
+      color: inherit;
+      gap: 1rem;
+    }
+
+    .event-header-left {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex: 1;
+    }
+
+    .event-icon-wrap {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--bg-surface);
+      transition: all 0.3s ease;
+    }
+
+    .event-row:hover .event-icon-wrap {
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 10px rgba(166, 124, 0, 0.2);
+    }
+
+    .event-icon-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .event-row:hover .event-icon-wrap img {
+      transform: scale(1.1);
+    }
+
+    .event-icon-wrap i {
+      color: var(--accent-gold);
+      font-size: 1rem;
+      opacity: 0.8;
+    }
+
+    .event-title-text {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .event-readmore {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: gap 0.3s;
+      white-space: nowrap;
+    }
+
+    .event-row:hover .event-readmore {
+      gap: 0.75rem;
+    }
+
+    /* ==================== SOCIETY PAGE ==================== */
+    .society-content {
+      text-align: center;
+      padding: 2rem 0 4rem;
+    }
+
+    .advisor-pfp {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--border-medium);
+      filter: grayscale(30%) contrast(1.05);
+      margin: 0 auto 2.5rem;
+      display: block;
+    }
+
+    .advisor-message {
+      max-width: 700px;
+      margin: 0 auto 4rem;
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.9;
+      font-style: italic;
+      padding: 0 1rem;
+    }
+
+    .society-heading {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .society-paragraph {
+      max-width: 100%;
+      margin: 0 auto 1.75rem;
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.85;
+      padding: 0 1rem;
+      text-align: left;
+    }
+
+    .society-paragraph strong {
+      color: var(--accent-gold-bright);
+      font-weight: 600;
+    }
+
+    .aces-intro-paragraph {
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto 4rem;
+      font-family: 'Times New Roman', serif;
+      font-size: 1rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text-secondary);
+      line-height: 1.9;
+      padding: 0 1rem;
+      text-align: center;
+    }
+
+    .aces-intro-paragraph strong {
+      font-style: normal;
+      font-weight: 600;
+      color: var(--accent-gold);
+    }
+
+    /* ==================== BENEFITS LIST ==================== */
+    .benefits-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      margin: 0 0 3.5rem;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .benefit-item {
+      display: grid;
+      grid-template-columns: 1fr;
+      align-items: stretch;
+      background: transparent;
+      cursor: default;
+    }
+
+
+
+    .benefit-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 1.75rem 2rem;
+      gap: 0.5rem;
+      text-align: left;
+    }
+
+    .benefit-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent-bronze);
+    }
+
+    .benefit-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      letter-spacing: 0.02em;
+    }
+
+    .benefit-desc {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      margin-top: 0.15rem;
+    }
+
+    .benefit-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.6rem;
+    }
+
+    .benefit-tag {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      padding: 0.2rem 0.65rem;
+      border: 1px solid var(--border-medium);
+      color: var(--text-muted);
+      text-transform: uppercase;
+      transition: border-color 0.3s, color 0.3s;
+    }
+
+    .benefit-item:hover .benefit-tag {
+      border-color: var(--accent-bronze);
+      color: var(--accent-gold);
+    }
+
+    /* ==================== FLAGSHIP INITIATIVES ==================== */
+    .initiatives-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border-subtle);
+      border: 1px solid var(--border-subtle);
+      margin-bottom: 3rem;
+    }
+
+    .initiative-panel {
+      background: var(--bg-deep);
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.35s;
+    }
+
+    .initiative-panel::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-bronze), transparent);
+      opacity: 0;
+      transition: opacity 0.35s;
+    }
+
+    .initiative-panel:hover {
+      background: #070e18;
+    }
+
+    .initiative-panel:hover::before {
+      opacity: 1;
+    }
+
+    .initiative-icon {
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--border-medium);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      color: var(--accent-bronze);
+      transition: border-color 0.35s, color 0.35s;
+      flex-shrink: 0;
+    }
+
+    .initiative-panel:hover .initiative-icon {
+      border-color: var(--accent-bronze);
+      color: var(--accent-gold);
+    }
+
+    .initiative-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .initiative-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.35;
+      letter-spacing: 0.02em;
+    }
+
+    .initiative-desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      flex: 1;
+    }
+
+    .initiative-stat {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent-bronze);
+      margin-top: auto;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .initiative-stat i {
+      font-size: 0.6rem;
+    }
+
+    /* ==================== ACES HIGHLIGHTS CAROUSEL ==================== */
+   /* =========================================================
+   ACES HIGHLIGHTS CAROUSEL
+========================================================= */
+
+.highlights-section {
+  margin: 4rem 0 3.5rem;
+}
+
+.highlights-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 1150px;
+  height: 650px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   SLIDES
+========================================================= */
+
+.highlight-slide {
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  width: min(700px, 72%);
+  height: auto;
+
+  transform: translateX(-50%) scale(.78);
+
+  opacity: 0;
+
+  z-index: 1;
+
+  overflow: hidden;
+
+  background: var(--bg-deep);
+
+  border: none;
+
+  transition:
+    transform .55s cubic-bezier(.22,.61,.36,1),
+    opacity .55s ease,
+    filter .55s ease;
+
+  filter: brightness(.55);
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   PREVIOUS / NEXT
+========================================================= */
+
+.highlight-slide.prev {
+  transform:
+    translateX(calc(-50% - 430px))
+    scale(.78);
+
+  opacity: .45;
+
+  z-index: 2;
+}
+
+.highlight-slide.next {
+  transform:
+    translateX(calc(-50% + 430px))
+    scale(.78);
+
+  opacity: .45;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   ACTIVE
+========================================================= */
+
+.highlight-slide.active {
+  transform:
+    translateX(-50%)
+    scale(1);
+
+  opacity: 1;
+
+  z-index: 5;
+
+  filter: brightness(1);
+
+  box-shadow:
+    0 25px 70px rgba(0,0,0,.45);
+}
+
+
+/* Hide slides further away */
+
+.highlight-slide.far {
+  opacity: 0;
+
+  pointer-events: none;
+
+  transform:
+    translateX(-50%)
+    scale(.7);
+
+  z-index: 0;
+}
+
+
+/* =========================================================
+   IMAGE BODY
+========================================================= */
+
+.highlight-slide .highlight-image {
+  width: 100%;
+  height: 390px;
+
+  overflow: hidden;
+
+  background: var(--bg-deep);
+}
+
+.highlight-slide .highlight-image img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition:
+    transform .7s ease;
+}
+
+.highlight-slide.active:hover
+.highlight-image img {
+  transform: scale(1.035);
+}
+
+
+/* =========================================================
+   TEXT BODY
+   Directly underneath the image.
+   NO border between them.
+========================================================= */
+
+.highlight-slide .highlight-content {
+  width: 100%;
+
+  padding:
+    30px
+    38px
+    35px;
+
+  margin: 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      #0b1218,
+      #071019
+    );
+
+  border: none;
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.highlight-slide .highlight-label {
+  color: var(--accent-gold);
+
+  font-size: .6rem;
+
+  font-weight: 700;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+  margin-bottom: .7rem;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.highlight-slide .highlight-title {
+  font-family: 'Cinzel', serif;
+
+  font-size: 1.45rem;
+
+  font-weight: 700;
+
+  color: var(--text-primary);
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+
+  line-height: 1.25;
+
+  margin: 0 0 .65rem;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.highlight-slide .highlight-desc {
+  font-size: .82rem;
+
+  color: var(--text-secondary);
+
+  line-height: 1.75;
+
+  max-width: 600px;
+
+  margin: 0;
+}
+
+
+/* =========================================================
+   OPTIONAL LINK / ARROW
+========================================================= */
+
+.highlight-slide .highlight-arrow {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: .5rem;
+
+  margin-top: 1rem;
+
+  color: var(--accent-gold);
+
+  font-size: .65rem;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.highlight-nav {
+  position: absolute;
+
+  top: 50%;
+
+  left: 0;
+
+  width: 100%;
+
+  transform: translateY(-50%);
+
+  display: flex;
+
+  justify-content: space-between;
+
+  padding: 0 1rem;
+
+  z-index: 20;
+
+  pointer-events: none;
+}
+
+.highlight-nav button {
+  pointer-events: auto;
+
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(201,164,77,.6);
+
+  background:
+    rgba(4,10,18,.9);
+
+  color: var(--accent-gold);
+
+  cursor: pointer;
+
+  border-radius: 50%;
+
+  transition:
+    all .25s ease;
+}
+
+.highlight-nav button:hover {
+  background: var(--accent-gold);
+
+  color: #07101a;
+
+  transform: scale(1.08);
+}
+
+
+/* =========================================================
+   DOTS
+========================================================= */
+
+.highlight-dots {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: .55rem;
+
+  margin-top: 1rem;
+}
+
+.highlight-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  border:
+    1px solid
+    var(--accent-gold);
+
+  background: transparent;
+
+  cursor: pointer;
+
+  padding: 0;
+
+  transition:
+    all .25s ease;
+}
+
+.highlight-dot.active {
+  width: 25px;
+
+  border-radius: 5px;
+
+  background: var(--accent-gold);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .highlights-carousel {
+    height: 590px;
+  }
+
+  .highlight-slide {
+    width: 72%;
+  }
+
+  .highlight-slide.prev {
+    transform:
+      translateX(calc(-50% - 300px))
+      scale(.78);
+  }
+
+  .highlight-slide.next {
+    transform:
+      translateX(calc(-50% + 300px))
+      scale(.78);
+  }
+
+  .highlight-slide .highlight-image {
+    height: 4000px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+  .highlights-carousel {
+    height: 540px;
+
+    overflow: hidden;
+  }
+
+  .highlight-slide {
+    width: 86%;
+
+    max-width: 500px;
+  }
+
+  .highlight-slide.prev {
+    transform:
+      translateX(calc(-50% - 190px))
+      scale(.75);
+
+    opacity: .2;
+  }
+
+  .highlight-slide.next {
+    transform:
+      translateX(calc(-50% + 190px))
+      scale(.75);
+
+    opacity: .2;
+  }
+
+  .highlight-slide .highlight-image {
+    height: 280px;
+  }
+
+  .highlight-slide .highlight-content {
+    padding:
+      24px
+      25px
+      28px;
+  }
+
+  .highlight-slide .highlight-title {
+    font-size: 1.1rem;
+  }
+
+  .highlight-slide .highlight-desc {
+    font-size: .75rem;
+  }
+
+  .highlight-nav {
+    padding: 0 .6rem;
+  }
+
+  .highlight-nav button {
+    width: 38px;
+    height: 38px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 450px) {
+
+  .highlights-carousel {
+    height: 500px;
+  }
+
+  .highlight-slide {
+    width: 90%;
+  }
+
+  .highlight-slide .highlight-image {
+    height: 230px;
+  }
+
+  .highlight-slide .highlight-content {
+    padding:
+      22px
+      20px
+      25px;
+  }
+
+  .highlight-slide .highlight-title {
+    font-size: 1rem;
+  }
+
+  .highlight-slide .highlight-desc {
+    font-size: .72rem;
+  }
+
+  .highlight-slide.prev,
+  .highlight-slide.next {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+}
+
+
+    /* ==================== RESPONSE FORM ==================== */
+    .form-frame {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.875rem 1rem;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      font-size: 0.9rem;
+      font-family: inherit;
+      transition: border-color 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-bottom-color: var(--accent-bronze);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 1rem;
+      background: transparent;
+      border: 1px solid var(--accent-bronze);
+      color: var(--accent-gold);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .submit-btn:hover {
+      background: var(--accent-gold);
+      color: var(--bg-void);
+    }
+
+    /* ==================== FOOTER ==================== */
+    footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      border-top: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* ==================== TOAST ==================== */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--bg-deep);
+      border: 1px solid var(--accent-bronze);
+      color: var(--accent-gold);
+      padding: 1rem 2rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.4s;
+      z-index: 2000;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+
+    /* ==================== FAQ ACCORDION ==================== */
+    .faq-section {
+      margin-top: 4rem;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 1.25rem 0;
+      background: transparent;
+      border: none;
+      color: var(--accent-gold);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: color 0.3s;
+      font-family: inherit;
+    }
+
+    .faq-question:hover {
+      color: #ffd700;
+    }
+
+    .faq-question i {
+      font-size: 0.75rem;
+      color: var(--accent-bronze);
+      transition: transform 0.3s;
+    }
+
+    .faq-item.open .faq-question i {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+      padding: 0 0;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+      padding: 0 0 1.25rem;
+    }
+
+    .faq-answer p {
+      color: #ffffff;
+      font-size: 0.88rem;
+      line-height: 1.75;
+      max-width: 90%;
+    }
+
+    /* ==================== RESPONSIVE ==================== */
+    @media (max-width: 768px) {
+      .loader-logo {
+        width: 180px;
+        height: 180px;
+      }
+
+      .nav-links {
+        display: flex;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        max-width: 300px;
+        height: 100vh;
+        background: var(--bg-deep);
+        flex-direction: column;
+        padding: 5rem 2rem 2rem;
+        border-left: 1px solid var(--border-subtle);
+        gap: 0;
+        z-index: 1000;
+        transition: right 0.35s ease;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+      }
+
+      .nav-links.show {
+        right: 0;
+      }
+
+      .nav-links li {
+        border-bottom: 1px solid var(--border-subtle);
+      }
+
+      .nav-links li:last-child {
+        border-bottom: none;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 1.25rem 0;
+        font-size: 0.9rem;
+      }
+
+      .nav-links a::after {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .hero h1 {
+        font-size: 1.75rem;
+      }
+
+      .hero-logo {
+        width: 160px;
+        height: 160px;
+      }
+
+      .timer-display {
+        gap: 1rem;
+      }
+
+      .timer-value {
+        font-size: 2rem;
+      }
+
+      .ec-row {
+        gap: 0;
+        flex-wrap: nowrap;
+        width: 100%;
+        justify-content: space-around;
+      }
+
+      .ec-card {
+        padding: 0.75rem 0.5rem;
+      }
+
+      .ec-img {
+        width: 60px;
+        height: 60px;
+      }
+
+      .ec-name {
+        font-size: 0.65rem;
+        letter-spacing: 0;
+      }
+
+      .ec-role {
+        font-size: 0.55rem;
+        letter-spacing: 1px;
+      }
+
+      .connector-h-bar {
+        width: 80%;
+      }
+
+      .event-row a {
+        padding: 1rem 0;
+      }
+
+      .event-icon-wrap {
+        width: 36px;
+        height: 36px;
+      }
+
+      .advisor-pfp {
+        width: 160px;
+        height: 160px;
+      }
+
+      .initiatives-list {
+        grid-template-columns: 1fr;
+      }
+
+      .highlights-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .highlight-card:nth-child(1) {
+        grid-column: span 1;
+      }
+
+      .highlight-card {
+        min-height: 250px;
+      }
+
+      .highlight-content {
+        padding: 1.5rem;
+      }
+
+
+    }
+
+    .help-wrap{
+  position:fixed;right:24px;bottom:24px;z-index:3000;
+  display:flex;flex-direction:column;align-items:flex-end;gap:10px;
+}
+.help-options{
+  display:flex;flex-direction:column;gap:8px;
+  opacity:0;transform:translateY(12px) scale(.96);
+  pointer-events:none;transition:.25s ease;
+}
+.help-wrap.open .help-options{
+  opacity:1;transform:translateY(0) scale(1);pointer-events:auto;
+}
+.help-option{
+  display:flex;align-items:center;gap:10px;
+  min-width:175px;padding:.75rem 1rem;
+  border:1px solid rgba(201,164,77,.55);
+  background:rgba(6,13,22,.96);
+  color:var(--accent-gold);text-decoration:none;
+  font-size:.68rem;font-weight:700;letter-spacing:1.5px;
+  text-transform:uppercase;backdrop-filter:blur(12px);
+  box-shadow:0 10px 30px rgba(0,0,0,.35);
+  transition:.25s;
+}
+.help-option:hover{background:var(--accent-gold);color:#07101a}
+.help-option i{width:18px;text-align:center}
+.help-button{
+  width:58px;height:58px;border-radius:50%;
+  border:1px solid var(--accent-gold);
+  background:var(--bg-deep);color:var(--accent-gold);
+  cursor:pointer;font-size:1.1rem;
+  box-shadow:0 8px 30px rgba(0,0,0,.45),0 0 18px rgba(201,164,77,.1);
+  transition:.3s;
+}
+.help-button:hover{background:var(--accent-gold);color:#07101a;transform:scale(1.05)}
+.help-wrap.open .help-button{transform:rotate(45deg)}
+
+@media(max-width:700px){
+  nav{padding:.75rem 4%}
+  .nav-brand span{display:none}
+  .container{padding:95px 5% 55px}
+  .hero{padding-top:15px}
+  .hero-logo{width:90px;height:90px}
+  h1{letter-spacing:2px}
+  .gallery{grid-template-columns:1fr}
+  .photo,.photo:nth-child(1),.photo:nth-child(4){height:300px}
+  .info-grid{grid-template-columns:1fr;gap:1.5rem}
+  .help-wrap{right:16px;bottom:16px}
+}
+  </style>
+</head>
+
+<body>
+
+  <!-- ==================== LOADING SCREEN ==================== -->
+  <div class="loader-screen" id="loaderScreen">
+    <img src="lg.png" alt="ABC Logo" class="loader-logo" onerror="this.style.display='none'">
+    <div class="loader-bar"></div>
+  </div>
+
+  <!-- ==================== NAVIGATION ==================== -->
+  <div class="menu-backdrop" id="menuBackdrop" onclick="closeMenu()"></div>
+  <nav>
+    <a href="#" class="nav-brand" onclick="showTab('society')">
+      <img src="lg.png" alt="ACES">
+      <span id="navBrandText"><strong>ACES</strong></span>
+    </a>
+    <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle Navigation">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffd700" stroke-width="2.5"
+        stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="javascript:void(0)" onclick="showTab('society')" id="link-society" class="active">ACES</a></li>
+      <li><a href="javascript:void(0)" onclick="showTab('abc')" id="link-abc">ABC</a></li>
+      <li><a href="abr.html">ABR</a></li>
+      <li><a href="l.html" target="_self">Study Guide</a></li>
+      <li><a href="javascript:void(0)" onclick="showTab('response')" id="link-response">Suggestion</a></li>
+      <li><a href="code-conduct.html"> Code of conduct </a></li>
+      <li><a href="waiver.pdf">liabilty waiver</a></li>
+    
+    </ul>
+  </nav>
+
+  <!-- ==================== TAB 1: ABC ==================== -->
+  <div id="abc" class="page">
+    <div class="container">
+
+      <div class="hero">
+        <img src="lg.png" alt="ABC Logo" class="hero-logo" onerror="this.style.display='none'">
+        <h1>Aitchison Business Concept</h1>
+        <div class="roman">XIV</div>
+        <p>
+          The Aitchison College Business Concept is the definitive platform for cultivating
+          entrepreneurial leadership, strategic innovation, and financial discipline among the youth.
+          We operate at the intersection of academic rigor and commercial execution, forging
+          the next generation of institutional leaders.
+        </p>
+        <div class="divider"></div>
+      </div>
+
+
+
+
+      <!-- Countdown Timer -->
+      <div class="timer-section">
+        <div class="timer-label">Next Event Countdown</div>
+        <div class="timer-display" id="countdown">
+          <div class="timer-unit">
+            <div class="timer-value" id="days">00</div>
+            <div class="timer-name">Days</div>
+          </div>
+          <div class="timer-unit">
+            <div class="timer-value" id="hours">00</div>
+            <div class="timer-name">Hours</div>
+          </div>
+          <div class="timer-unit">
+            <div class="timer-value" id="minutes">00</div>
+            <div class="timer-name">Minutes</div>
+          </div>
+          <div class="timer-unit">
+            <div class="timer-value" id="seconds">00</div>
+            <div class="timer-name">Seconds</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Executive Council Tree -->
+      <div class="section-title">Executive Council</div>
+      <div class="ec-tree">
+        <div class="ec-node">
+          <div class="ec-card president">
+            <img src="./XIII Vectors/MBS.jpeg" alt="President" class="ec-img"
+              onerror="this.src='https://via.placeholder.com/100/060d16/8b6914?text=P'">
+            <div class="ec-name">Muhammad Bin Salman</div>
+            <div class="ec-role">President</div>
+          </div>
+        </div>
+
+        <div class="connector-v"></div>
+
+        <div class="ec-node">
+          <div class="ec-card gensec">
+            <img src="./XIII Vectors/eqan ali syed.jpeg" alt="General Secretary" class="ec-img"
+              onerror="this.src='https://via.placeholder.com/100/060d16/8b6914?text=GS'">
+            <div class="ec-name">Eqaan ali syed</div>
+            <div class="ec-role">General Secretary</div>
+          </div>
+        </div>
+
+        <div class="connector-v"></div>
+
+        <div class="connector-h-container">
+          <div class="connector-h-bar">
+            <div class="center-drop"></div>
+          </div>
+        </div>
+
+        <div class="ec-row">
+          <div class="ec-card exec">
+            <img src="./XIII Vectors/rai behram.jpeg" alt="Executive" class="ec-img"
+              onerror="this.src='https://via.placeholder.com/100/060d16/4a5568?text=E1'">
+            <div class="ec-name">Rai Behram</div>
+            <div class="ec-role">executive member</div>
+          </div>
+          <div class="ec-card exec">
+            <img src="./XIII Vectors/Ali hussain.jpeg" alt="Executive" class="ec-img"
+              onerror="this.src='https://via.placeholder.com/100/060d16/4a5568?text=E2'">
+            <div class="ec-name">Ali hussain</div>
+            <div class="ec-role">executive member</div>
+          </div>
+          <div class="ec-card exec">
+            <img src="./XIII Vectors/muahid.jpeg" alt="Executive" class="ec-img"
+              onerror="this.src='https://via.placeholder.com/100/060d16/4a5568?text=E3'">
+            <div class="ec-name">Muahid Ahmad</div>
+            <div class="ec-role">executive member</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Events List -->
+      <div class="section-title">Events Calendar</div>
+      <div class="events-list" id="eventsList"></div>
+
+      <!-- Registration Link -->
+      <div class="section-title" style="margin-top: 4rem;">Registration</div>
+      <div style="text-align: center; padding: 2rem 0 1rem;">
+        <a href="https://forms.gle/hwTgDKNLNuLbWNw2A"
+          style="display: inline-block; padding: 1rem 2.5rem; border: 1px solid var(--accent-bronze); color: var(--accent-gold); font-size: 0.8rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; text-decoration: none; transition: all 0.3s;"
+          onmouseover="this.style.background='var(--accent-gold)'; this.style.color='var(--bg-void)';"
+          onmouseout="this.style.background='transparent'; this.style.color='var(--accent-gold)';">
+          Registration form <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
+        </a>
+      </div>
+
+
+
+      <!-- FAQ Section -->
+      <div class="section-title faq-section">Frequently Asked Questions</div>
+      <div class="faq-list">
+
+        <!-- FAQ 1 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            <span>What is the registration deadline?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+
+          <div class="faq-answer">
+            <p>
+              The registration deadline for ABC XIV will be announced through our official
+              Instagram page and communicated via email to all registered schools. We
+              recommend registering early to secure your place and avoid missing any
+              important updates or registration windows.
+            </p>
+          </div>
+        </div>
+
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            <span>How do I register for the event?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+
+          <div class="faq-answer">
+            <p>
+              Click the “Register for ABC XIV” button on this page and complete the
+              registration form with your team and participant details. You will then be
+              asked to select your preferred competition categories and complete the
+              payment process. A confirmation email will be sent once your registration
+              has been successfully completed.
+            </p>
+          </div>
+        </div>
+
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            <span>Can I participate individually, or do I need a team?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+
+          <div class="faq-answer">
+            <p>
+              Participation requirements vary by category. Some events, such as Chess
+              and Muney, are designed for individual participants, while others, such as
+              Build Your Own Idea and Corporate Espionage, require teams of two to four
+              members. Please review the rules for your chosen category before registering.
+            </p>
+          </div>
+        </div>
+
+
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            <span>What is the event schedule?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+
+          <div class="faq-answer">
+            <p>
+              The detailed schedule will be shared with all registered participants
+              approximately one week before the Olympiad. The event typically spans two
+              days and includes the opening ceremony, competition rounds, networking
+              opportunities, special sessions, and the closing awards ceremony.
+            </p>
+          </div>
+        </div>
+
+
+        <!-- FAQ 5 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            <span>What is the competition format?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+
+          <div class="faq-answer">
+            <p>
+              Each category follows its own competition format, ranging from live
+              pitching and case-study analysis to simulated trading and creative
+              presentations. Preliminary rounds are generally held on Day 1, followed
+              by finals and final showdowns on Day 2.
+            </p>
+          </div>
+        </div>
+
+
+        <!-- FAQ 6 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            <span>What should I bring to the event?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+
+          <div class="faq-answer">
+            <p>
+              Participants should bring their school ID, a notepad, pens, and a laptop
+              if it is required for their chosen category. Any presentation materials
+              should be prepared in accordance with the guidelines provided by the
+              organising committee. The dress code for the event is formal business attire.
+            </p>
+          </div>
+        </div>
+
+
+        <!-- FAQ 7 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            <span>Will all participants receive certificates or prizes?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+
+          <div class="faq-answer">
+            <p>
+              All participants will receive a certificate of participation. Winners,
+              runners-up, and second runners-up in each category will receive
+              recognition through trophies, cash prizes, and merit certificates.
+              Additional overall awards, including Best Delegation and other special
+              distinctions, will also be presented during the closing ceremony.
+            </p>
+          </div>
+        </div>
+
+
+        <!-- FAQ 8 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            <span>Who can I contact if I have any questions?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+
+          <div class="faq-answer">
+            <p>
+              If you have any questions, you can contact the ABC XIV organising team
+              through the Suggestion tab on this website or by sending us a direct
+              message through our official Instagram page. You may also contact the
+              General Secretary via the email address provided in your registration
+              confirmation.
+            </p>
+          </div>
+        </div>
+
+
+        <!-- FAQ 9 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            <span>How many days is the event?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+
+          <div class="faq-answer">
+            <p>
+              ABC XIV is a two-day event. Day 1 includes registration, the opening
+              ceremony, and preliminary rounds across the various categories. Day 2
+              features the finals, special sessions, and the grand closing and awards
+              ceremony.
+            </p>
+          </div>
+        </div>
+
+
+        <!-- FAQ 10 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            <span>How many categories can delegates participate in?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+
+          <div class="faq-answer">
+            <p>
+              Delegates may participate in as many categories as they wish, provided
+              there are no scheduling conflicts. There is no minimum participation
+              requirement, and delegates are encouraged to explore multiple categories
+              to make the most of their ABC XIV experience.
+            </p>
+          </div>
+        </div>
+
+
+        <!-- FAQ 11 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            <span>What benefits do I get from participating in the event?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+
+          <div class="faq-answer">
+            <p>
+              Participants gain valuable experience through high-level competition,
+              opportunities to connect with students from across the country, and
+              mentorship from industry professionals. Participants also receive
+              certificates for their portfolios and may become eligible for opportunities
+              such as the Spark Tank incubation programme and future ACES Executive
+              Board positions.
+            </p>
+          </div>
+        </div>
+
+
+        <!-- FAQ 12 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            <span>What are the criteria for Best Delegation, and what overall awards are available?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+
+          <div class="faq-answer">
+            <p>
+              Each competition category awards a winner, runner-up, and second
+              runner-up. These placements contribute double points towards the Best
+              Delegation standings. Enterprise carries no additional weighting towards
+              the Best Delegation award. In addition to Best Delegation, the Olympiad
+              will recognise a Best Delegation Runner-Up, Outstanding Best Delegation,
+              and Best Team.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+   
+  </div>
+
+  <!-- ==================== TAB 2: SOCIETY ==================== -->
+  <div id="society" class="page active">
+
+
+
+    <div class="container">
+
+      <div class="hero">
+        <img src="lg.png" alt="ABC Logo" class="hero-logo"  onerror="this.style.display='none'">
+        <h1>Aitchison college entrepreneurial society</h1>
+        <div class="roman">XIV</div>
+        <div class="divider"></div>
+      </div>
+
+
+      <section class="highlights-section">
+
+        <div class="section-title">
+          ACES Highlights
+        </div>
+      
+        <div class="highlights-carousel">
+      
+          <!-- HIGHLIGHT 1 -->
+          <article class="highlight-slide active">
+      
+            <div class="highlight-image">
+              <img
+                src="yles.jpeg"
+                alt="Aitchison Business Review"
+              >
+            </div>
+      
+            <div class="highlight-content">
+      
+              <div class="highlight-label">
+                Ntional win
+              </div>
+      
+              <div class="highlight-title">
+                Best delegation at YLES
+              </div>
+      
+              <div class="highlight-desc">
+                  Won pakistan premiere business competition after 19 years.
+              </div>
+      
+            </div>
+      
+          </article>
+      
+      
+          <!-- HIGHLIGHT 2 -->
+          <article class="highlight-slide">
+      
+            <div class="highlight-image">
+              <img
+                src="markhors den.jpeg"
+                alt="Aitchison Incubation Programme"
+              >
+            </div>
+      
+            <div class="highlight-content">
+      
+              <div class="highlight-label">
+                Inter school win 
+              </div>
+      
+              <div class="highlight-title">
+                Best delegation at Markhors den 
+              </div>
+      
+              <div class="highlight-desc">
+                
+              </div>
+      
+            </div>
+      
+          </article>
+      
+      
+          <!-- HIGHLIGHT 3 -->
+          <article class="highlight-slide">
+      
+            <div class="highlight-image">
+              <img
+                src="speaker session.jpeg"
+                alt="Inter-House Championship"
+              >
+            </div>
+      
+            <div class="highlight-content">
+      
+              <div class="highlight-label">
+                speaker session 
+              </div>
+      
+              <div class="highlight-title">
+                guest speaker session with president Wapda.
+              </div>
+      
+              <div class="highlight-desc">
+               Held a guest speaker session with the preident of wapda which educated student about  the water scarcity problem that pakistan might face in the coming years
+              </div>
+      
+            </div>
+      
+          </article>
+      
+      
+          <!-- HIGHLIGHT 4 -->
+          <article class="highlight-slide">
+      
+            <div class="highlight-image">
+              <img
+                src="ja worlds.jpeg"
+                alt="ACES Entrepreneurship"
+              >
+            </div>
+      
+            <div class="highlight-content">
+      
+              <div class="highlight-label">
+                Company of the year 
+              </div>
+      
+              <div class="highlight-title">
+                JA world wide best team 
+              </div>
+      
+              <div class="highlight-desc">
+              
+              </div>
+      
+            </div>
+      
+          </article>
+      
+      
+          <!-- ARROWS -->
+          <div class="highlight-nav">
+      
+            <button
+              type="button"
+              id="highlightPrev"
+              aria-label="Previous highlight"
+            >
+              <i class="fas fa-chevron-left"></i>
+            </button>
+      
+            <button
+              type="button"
+              id="highlightNext"
+              aria-label="Next highlight"
+            >
+              <i class="fas fa-chevron-right"></i>
+            </button>
+      
+          </div>
+      
+        </div>
+      
+      
+        <!-- DOTS -->
+        <div class="highlight-dots">
+      
+          <button
+            class="highlight-dot active"
+            data-slide="0"
+            aria-label="Highlight 1"
+          ></button>
+      
+          <button
+            class="highlight-dot"
+            data-slide="1"
+            aria-label="Highlight 2"
+          ></button>
+      
+          <button
+            class="highlight-dot"
+            data-slide="2"
+            aria-label="Highlight 3"
+          ></button>
+      
+          <button
+            class="highlight-dot"
+            data-slide="3"
+            aria-label="Highlight 4"
+          ></button>
+      
+        </div>
+      
+      </section>
+
+      <div class="society-content">
+
+        <!-- Staff Advisor Message Card -->
+        <div class="advisor-card">
+          <div class="section-title">Staff advisor </div>
+          <img src="./XIII Vectors/staff.jpeg" alt="Staff Advisor" class="advisor-pfp">
+          <div class="advisor-info">
+            <h3>Staff Advisor Directive</h3>
+            <div class="advisor-role">Aitchison Entrepreneurial Society</div>
+            <p class="advisor-message">
+              "The Entrepreneurial Society exists to dismantle the boundary between theoretical
+              understanding and market execution. We demand rigor, reward initiative, and cultivate
+              the disciplined mindset required to navigate complex commercial landscapes. Our mandate
+              is clear: produce operators, not observers."
+            </p>
+          </div>
+        </div>
+
+        <!-- Lead Summary -->
+        <p class="aces-intro-paragraph">
+          The <strong>Aitchison Entrepreneurial Society (ACES)</strong> has established itself as one of
+          Pakistan's
+          most distinguished extracurricular institutions — pioneering youth entrepreneurship, strategic leadership, and
+          commercial execution within Aitchison College and beyond. Its influence extends far past the college gates,
+          inspiring student societies across the nation, forging an unbroken lineage of business operators,
+          institutional
+          leaders, and competitive minds who carry the ACES ethos into the highest echelons of global academia and
+          industry.
+        </p>
+
+       
+
+        <!-- Section Title -->
+        <div class="section-title">Society Benefits & Laurels</div>
+
+        <!-- Benefits List -->
+        <div class="benefits-list">
+
+          <div class="benefit-item">
+            <div class="benefit-body">
+              <div class="benefit-title">Co-Curricular Blazer Points</div>
+              <div class="benefit-desc">Members earn formal credits toward Aitchison's prestigious Co-Curricular Blazer
+                — 1.5 points for 5 national or international competition wins, with 1 point the president and 0.5 for General-Secretary  </div>
+            </div>
+          </div>
+
+          <div class="benefit-item">
+            <div class="benefit-body">
+              <div class="benefit-title">University Laurels</div>
+              <div class="benefit-desc">ACES accolades carry significant weight in Ivy-League and global university
+                applications, backed by a distinguished alumni history of acceptances at the world's most competitive
+                institutions.</div>
+            </div>
+          </div>
+
+          <div class="benefit-item">
+            <div class="benefit-body">
+              <div class="benefit-title">Executive Skill Mastery</div>
+              <div class="benefit-desc">Develop the real-world competencies that define institutional leaders — public
+                speaking, high-stakes negotiation, crisis management, financial modeling, and commercial strategy.</div>
+            </div>
+          </div>
+
+          <div class="benefit-item">
+            <div class="benefit-body">
+              <div class="benefit-title">Podium Track Record</div>
+              <div class="benefit-desc">Consistent top-tier finishes across Pakistan's most prestigious competitions —
+                LUMS YLES, KGES, Blue Ocean Challenge, and the International Business Olympiad.</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Flagship Initiatives -->
+        <div class="initiatives-list">
+
+
+
+          <div class="initiative-panel" style="opacity: 1;">
+            <div class="initiative-label">Publication</div>
+            <div class="initiative-title">Aitchison Business Review</div>
+            <div class="initiative-desc">
+              Pakistan's premier high-school business journal — a platform for student
+              research, economic journalism, and editorial analysis that shapes discourse
+              beyond the classroom.
+            </div>
+            
+          
+            <a href="abr.html" class="initiative-button">Explore Publication</a>
+          </div>
+          
+          <div class="initiative-panel">
+            <div class="initiative-label">Startup Incubator</div>
+            <div class="initiative-title">Aitchison Incubation Programme</div>
+            <div class="initiative-desc">
+              A dedicated startup incubator and funding programme designed to transform
+              student ideas into viable ventures — providing seed capital, mentorship from
+              industry veterans, and structured guidance through every stage of commercial
+              development.
+            </div>
+           
+          
+            <a href="incubation.html" class="initiative-button">Explore Programme</a>
+          </div>
+          
+          <div class="initiative-panel">
+            <div class="initiative-label">Internal Competition</div>
+            <div class="initiative-title">Inter-House Championship</div>
+            <div class="initiative-desc">
+              An intra-college tournament where delegates from all 17 Aitchison houses
+              pitch original business ventures, driving structured rivalry, innovation,
+              and cross-house collaboration.
+            </div>
+            
+          
+            <a href="inter-house.html" class="initiative-button">View Championship</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="section-title faq-section">Frequently Asked Questions</div>
+      <div class="faq-list">
+
+        <!-- FAQ 1 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            <span>How do I become a member of ACES?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+
+          <div class="faq-answer">
+            <p>
+              Membership is open to all Aitchison College students with an interest in
+              business, entrepreneurship, and leadership. Students can get involved by
+              attending ABC Summer Camps or by reaching out to a member of the Executive
+              Council. Active participation in ACES events, initiatives, and competitions
+              is the best way to become an engaged member and work towards earning blazer points.
+            </p>
+          </div>
+        </div>
+
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            <span>What competitions does ACES participate in?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+
+          <div class="faq-answer">
+            <p>
+              ACES participates in a wide range of leading national and international
+              business competitions, including LUMS YLES, KGES, the Blue Ocean Challenge,
+              and the International Business Olympiad. Members are supported through
+              dedicated training, mentorship, and preparation sessions designed to help
+              them perform at their best.
+            </p>
+          </div>
+        </div>
+
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            <span>What is the Co-Curricular Blazer and how do I earn points?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+
+          <div class="faq-answer">
+            <p>
+              The Co-Curricular Blazer is one of Aitchison College’s highest distinctions,
+              recognising students who have demonstrated exceptional achievement and
+              contribution beyond the classroom. ACES members can earn blazer points
+              through competition achievements, Executive Board leadership, and meaningful
+              contributions to the society. For example, securing five national or
+              international competition wins can earn 1.5 points.
+            </p>
+          </div>
+        </div>
+
+
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            <span>How does Spark Tank support student startups?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+
+          <div class="faq-answer">
+            <p>
+              Spark Tank gives aspiring student entrepreneurs the opportunity to turn
+              their ideas into viable ventures. Selected startups receive access to seed
+              funding, industry mentorship, workspace, and a structured incubation
+              programme. Through a series of pitch rounds and development milestones,
+              participants receive both financial and strategic support as they refine
+              and grow their ventures.
+            </p>
+          </div>
+        </div>
+
+
+        <!-- FAQ 5 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            <span>Can I join ACES without prior business experience?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+
+          <div class="faq-answer">
+            <p>
+              Absolutely. ACES welcomes students at every level of experience and is
+              designed to help members build their business knowledge from the ground up.
+              Through training programmes, workshops, competitions, and peer mentorship,
+              students can develop practical skills and confidence regardless of their
+              previous experience.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+
+      <!-- Social Links -->
+      <div style="text-align: center; padding: 2rem 0 0;">
+        <a href="https://www.instagram.com/abcxiv2027/?utm_source=ig_web_button_share_sheet" target="_blank"
+          style="display: inline-flex; align-items: center; gap: 0.75rem; color: var(--text-muted); text-decoration: none; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s;"
+          onmouseover="this.style.color='var(--accent-gold)'" onmouseout="this.style.color='var(--text-muted)'">
+          <i class="fab fa-instagram" style="font-size: 1.25rem;"></i>
+          <span>For more queries visit our instagram page</span>
+        </a>
+      </div>
+
+
+    </div>
+
+  </div>
+
+  <!-- ==================== TAB 3: RESPONSE ==================== -->
+  <div id="response" class="page">
+    <div class="container">
+
+      <div class="hero">
+        <h1>Directive Response</h1>
+        <p>Submit operational feedback and strategic recommendations for society improvement.</p>
+        <div class="divider"></div>
+      </div>
+
+      <div class="form-frame">
+        <form id="responseForm" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" placeholder="Surname, Given Name" required>
+          </div>
+          <div class="form-group">
+            <label>Class / Year</label>
+            <input type="text" placeholder="e.g. H2, A1" required>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="identifier@aitchison.edu.pk" required>
+          </div>
+          <div class="form-group">
+            <label>Category</label>
+            <select required>
+              <option value="">Select Classification</option>
+              <option value="events">Events & Operations</option>
+              <option value="management">Council & Governance</option>
+              <option value="ideas">Strategic Initiatives</option>
+              <option value="other">Miscellaneous</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Directive</label>
+            <textarea placeholder="State your recommendation or concern with precision..." required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Transmit Response</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer>
+    <div class="help-wrap" id="helpWrap">
+      <div class="help-options">
+        <a class="help-option" href="https://www.instagram.com/abcxiv2027/" target="_blank" rel="noopener">
+          <i class="fab fa-instagram"></i><span>Instagram</span>
+        </a>
+        <a class="help-option" href="https://www.google.com/maps/search/?api=1&query=Aitchison+College+Lahore" target="_blank" rel="noopener">
+          <i class="fas fa-location-dot"></i><span>Location</span>
+        </a>
+        <a class="help-option" href="index(7).html#registration">
+          <i class="fas fa-pen-to-square"></i><span>Registration</span>
+        </a>
+      </div>
+      <button class="help-button" id="helpButton" aria-label="Open help options" aria-expanded="false">
+        <i class="fas fa-comments"></i>
+      </button>
+    </div>
+
+    Aitchison Business Concept &mdash; XIV
+  </footer>
+
+  <!-- ==================== TOAST ==================== -->
+  <div class="toast" id="toast">Response transmitted successfully.</div>
+
+  <script>
+    // ==================== LOADER ====================
+    function hideLoader() {
+      const loader = document.getElementById('loaderScreen');
+
+      if (loader) {
+        loader.classList.add('hidden');
+
+        setTimeout(() => {
+          loader.style.display = 'none';
+        }, 3000);
+      }
+    }
+
+    // Hide after 1 second, regardless of other resources
+    setTimeout(hideLoader, 1000);
+
+    // Also hide immediately if the page has already loaded
+    if (document.readyState === 'complete') {
+      hideLoader();
+    }
+
+    async function time() {
+      const res = await fetch("https://timer-v22m.onrender.com/api/countdown")
+      const json = await res.json()
+
+      const days = json.days;
+      const hours = json.hours;
+      const minutes = json.minutes;
+      const seconds = json.seconds;
+
+      document.getElementById('days').textContent = String(days).padStart(2, '0');
+      document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+      document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+    }
+
+    setInterval(time, 1000);
+
+
+    // ==================== TABS ====================
+    function showTab(tabName) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+      document.getElementById(tabName).classList.add('active');
+      document.getElementById('link-' + tabName).classList.add('active');
+      window.scrollTo(0, 0);
+      closeMenu();
+      // Update nav brand based on tab
+      const brandText = document.getElementById('navBrandText');
+      if (brandText) {
+        if (tabName === 'abc') {
+          brandText.innerHTML = '<strong>ABC</strong> XIV';
+        } else if (tabName === 'society') {
+          brandText.innerHTML = '<strong>ACES</strong>';
+        } else if (tabName === 'response') {
+          brandText.innerHTML = '<strong>ACES</strong>';
+        }
+      }
+    }
+
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('show');
+      document.getElementById('menuBackdrop').classList.toggle('show');
+    }
+
+    function closeMenu() {
+      document.getElementById('navLinks').classList.remove('show');
+      document.getElementById('menuBackdrop').classList.remove('show');
+    }
+
+    // ==================== EVENTS ====================
+    const eventsData = [
+      { name: "Build your own idea", img: "XIII Vectors/BYOI raw.png", icon: "fa-lightbulb" },
+      { name: "ad making", img: "XIII Vectors/AD raw.png", icon: "fa-microphone" },
+      { name: "Investomania", img: "XIII Vectors/Investo raw.png", icon: "fa-store" },
+      { name: "social entrepeneurship", img: "XIII Vectors/Socio raw.png", icon: "fa-coins" },
+      { name: "fiscal frontier", img: "XIII Vectors/FF raw.png", icon: "fa-comments" },
+      { name: "Mall street", img: "XIII Vectors/Mall raw.png", icon: "fa-chess" },
+      { name: "Jurisprudential", img: "XIII Vectors/Juris raw.png", icon: "fa-heart" },
+      { name: "Rubicon", img: "XIII Vectors/Rubicon raw.png", icon: "fa-laptop-code" },
+      { name: "Chess", img: "XIII Vectors/Chess raw.png", icon: "fa-user-graduate" },
+      { name: "Muney", img: "XIII Vectors/Muney raw.png", icon: "fa-puzzle-piece" },
+      { name: "The amazing race", img: "XIII Vectors/Race raw.png", icon: "fa-flask" },
+      { name: "corporate canvas", img: "XIII Vectors/Canvas raw.png", icon: "fa-building" },
+      { name: "Techeneurship", img: "XIII Vectors/Tech raw.png", icon: "fa-user-tie" },
+      { name: "enterprise", img: "XIII Vectors/Enterprise raw.png", icon: "fa-gavel" }
+    ];
+
+    const eventsList = document.getElementById('eventsList');
+    eventsData.forEach((evt, idx) => {
+      const row = document.createElement('div');
+      row.className = 'event-row';
+      const iconContent = evt.img
+        ? `<img src="${evt.img}" alt="${evt.name}">`
+        : `<i class="fas ${evt.icon || 'fa-circle'}"></i>`;
+
+      row.innerHTML = `
+      <a href="l.html">
+        <div class="event-header-left">
+          <div class="event-icon-wrap">${iconContent}</div>
+          <div class="event-title-text">${evt.name}</div>
+        </div>
+        <div class="event-readmore">
+          Read More <i class="fas fa-arrow-right"></i>
+        </div>
+      </a>
+    `;
+      eventsList.appendChild(row);
+    });
+
+    // ==================== ACES HIGHLIGHTS CAROUSEL ====================
+    let currentHighlight = 0;
+    const highlightSlides = document.querySelectorAll('.highlight-slide');
+    const highlightDots = document.querySelectorAll('.highlight-dot');
+
+    function updateHighlights() {
+      const total = highlightSlides.length;
+
+      highlightSlides.forEach((slide, index) => {
+        slide.className = 'highlight-slide';
+
+        const offset = (index - currentHighlight + total) % total;
+
+        if (offset === 0) {
+          slide.classList.add('active');
+        } else if (offset === 1) {
+          slide.classList.add('next');
+        } else if (offset === total - 1) {
+          slide.classList.add('prev');
+        } else {
+          slide.classList.add('far');
+        }
+      });
+
+      highlightDots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentHighlight);
+      });
+    }
+
+    function moveHighlight(direction) {
+      currentHighlight =
+        (currentHighlight + direction + highlightSlides.length) %
+        highlightSlides.length;
+
+      updateHighlights();
+      resetHighlightTimer();
+    }
+
+    function setHighlight(index) {
+      currentHighlight = index;
+      updateHighlights();
+      resetHighlightTimer();
+    }
+
+    let highlightTimer = setInterval(() => {
+      currentHighlight = (currentHighlight + 1) % highlightSlides.length;
+      updateHighlights();
+    }, 6000);
+
+    function resetHighlightTimer() {
+      clearInterval(highlightTimer);
+      highlightTimer = setInterval(() => {
+        currentHighlight = (currentHighlight + 1) % highlightSlides.length;
+        updateHighlights();
+      }, 6000);
+    }
+
+    updateHighlights();
+
+    // ==================== FORM ====================
+    function handleSubmit(e) {
+      e.preventDefault();
+      const toast = document.getElementById('toast');
+      toast.classList.add('show');
+      document.getElementById('responseForm').reset();
+      setTimeout(() => toast.classList.remove('show'), 4000);
+    }
+
+        const helpWrap = document.getElementById('helpWrap');
+    const helpButton = document.getElementById('helpButton');
+
+    helpButton.addEventListener('click', () => {
+      const open = helpWrap.classList.toggle('open');
+      helpButton.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!helpWrap.contains(e.target)) {
+        helpWrap.classList.remove('open');
+        helpButton.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    const highlights = [{
+      "id":1,
+      "heading":"ja world best company award",
+      "text":"won one of premiere business competition in the country",
+      "img":"ja world.png"
+    },{},{},{}]
+
+    function loadhighlight(highlights){
+      const reel =  document.getElementById('acesHighlights')
+
+      highlights.forEach((cat) =>{
+        reel.innerHTML += `
+        <div class="highlight-slide far active" >
+          <img class="highlight-image" src="${cat.img}" alt="ACES Highlight 5">
+              <div class="highlight-content">
+                <span class="highlight-number">${cat.id}</span>
+                <div class="highlight-title">${cat.heading}</div>
+                <div class="highlight-desc">${cat.text}</div>
+                <span class="highlight-arrow">Explore <i class="fas fa-arrow-right"></i></span>
+              </div>
+          </div>        
+        </div>
+        `  
+       
+        
+      });
+    }
+ 
+/* =========================================================
+   ACES HIGHLIGHTS CAROUSEL
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const slides = Array.from(
+    document.querySelectorAll(".highlight-slide")
+  );
+
+  const dots = Array.from(
+    document.querySelectorAll(".highlight-dot")
+  );
+
+  const prevButton =
+    document.getElementById("highlightPrev");
+
+  const nextButton =
+    document.getElementById("highlightNext");
+
+  const carousel =
+    document.querySelector(".highlights-carousel");
+
+
+  if (!slides.length) return;
+
+
+  let currentIndex = 0;
+
+
+  /* =======================================================
+     UPDATE SLIDES
+  ======================================================= */
+
+  function updateHighlights() {
+
+    const total = slides.length;
+
+    slides.forEach((slide, index) => {
+
+      slide.classList.remove(
+        "active",
+        "prev",
+        "next",
+        "far"
+      );
+
+      let difference =
+        index - currentIndex;
+
+
+      /*
+       * Make the difference wrap around
+       * so the carousel loops infinitely.
+       */
+
+      if (difference > total / 2) {
+        difference -= total;
+      }
+
+      if (difference < -total / 2) {
+        difference += total;
+      }
+
+
+      /* ACTIVE */
+
+      if (difference === 0) {
+
+        slide.classList.add("active");
+
+      }
+
+
+      /* PREVIOUS */
+
+      else if (difference === -1) {
+
+        slide.classList.add("prev");
+
+      }
+
+
+      /* NEXT */
+
+      else if (difference === 1) {
+
+        slide.classList.add("next");
+
+      }
+
+
+      /* EVERYTHING ELSE */
+
+      else {
+
+        slide.classList.add("far");
+
+      }
+
+    });
+
+
+    /* =====================================================
+       UPDATE DOTS
+    ===================================================== */
+
+    dots.forEach((dot, index) => {
+
+      dot.classList.toggle(
+        "active",
+        index === currentIndex
+      );
+
+    });
+
+  }
+
+
+  /* =======================================================
+     NEXT HIGHLIGHT
+  ======================================================= */
+
+  function nextHighlight() {
+
+    currentIndex =
+      (currentIndex + 1) % slides.length;
+
+    updateHighlights();
+
+  }
+
+
+  /* =======================================================
+     PREVIOUS HIGHLIGHT
+  ======================================================= */
+
+  function previousHighlight() {
+
+    currentIndex =
+      (currentIndex - 1 + slides.length)
+      % slides.length;
+
+    updateHighlights();
+
+  }
+
+
+  /* =======================================================
+     NEXT BUTTON
+  ======================================================= */
+
+  if (nextButton) {
+
+    nextButton.addEventListener(
+      "click",
+      nextHighlight
+    );
+
+  }
+
+
+  /* =======================================================
+     PREVIOUS BUTTON
+  ======================================================= */
+
+  if (prevButton) {
+
+    prevButton.addEventListener(
+      "click",
+      previousHighlight
+    );
+
+  }
+
+
+  /* =======================================================
+     DOT NAVIGATION
+  ======================================================= */
+
+  dots.forEach((dot, index) => {
+
+    dot.addEventListener("click", () => {
+
+      currentIndex = index;
+
+      updateHighlights();
+
+    });
+
+  });
+
+
+  /* =======================================================
+     CLICK SIDE CARDS
+  ======================================================= */
+
+  slides.forEach((slide, index) => {
+
+    slide.addEventListener("click", () => {
+
+      if (slide.classList.contains("prev")) {
+
+        currentIndex =
+          (currentIndex - 1 + slides.length)
+          % slides.length;
+
+        updateHighlights();
+
+      }
+
+      else if (slide.classList.contains("next")) {
+
+        currentIndex =
+          (currentIndex + 1)
+          % slides.length;
+
+        updateHighlights();
+
+      }
+
+    });
+
+  });
+
+
+  /* =======================================================
+     KEYBOARD CONTROLS
+  ======================================================= */
+
+  document.addEventListener("keydown", (event) => {
+
+    /*
+     * Don't interfere with typing into
+     * inputs or textareas.
+     */
+
+    const tag =
+      document.activeElement.tagName;
+
+    if (
+      tag === "INPUT" ||
+      tag === "TEXTAREA"
+    ) {
+      return;
+    }
+
+
+    if (event.key === "ArrowLeft") {
+
+      previousHighlight();
+
+    }
+
+    else if (event.key === "ArrowRight") {
+
+      nextHighlight();
+
+    }
+
+  });
+
+
+  /* =======================================================
+     TOUCH / SWIPE
+  ======================================================= */
+
+  let touchStartX = 0;
+  let touchStartY = 0;
+
+  let touchEndX = 0;
+  let touchEndY = 0;
+
+
+  if (carousel) {
+
+    carousel.addEventListener(
+      "touchstart",
+      (event) => {
+
+        const touch =
+          event.changedTouches[0];
+
+        touchStartX =
+          touch.clientX;
+
+        touchStartY =
+          touch.clientY;
+
+      },
+      { passive: true }
+    );
+
+
+    carousel.addEventListener(
+      "touchend",
+      (event) => {
+
+        const touch =
+          event.changedTouches[0];
+
+        touchEndX =
+          touch.clientX;
+
+        touchEndY =
+          touch.clientY;
+
+
+        const differenceX =
+          touchStartX - touchEndX;
+
+        const differenceY =
+          touchStartY - touchEndY;
+
+
+        /*
+         * Only treat it as a swipe if
+         * horizontal movement is greater
+         * than vertical movement.
+         */
+
+        if (
+          Math.abs(differenceX) <
+          Math.abs(differenceY)
+        ) {
+          return;
+        }
+
+
+        /* Minimum swipe distance */
+
+        if (
+          Math.abs(differenceX) < 50
+        ) {
+          return;
+        }
+
+
+        if (differenceX > 0) {
+
+          nextHighlight();
+
+        }
+
+        else {
+
+          previousHighlight();
+
+        }
+
+      },
+      { passive: true }
+    );
+
+  }
+
+
+  /* =======================================================
+     INITIALIZE
+  ======================================================= */
+
+  updateHighlights();
+
+
+});
+
+
+  </script>
+
+</body>
+
+</html>
