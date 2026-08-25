@@ -24,7 +24,7 @@ export const studyGuideData: StudyGuideCategory[] = [
     type: "entrepreneurship",
     img: "/XIII Vectors/BYOI raw.png",
     overview:
-      "This category involves delegates coming up with their own business ideas that they will pitch to investors. As they battle for investment into their business idea, teams are expected to create a well thought out business idea, as well as conduct appropriate research in order to give a skeleton to their raw idea.",
+      "This category involves delegates coming up with their own business ideas that they will pitch to investors. As they battle for investment into their business idea, teams are expected to create a well-thought-out business idea, as well as conduct appropriate research in order to give a skeleton to their raw idea.",
     details:
       "Build Your Own Idea combines creative product development with business knowledge. Teams manage limited resources, develop a product from their available materials, build a coherent business concept, and defend the idea through presentation and questioning.",
   },
@@ -35,7 +35,7 @@ export const studyGuideData: StudyGuideCategory[] = [
     type: "creative",
     img: "/XIII Vectors/AD raw.png",
     overview:
-      "Media has become an important aspect of our lives, and it is utilized by all multinational corporations. In this category, delegates will be required to create an ad and set up stalls for allotted companies, allowing them to show their mettle and prowess in the fields of creativity, cinematography, and editing.",
+      "Media has become an important aspect of our lives, and it is used by all multinational corporations. In this category, delegates will be required to create an ad and set up stalls for allotted companies, allowing them to show their mettle and prowess in the fields of creativity, cinematography, and editing.",
     details:
       "Ad Making tests creativity, marketing insight, storytelling, cinematography, editing, and the ability to defend advertising decisions under pressure.",
   },
@@ -57,7 +57,7 @@ export const studyGuideData: StudyGuideCategory[] = [
     type: "entrepreneurship",
     img: "/XIII Vectors/Socio raw.png",
     overview:
-      "In this category, delegates will tackle social or environmental problems by developing a feasible business plan for a struggling business, that is environmentally friendly or socially beneficial whilst remaining profitable.",
+      "In this category, delegates will tackle social or environmental problems by developing a feasible business plan for a struggling business that is environmentally friendly or socially beneficial whilst remaining profitable.",
     details:
       "Social Entrepreneurship challenges teams to identify a company's core problem, develop a feasible and profitable solution, and consider customers, employees, communities, environmental responsibility, ethics, and long-term social value.",
   },
@@ -85,7 +85,7 @@ export const studyGuideData: StudyGuideCategory[] = [
   },
   {
     id: "wall",
-    name: "Wall Street",
+    name: "Mall Street",
     tagline: "Interactive Investment Challenge",
     type: "finance",
     img: "/XIII Vectors/Mall raw.png",
@@ -134,7 +134,7 @@ export const studyGuideData: StudyGuideCategory[] = [
     type: "creative",
     img: "/XIII Vectors/Canvas raw.png",
     overview:
-      "The category will test a plethora of skills in the world of corporate espionage, ranging from quick thinking to the financial prowess. Based on a case study, delegates will be required to interrogate, arbitrate and come to conclusion.",
+      "Corporate Canvas tests branding, visual marketing, and the ability to hold a consistent public-facing identity.",
     details:
       "Corporate Canvas tests corporate strategy, visual branding, marketing consistency, and the ability to translate a brand identity into a convincing public-facing experience.",
   },
@@ -156,9 +156,9 @@ export const studyGuideData: StudyGuideCategory[] = [
     type: "creative",
     img: "/XIII Vectors/Race raw.png",
     overview:
-      "The Amazing Race is an interactive category designed to test delegates' thinking and detective skills through a simulated scavenger hunt.",
+      "The Amazing Race is an interactive scavenger hunt that tests thinking and detective skills.",
     details:
-      "The competition is simulated as a scavenger hunt and is designed to test delegates' thinking skills alongside their detective skills.",
+      "The competition is simulated as a scavenger hunt.",
   },
   {
     id: "juris",

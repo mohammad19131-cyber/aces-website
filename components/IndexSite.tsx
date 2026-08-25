@@ -1,80 +1,82 @@
 "use client";
 
 import { useEffect, type ReactNode } from "react";
+import { Reveal } from "@/components/Reveal";
 import { closeMenu, initIndexSite, showTab, toggleMenu } from "@/lib/index-site";
+import { acesHighlights } from "@/lib/recognition";
 import { site } from "@/lib/site";
 
 const abcFaqs = [
   {
     q: "What is the registration deadline?",
-    a: "The registration deadline for ABC XIV will be announced through our official Instagram page and communicated via email to all registered schools. We recommend registering early to secure your place and avoid missing any important updates or registration windows.",
+    a: "The deadline will be announced on Instagram and emailed to registered schools. Register early to hold your place.",
   },
   {
     q: "How do I register for the event?",
-    a: "Click the “Register for ABC XIV” button on this page and complete the registration form with your team and participant details. You will then be asked to select your preferred competition categories and complete the payment process. A confirmation email will be sent once your registration has been successfully completed.",
+    a: "Open the Registration Form, enter your team details, select categories, and complete payment. A confirmation email follows a successful registration.",
   },
   {
     q: "Can I participate individually, or do I need a team?",
-    a: "Participation requirements vary by category. Some events, such as Chess and Muney, are designed for individual participants, while others, such as Build Your Own Idea and Corporate Espionage, require teams of two to four members. Please review the rules for your chosen category before registering.",
+    a: "It depends on the category. Chess and MUNey are individual. Build Your Own Idea and Corporate Espionage require teams of two to four. Check the rules for your category before you register.",
   },
   {
     q: "What is the event schedule?",
-    a: "The detailed schedule will be shared with all registered participants approximately one week before the Olympiad. The event typically spans two days and includes the opening ceremony, competition rounds, networking opportunities, special sessions, and the closing awards ceremony.",
+    a: "The detailed schedule is shared with registered participants about a week before the Olympiad. The event runs over two days: opening ceremony, competition rounds, sessions, and closing awards.",
   },
   {
     q: "What is the competition format?",
-    a: "Each category follows its own competition format, ranging from live pitching and case-study analysis to simulated trading and creative presentations. Preliminary rounds are generally held on Day 1, followed by finals and final showdowns on Day 2.",
+    a: "Each category has its own format — from live pitching and case analysis to simulated trading and presentations. Preliminaries are generally on Day 1; finals on Day 2.",
   },
   {
     q: "What should I bring to the event?",
-    a: "Participants should bring their school ID, a notepad, pens, and a laptop if it is required for their chosen category. Any presentation materials should be prepared in accordance with the guidelines provided by the organising committee. The dress code for the event is formal business attire.",
+    a: "Bring your school ID, a notepad, pens, and a laptop if your category requires one. Prepare any presentation materials to the organising committee’s guidelines. Dress code: formal business attire.",
   },
   {
     q: "Will all participants receive certificates or prizes?",
-    a: "All participants will receive a certificate of participation. Winners, runners-up, and second runners-up in each category will receive recognition through trophies, cash prizes, and merit certificates. Additional overall awards, including Best Delegation and other special distinctions, will also be presented during the closing ceremony.",
+    a: "Every participant receives a certificate of participation. Category winners, runners-up, and second runners-up receive trophies, cash prizes, and merit certificates. Overall awards, including Best Delegation and other distinctions, are presented at the closing ceremony.",
   },
   {
     q: "Who can I contact if I have any questions?",
-    a: "If you have any questions, you can contact the ABC XIV organising team through the Suggestion tab on this website or by sending us a direct message through our official Instagram page. You may also contact the General Secretary via the email address provided in your registration confirmation.",
+    a: "Use the Suggestion tab, message the Instagram page, or email the General Secretary at the address in your registration confirmation.",
   },
   {
     q: "How many days is the event?",
-    a: "ABC XIV is a two-day event. Day 1 includes registration, the opening ceremony, and preliminary rounds across the various categories. Day 2 features the finals, special sessions, and the grand closing and awards ceremony.",
+    a: "ABC XIV runs over two days. Day 1 covers registration, the opening ceremony, and preliminary rounds. Day 2 covers finals, special sessions, and the closing awards.",
   },
   {
     q: "How many categories can delegates participate in?",
-    a: "Delegates may participate in as many categories as they wish, provided there are no scheduling conflicts. There is no minimum participation requirement, and delegates are encouraged to explore multiple categories to make the most of their ABC XIV experience.",
+    a: "Delegates may enter as many categories as they wish, provided there are no scheduling conflicts. There is no minimum.",
   },
   {
     q: "What benefits do I get from participating in the event?",
-    a: "Participants gain valuable experience through high-level competition, opportunities to connect with students from across the country, and mentorship from industry professionals. Participants also receive certificates for their portfolios and may become eligible for opportunities such as the Spark Tank incubation programme and future ACES Executive Board positions.",
+    a: "High-level competition, contact with students from across the country, and mentorship from industry professionals. Participants receive certificates for their portfolios and may become eligible for Spark Tank incubation and future ACES Executive Board positions.",
   },
   {
     q: "What are the criteria for Best Delegation, and what overall awards are available?",
-    a: "Each competition category awards a winner, runner-up, and second runner-up. These placements contribute double points towards the Best Delegation standings. Enterprise carries no additional weighting towards the Best Delegation award. In addition to Best Delegation, the Olympiad will recognise a Best Delegation Runner-Up, Outstanding Best Delegation, and Best Team.",
+    a: "Each category awards a winner, runner-up, and second runner-up. These placements contribute double points towards Best Delegation. Enterprise carries no additional weighting. The Olympiad also recognises a Best Delegation Runner-Up, Outstanding Best Delegation, and Best Team.",
   },
 ];
 
 const acesFaqs = [
   {
     q: "How do I become a member of ACES?",
-    a: "Membership is open to all Aitchison College students with an interest in business, entrepreneurship, and leadership. Students can get involved by attending ABC Summer Camps or by reaching out to a member of the Executive Council. Active participation in ACES events, initiatives, and competitions is the best way to become an engaged member and work towards earning blazer points.",
+    a: "Membership is open to all Aitchison College students interested in business, entrepreneurship, and leadership. Join through ABC Summer Camps or by speaking to a member of the Executive Council. Active participation in events and competitions is the surest path to blazer points.",
   },
   {
     q: "What competitions does ACES participate in?",
-    a: "ACES participates in a wide range of leading national and international business competitions, including LUMS YLES, KGES, the Blue Ocean Challenge, and the International Business Olympiad. Members are supported through dedicated training, mentorship, and preparation sessions designed to help them perform at their best.",
+    a: "ACES competes nationally and internationally, including LUMS YLES, KGES, the Blue Ocean Challenge, and the International Business Olympiad. Members receive training, mentorship, and preparation sessions.",
   },
   {
     q: "What is the Co-Curricular Blazer and how do I earn points?",
-    a: "The Co-Curricular Blazer is one of Aitchison College’s highest distinctions, recognising students who have demonstrated exceptional achievement and contribution beyond the classroom. ACES members can earn blazer points through competition achievements, Executive Board leadership, and meaningful contributions to the society. For example, securing five national or international competition wins can earn 1.5 points.",
+    a: "The Co-Curricular Blazer is one of Aitchison College’s highest distinctions for achievement beyond the classroom. ACES members earn points through competition results, Executive Board leadership, and contribution to the society. Five national or international wins, for example, earn 1.5 points.",
   },
   {
     q: "How does Spark Tank support student startups?",
-    a: "Spark Tank gives aspiring student entrepreneurs the opportunity to turn their ideas into viable ventures. Selected startups receive access to seed funding, industry mentorship, workspace, and a structured incubation programme. Through a series of pitch rounds and development milestones, participants receive both financial and strategic support as they refine and grow their ventures.",
+    a: "Spark Tank helps students turn ideas into ventures. Selected startups receive seed funding, industry mentorship, workspace, and a structured incubation programme, with pitch rounds and development milestones along the way.",
   },
   {
     q: "Can I join ACES without prior business experience?",
-    a: "Absolutely. ACES welcomes students at every level of experience and is designed to help members build their business knowledge from the ground up. Through training programmes, workshops, competitions, and peer mentorship, students can develop practical skills and confidence regardless of their previous experience.",
+    a: "Yes. ACES is open to every level of experience. Training, workshops, competitions, and peer mentorship are there to build skill and confidence from the ground up.",
   },
 ];
 
@@ -180,6 +182,11 @@ export function IndexSite({ logo, loaderLogo }: { logo: ReactNode; loaderLogo: R
               </a>
             </li>
             <li>
+              <a href="/recognition" className="nav-link">
+                Recognition
+              </a>
+            </li>
+            <li>
               <a
                 href="#response"
                 className="nav-link"
@@ -194,12 +201,12 @@ export function IndexSite({ logo, loaderLogo }: { logo: ReactNode; loaderLogo: R
             </li>
             <li>
               <a href="/code-of-conduct" className="nav-link">
-                Code of conduct
+                Code of Conduct
               </a>
             </li>
             <li>
               <a href="/waiver.pdf" className="nav-link">
-                Liability waiver
+                Liability Waiver
               </a>
             </li>
           </ul>
@@ -231,18 +238,20 @@ export function IndexSite({ logo, loaderLogo }: { logo: ReactNode; loaderLogo: R
                 </p>
                 <div className="silver-rule mt-4" />
               </div>
-              <p className="mt-8 max-w-[40rem] font-body text-[1.12rem] leading-[1.85] text-white/74 md:text-[1.22rem]">
-                The Aitchison College Business Concept is the definitive platform for cultivating
-                entrepreneurial leadership, strategic innovation, and financial discipline among the youth.
-                We operate at the intersection of academic rigor and commercial execution, forging
-                the next generation of institutional leaders.
-              </p>
+              <a
+                href="https://forms.gle/hwTgDKNLNuLbWNw2A"
+                className="cta-link mt-8 text-[0.74rem] md:text-[0.8rem]"
+                target="_blank"
+                rel="noreferrer"
+              >
+                REGISTER NOW
+              </a>
             </div>
           </section>
 
           <section className="timer-section px-5 pb-10 md:px-10">
             <div className="gold-rule mx-auto mb-8 max-w-[34rem]" />
-            <div className="timer-label">Next Event Countdown</div>
+            <div className="timer-label">Countdown to ABC XIV</div>
             <div className="timer-display" id="countdown">
               <div className="timer-unit">
                 <div className="timer-value gold-text" id="days">
@@ -357,7 +366,7 @@ export function IndexSite({ logo, loaderLogo }: { logo: ReactNode; loaderLogo: R
                         </div>
                       </div>
                       <figcaption className="ec-name mt-3.5 text-center font-display text-[0.72rem] tracking-[0.08em] text-white md:text-[0.8rem]">
-                        Ali Hussein
+                        Ali Hussain
                       </figcaption>
                       <div className="ec-role sr-only">executive member</div>
                     </figure>
@@ -385,7 +394,7 @@ export function IndexSite({ logo, loaderLogo }: { logo: ReactNode; loaderLogo: R
           <section id="categories" className="px-5 py-12 md:px-10 md:py-14">
             <div className="silver-rule mb-8 md:mb-10" />
             <div className="mx-auto w-full max-w-[44rem]">
-              <h2 className="section-title font-display text-[1.2rem] tracking-[0.28em] text-white md:text-[1.45rem]">
+              <h2 className="section-title font-display text-[1.35rem] tracking-[0.24em] text-white md:text-[1.7rem]">
                 EVENTS CALENDAR
               </h2>
               <div className="gold-rule mt-5 max-w-[8rem]" />
@@ -417,7 +426,7 @@ export function IndexSite({ logo, loaderLogo }: { logo: ReactNode; loaderLogo: R
           <section className="faq-section px-5 py-12 md:px-10 md:py-14">
             <div className="silver-rule mb-8 md:mb-10" />
             <div className="mx-auto w-full max-w-[44rem]">
-              <h2 className="section-title font-display text-[1.2rem] tracking-[0.28em] text-white md:text-[1.45rem]">
+              <h2 className="section-title font-display text-[1.35rem] tracking-[0.24em] text-white md:text-[1.7rem]">
                 FREQUENTLY ASKED QUESTIONS
               </h2>
               <div className="gold-rule mt-5 max-w-[8rem]" />
@@ -444,56 +453,27 @@ export function IndexSite({ logo, loaderLogo }: { logo: ReactNode; loaderLogo: R
           </section>
 
           <section className="highlights-section px-5 md:px-10">
-            <h2 className="section-title mb-5 text-center font-display text-[1.2rem] tracking-[0.28em] text-white md:text-[1.45rem]">
+            <h2 className="section-title mb-5 text-center font-display text-[1.35rem] tracking-[0.24em] text-white md:text-[1.7rem]">
               ACES HIGHLIGHTS
             </h2>
             <div className="gold-rule mx-auto mb-8 max-w-[8rem]" />
             <div className="highlights-carousel">
-              <article className="highlight-slide active">
-                <div className="highlight-image">
-                  <img src="/yles.jpeg" alt="Aitchison Business Review" />
-                </div>
-                <div className="highlight-content">
-                  <div className="highlight-label">Ntional win</div>
-                  <div className="highlight-title">Best delegation at YLES</div>
-                  <div className="highlight-desc">
-                    Won pakistan premiere business competition after 19 years.
-                  </div>
-                </div>
-              </article>
-              <article className="highlight-slide">
-                <div className="highlight-image">
-                  <img src="/markhors den.jpeg" alt="Aitchison Incubation Programme" />
-                </div>
-                <div className="highlight-content">
-                  <div className="highlight-label">Inter school win</div>
-                  <div className="highlight-title">Best delegation at Markhors den</div>
-                  <div className="highlight-desc" />
-                </div>
-              </article>
-              <article className="highlight-slide">
-                <div className="highlight-image">
-                  <img src="/speaker session.jpeg" alt="Inter-House Championship" />
-                </div>
-                <div className="highlight-content">
-                  <div className="highlight-label">speaker session</div>
-                  <div className="highlight-title">guest speaker session with president Wapda.</div>
-                  <div className="highlight-desc">
-                    Held a guest speaker session with the preident of wapda which educated student about the
-                    water scarcity problem that pakistan might face in the coming years
-                  </div>
-                </div>
-              </article>
-              <article className="highlight-slide">
-                <div className="highlight-image">
-                  <img src="/ja worlds.jpeg" alt="ACES Entrepreneurship" />
-                </div>
-                <div className="highlight-content">
-                  <div className="highlight-label">Company of the year</div>
-                  <div className="highlight-title">JA world wide best team</div>
-                  <div className="highlight-desc" />
-                </div>
-              </article>
+              {acesHighlights.map((moment, index) => (
+                <article
+                  className={`highlight-slide${index === 0 ? " active" : ""}`}
+                  key={moment.id}
+                >
+                  <a href={`/news/${moment.slug}`} className="highlight-link">
+                    <div className="highlight-image">
+                      <img src={moment.image} alt={moment.imageAlt} />
+                    </div>
+                    <div className="highlight-content">
+                      <div className="highlight-label">{moment.kicker}</div>
+                      <div className="highlight-title">{moment.headline}</div>
+                    </div>
+                  </a>
+                </article>
+              ))}
               <div className="highlight-nav">
                 <button type="button" id="highlightPrev" aria-label="Previous highlight">
                   ←
@@ -504,47 +484,56 @@ export function IndexSite({ logo, loaderLogo }: { logo: ReactNode; loaderLogo: R
               </div>
             </div>
             <div className="highlight-dots">
-              <button className="highlight-dot active" data-slide="0" aria-label="Highlight 1" />
-              <button className="highlight-dot" data-slide="1" aria-label="Highlight 2" />
-              <button className="highlight-dot" data-slide="2" aria-label="Highlight 3" />
-              <button className="highlight-dot" data-slide="3" aria-label="Highlight 4" />
+              {acesHighlights.map((moment, index) => (
+                <button
+                  className={`highlight-dot${index === 0 ? " active" : ""}`}
+                  data-slide={String(index)}
+                  aria-label={`${moment.headline} highlight`}
+                  key={moment.id}
+                />
+              ))}
+            </div>
+            <div className="mt-9 text-center">
+              <a href="/recognition" className="cta-link text-[0.68rem]">
+                RECOGNITION →
+              </a>
             </div>
           </section>
 
           <div className="society-content px-5 py-12 md:px-10">
-            <div className="advisor-card mx-auto max-w-[40rem] text-center">
-              <div className="section-title gold-text mb-6 text-center font-display text-[0.72rem] tracking-[0.3em]">
-                STAFF ADVISOR
+            <Reveal>
+              <div className="advisor-card mx-auto max-w-[40rem] text-center">
+              <p className="gold-text advisor-kicker">Staff Advisor</p>
+              <div className="advisor-frame mt-6">
+                <img
+                  src="/XIII Vectors/staff-advisor.png"
+                  alt="Miss Tosheeba Sarwar"
+                  className="advisor-pfp"
+                />
               </div>
-              <div className="advisor-frame">
-                <img src="/XIII Vectors/staff.jpeg" alt="Staff Advisor" className="advisor-pfp" />
-              </div>
-              <div className="advisor-info mt-6">
-                <h3 className="font-display text-[1.05rem] tracking-[0.14em] text-white">
-                  Staff Advisor Directive
-                </h3>
-                <div className="advisor-role mt-2 font-body text-[0.8rem] tracking-[0.12em] text-silver/70">
-                  Aitchison Entrepreneurial Society
-                </div>
-                <p className="advisor-message mt-6 font-body text-[1.05rem] leading-[1.85] text-white/74">
-                  &ldquo;The Entrepreneurial Society exists to dismantle the boundary between theoretical
+              <div className="advisor-info mt-7">
+                <h3 className="advisor-name">Miss Tosheeba Sarwar</h3>
+                <p className="advisor-role">Staff Advisor · Aitchison Entrepreneurial Society</p>
+                <div className="gold-rule mx-auto mt-6 max-w-[5.5rem]" />
+                <blockquote className="advisor-message">
+                  The Entrepreneurial Society exists to dismantle the boundary between theoretical
                   understanding and market execution. We demand rigor, reward initiative, and cultivate
                   the disciplined mindset required to navigate complex commercial landscapes. Our mandate
-                  is clear: produce operators, not observers.&rdquo;
-                </p>
+                  is clear: produce operators, not observers.
+                </blockquote>
               </div>
             </div>
+            </Reveal>
 
-            <p className="aces-intro-paragraph mx-auto mt-16 max-w-[44rem] font-body text-[1.05rem] leading-[1.85] text-white/74">
-              The <strong>Aitchison Entrepreneurial Society (ACES)</strong> has established itself as one of
-              Pakistan&apos;s most distinguished extracurricular institutions — pioneering youth entrepreneurship,
-              strategic leadership, and commercial execution within Aitchison College and beyond. Its influence
-              extends far past the college gates, inspiring student societies across the nation, forging an
-              unbroken lineage of business operators, institutional leaders, and competitive minds who carry
-              the ACES ethos into the highest echelons of global academia and industry.
+            <Reveal delay={0.08}>
+            <p className="aces-intro-paragraph mx-auto mt-16 max-w-[42rem] font-body text-[1.05rem] leading-[1.8] text-white/74">
+              The <strong>Aitchison Entrepreneurial Society (ACES)</strong> is among Pakistan’s most
+              distinguished student societies for entrepreneurship, leadership, and commercial
+              practice — at Aitchison and beyond.
             </p>
+            </Reveal>
 
-            <div className="section-title mt-12 text-center font-display text-[1.2rem] tracking-[0.28em] text-white">
+            <div className="section-title mt-12 text-center font-display text-[1.35rem] tracking-[0.24em] text-white">
               SOCIETY BENEFITS &amp; LAURELS
             </div>
             <div className="gold-rule mx-auto mt-5 max-w-[8rem]" />
@@ -555,9 +544,9 @@ export function IndexSite({ logo, loaderLogo }: { logo: ReactNode; loaderLogo: R
                 <div className="benefit-body py-5">
                   <div className="benefit-title">Co-Curricular Blazer Points</div>
                   <div className="benefit-desc">
-                    Members earn formal credits toward Aitchison&apos;s prestigious Co-Curricular Blazer — 1.5
-                    points for 5 national or international competition wins, with 1 point the president and 0.5
-                    for General-Secretary
+                    Members earn credits toward Aitchison’s Co-Curricular Blazer — 1.5 points for five
+                    national or international competition wins, 1 point for the President, and 0.5 for
+                    the General Secretary.
                   </div>
                 </div>
               </div>
@@ -566,9 +555,8 @@ export function IndexSite({ logo, loaderLogo }: { logo: ReactNode; loaderLogo: R
                 <div className="benefit-body py-5">
                   <div className="benefit-title">University Laurels</div>
                   <div className="benefit-desc">
-                    ACES accolades carry significant weight in Ivy-League and global university applications,
-                    backed by a distinguished alumni history of acceptances at the world&apos;s most competitive
-                    institutions.
+                    ACES results carry weight in university applications, including Ivy League and
+                    other competitive institutions, supported by a record of alumni acceptances.
                   </div>
                 </div>
               </div>
@@ -577,8 +565,8 @@ export function IndexSite({ logo, loaderLogo }: { logo: ReactNode; loaderLogo: R
                 <div className="benefit-body py-5">
                   <div className="benefit-title">Executive Skill Mastery</div>
                   <div className="benefit-desc">
-                    Develop the real-world competencies that define institutional leaders — public speaking,
-                    high-stakes negotiation, crisis management, financial modeling, and commercial strategy.
+                    Public speaking, negotiation, crisis management, financial modelling, and commercial
+                    strategy — practised under competition conditions.
                   </div>
                 </div>
               </div>
@@ -587,8 +575,8 @@ export function IndexSite({ logo, loaderLogo }: { logo: ReactNode; loaderLogo: R
                 <div className="benefit-body py-5">
                   <div className="benefit-title">Podium Track Record</div>
                   <div className="benefit-desc">
-                    Consistent top-tier finishes across Pakistan&apos;s most prestigious competitions — LUMS YLES,
-                    KGES, Blue Ocean Challenge, and the International Business Olympiad.
+                    Consistent finishes at LUMS YLES, KGES, the Blue Ocean Challenge, and the
+                    International Business Olympiad.
                   </div>
                 </div>
               </div>
@@ -600,8 +588,8 @@ export function IndexSite({ logo, loaderLogo }: { logo: ReactNode; loaderLogo: R
                 <div className="initiative-label">Publication</div>
                 <div className="initiative-title">Aitchison Business Review</div>
                 <div className="initiative-desc">
-                  Pakistan&apos;s premier high-school business journal — a platform for student research, economic
-                  journalism, and editorial analysis that shapes discourse beyond the classroom.
+                  Pakistan’s premier high-school business journal — student research, economic
+                  journalism, and editorial analysis.
                 </div>
                 <a href="/abr" className="cta-link initiative-button mt-6 text-[0.68rem]">
                   EXPLORE PUBLICATION →
@@ -611,9 +599,8 @@ export function IndexSite({ logo, loaderLogo }: { logo: ReactNode; loaderLogo: R
                 <div className="initiative-label">Startup Incubator</div>
                 <div className="initiative-title">Aitchison Incubation Programme</div>
                 <div className="initiative-desc">
-                  A dedicated startup incubator and funding programme designed to transform student ideas into
-                  viable ventures — providing seed capital, mentorship from industry veterans, and structured
-                  guidance through every stage of commercial development.
+                  Seed capital, industry mentorship, and structured guidance to take a student idea
+                  through commercial development.
                 </div>
                 <a href="/incubation" className="cta-link initiative-button mt-6 text-[0.68rem]">
                   EXPLORE PROGRAMME →
@@ -623,8 +610,8 @@ export function IndexSite({ logo, loaderLogo }: { logo: ReactNode; loaderLogo: R
                 <div className="initiative-label">Internal Competition</div>
                 <div className="initiative-title">Inter-House Championship</div>
                 <div className="initiative-desc">
-                  An intra-college tournament where delegates from all 17 Aitchison houses pitch original
-                  business ventures, driving structured rivalry, innovation, and cross-house collaboration.
+                  Delegates from all 17 Aitchison houses pitch original ventures in a structured
+                  intra-college tournament.
                 </div>
                 <a href="/inter-house" className="cta-link initiative-button mt-6 text-[0.68rem]">
                   VIEW CHAMPIONSHIP →
@@ -636,7 +623,7 @@ export function IndexSite({ logo, loaderLogo }: { logo: ReactNode; loaderLogo: R
           <section className="faq-section px-5 py-12 md:px-10 md:py-14">
             <div className="silver-rule mb-8 md:mb-10" />
             <div className="mx-auto w-full max-w-[44rem]">
-              <h2 className="section-title font-display text-[1.2rem] tracking-[0.28em] text-white md:text-[1.45rem]">
+              <h2 className="section-title font-display text-[1.35rem] tracking-[0.24em] text-white md:text-[1.7rem]">
                 FREQUENTLY ASKED QUESTIONS
               </h2>
               <div className="gold-rule mt-5 max-w-[8rem]" />
@@ -650,7 +637,7 @@ export function IndexSite({ logo, loaderLogo }: { logo: ReactNode; loaderLogo: R
                   rel="noreferrer"
                   className="font-body text-[0.78rem] uppercase tracking-[0.22em] text-silver/70"
                 >
-                  For more queries visit our instagram page
+                  Visit our Instagram
                 </a>
               </div>
             </div>
@@ -660,11 +647,11 @@ export function IndexSite({ logo, loaderLogo }: { logo: ReactNode; loaderLogo: R
         <div id="response" className="page">
           <section className="relative px-5 pb-8 pt-[5.6rem] md:px-10 md:pt-[6.4rem]">
             <div className="mx-auto flex w-full max-w-[40rem] flex-col items-center text-center">
-              <h1 className="font-display text-[1.45rem] tracking-[0.16em] text-white md:text-[1.9rem]">
+              <h1 className="font-display text-[1.55rem] tracking-[0.16em] text-white md:text-[2.05rem]">
                 DIRECTIVE RESPONSE
               </h1>
-              <p className="mt-6 font-body text-[1.05rem] leading-[1.85] text-white/74">
-                Submit operational feedback and strategic recommendations for society improvement.
+              <p className="mt-6 font-body text-[1.05rem] leading-[1.8] text-white/74">
+                Feedback and recommendations for the society.
               </p>
               <div className="gold-rule mx-auto mt-6 max-w-[8rem]" />
             </div>
@@ -698,7 +685,7 @@ export function IndexSite({ logo, loaderLogo }: { logo: ReactNode; loaderLogo: R
                 <textarea placeholder="State your recommendation or concern with precision..." required />
               </div>
               <button type="submit" className="submit-btn">
-                Transmit Response
+                Send Response
               </button>
             </form>
           </div>
@@ -737,13 +724,18 @@ export function IndexSite({ logo, loaderLogo }: { logo: ReactNode; loaderLogo: R
             </a>
           </div>
           <button className="help-button" id="helpButton" aria-label="Open help options" aria-expanded="false">
-            ?
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path
+                fill="currentColor"
+                d="M4.5 5.75A3.25 3.25 0 0 1 7.75 2.5h8.5A3.25 3.25 0 0 1 19.5 5.75v6.5a3.25 3.25 0 0 1-3.25 3.25H12.4l-3.55 3.2a.75.75 0 0 1-1.25-.55v-2.65H7.75A3.25 3.25 0 0 1 4.5 12.25v-6.5Zm3.25-.75a1.75 1.75 0 0 0-1.75 1.75v6.5c0 .966.784 1.75 1.75 1.75h1.2a.75.75 0 0 1 .75.75v1.5l2.35-2.12a.75.75 0 0 1 .5-.18h4.95a1.75 1.75 0 0 0 1.75-1.75v-6.5a1.75 1.75 0 0 0-1.75-1.75h-8.5Z"
+              />
+            </svg>
           </button>
         </div>
       </footer>
 
       <div className="toast" id="toast">
-        Response transmitted successfully.
+        Response sent.
       </div>
     </>
   );

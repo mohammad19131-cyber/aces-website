@@ -25,13 +25,14 @@ export const navLinks = [
   { href: "#abc", label: "ABC", tab: "abc" },
   { href: "/abr", label: "ABR" },
   { href: "/study-guide", label: "Study Guide" },
+  { href: "/recognition", label: "Recognition" },
   { href: "#response", label: "Suggestion", tab: "response" },
-  { href: "/code-of-conduct", label: "Code of conduct" },
-  { href: "/waiver.pdf", label: "Liability waiver" },
+  { href: "/code-of-conduct", label: "Code of Conduct" },
+  { href: "/waiver.pdf", label: "Liability Waiver" },
 ] as const;
 
 export const aboutText =
-  "The Aitchison Business Concept is organised by the Aitchison College Entrepreneurial Society. The fourteenth edition brings students together across twelve categories to test entrepreneurial skill, judgement, and collaboration.";
+  "The Aitchison Business Concept is organised by the Aitchison College Entrepreneurial Society. The fourteenth edition brings students together across fourteen categories to test entrepreneurial skill, judgement, and collaboration.";
 
 export const eventFacts = [
   { label: "Date", value: site.eventDateLabel },
@@ -59,7 +60,7 @@ export const generalSecretary: CouncilMember = {
 
 export const executiveMembers: CouncilMember[] = [
   {
-    name: "Ali Hussein",
+    name: "Ali Hussain",
     role: "Executive Member",
     image: "/council/ali-hussein.png",
   },
@@ -86,19 +87,19 @@ export const compulsoryCategories: Category[] = [
     number: "01",
     name: "Build Your Own Idea",
     description:
-      "This category involves delegates coming up with their own business ideas that they will pitch to investors. As they battle for investment into their business idea, teams are expected to create a well thought out business idea, as well as conduct appropriate research in order to give a skeleton to their raw idea.",
+      "This category involves delegates coming up with their own business ideas that they will pitch to investors. As they battle for investment into their business idea, teams are expected to create a well-thought-out business idea, as well as conduct appropriate research in order to give a skeleton to their raw idea.",
   },
   {
     number: "02",
-    name: "Ad-Making",
+    name: "Ad Making",
     description:
-      "Media has become an important aspect of our lives, and it is utilized by all multinational corporations. In this category, delegates will be required to create an ad and set up stalls for allotted companies, allowing them to show their mettle and prowess in the fields of creativity, cinematography, and editing.",
+      "Media has become an important aspect of our lives, and it is used by all multinational corporations. In this category, delegates will be required to create an ad and set up stalls for allotted companies, allowing them to show their mettle and prowess in the fields of creativity, cinematography, and editing.",
   },
   {
     number: "03",
     name: "Social Entrepreneurship",
     description:
-      "In this category, delegates will tackle social or environmental problems by developing a feasible business plan for a struggling business, that is environmentally friendly or socially beneficial whilst remaining profitable.",
+      "In this category, delegates will tackle social or environmental problems by developing a feasible business plan for a struggling business that is environmentally friendly or socially beneficial whilst remaining profitable.",
   },
   {
     number: "04",
@@ -119,7 +120,7 @@ export const optionalCategories: Category[] = [
     number: "06",
     name: "Corporate Espionage",
     description:
-      "The category will test a plethora of skills in the world of corporate espionage, ranging from quick thinking to financial prowess. Based on a case study, delegates will be required to interrogate, arbitrate and come to conclusions.",
+      "The category will test a plethora of skills in the world of corporate espionage, ranging from quick thinking to financial prowess. Based on a case study, delegates will be required to interrogate, arbitrate, and come to conclusions.",
   },
   {
     number: "07",
@@ -149,11 +150,11 @@ export const optionalCategories: Category[] = [
     number: "11",
     name: "The Amazing Race",
     description:
-      "This category will challenge delegates to think on their feet as they navigate high-pressure corporate negotiations and various kinds of crisis situations. Delegates will be required to collaborate, analyze business case studies, and reach mutual agreements under tight deadlines.",
+      "This category will challenge delegates to think on their feet as they navigate high-pressure corporate negotiations and various kinds of crisis situations. Delegates will be required to collaborate, analyse business case studies, and reach mutual agreements under tight deadlines.",
   },
   {
     number: "12",
-    name: "Techneurship",
+    name: "Techeneurship",
     description:
       "Innovation defines entrepreneurship, and what better sector is there for innovation than technology? In this high-stakes and intense category, delegates will need to use their wits and knowledge regarding fintech to gain any advantage they can amidst multiple crises.",
   },

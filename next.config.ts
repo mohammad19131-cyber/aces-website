@@ -12,6 +12,7 @@ const nextConfig: NextConfig = {
       { source: "/code-conduct.html", destination: "/code-of-conduct", permanent: true },
       { source: "/incubation.html", destination: "/incubation", permanent: true },
       { source: "/inter-house.html", destination: "/inter-house", permanent: true },
+      { source: "/top-performing-juniors", destination: "/recognition", permanent: true },
     ];
   },
 };

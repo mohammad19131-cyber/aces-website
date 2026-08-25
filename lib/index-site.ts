@@ -132,6 +132,7 @@ export function initIndexSite() {
   const nextButton = document.getElementById("highlightNext");
   const carousel = document.querySelector(".highlights-carousel");
   let currentIndex = 0;
+  let didSwipe = false;
 
   function updateHighlights() {
     const total = slides.length;
@@ -173,9 +174,19 @@ export function initIndexSite() {
     return { dot, handler };
   });
   const slideHandlers = slides.map((slide) => {
-    const handler = () => {
-      if (slide.classList.contains("prev")) previousHighlight();
-      else if (slide.classList.contains("next")) nextHighlight();
+    const handler = (event: Event) => {
+      if (didSwipe) {
+        event.preventDefault();
+        didSwipe = false;
+        return;
+      }
+      if (slide.classList.contains("prev")) {
+        event.preventDefault();
+        previousHighlight();
+      } else if (slide.classList.contains("next")) {
+        event.preventDefault();
+        nextHighlight();
+      }
     };
     slide.addEventListener("click", handler);
     return { slide, handler };
@@ -195,6 +206,7 @@ export function initIndexSite() {
     const touch = (event as TouchEvent).changedTouches[0];
     touchStartX = touch.clientX;
     touchStartY = touch.clientY;
+    didSwipe = false;
   };
   const onTouchEnd = (event: Event) => {
     const touch = (event as TouchEvent).changedTouches[0];
@@ -202,6 +214,7 @@ export function initIndexSite() {
     const differenceY = touchStartY - touch.clientY;
     if (Math.abs(differenceX) < Math.abs(differenceY)) return;
     if (Math.abs(differenceX) < 50) return;
+    didSwipe = true;
     if (differenceX > 0) nextHighlight();
     else previousHighlight();
   };

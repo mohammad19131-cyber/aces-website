@@ -14,8 +14,8 @@ export default async function AbrPage() {
         <h1>Aitchison Business Review</h1>
         <div className="gold-rule mx-auto mt-5 max-w-[8rem]" />
         <p className="page-lede">
-          Pakistan&apos;s premier high-school business journal — a platform for student research,
-          economic journalism, and editorial analysis.
+          Pakistan&apos;s premier high-school business journal — student research, economic journalism,
+          and editorial analysis.
         </p>
       </section>
       <section className="page-block">

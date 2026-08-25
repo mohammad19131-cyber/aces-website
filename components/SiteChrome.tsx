@@ -9,9 +9,10 @@ export const chromeLinks = [
   { href: "/", label: "ABC" },
   { href: "/abr", label: "ABR" },
   { href: "/study-guide", label: "Study Guide" },
+  { href: "/recognition", label: "Recognition" },
   { href: "/#response", label: "Suggestion" },
-  { href: "/code-of-conduct", label: "Code of conduct" },
-  { href: "/waiver.pdf", label: "Liability waiver" },
+  { href: "/code-of-conduct", label: "Code of Conduct" },
+  { href: "/waiver.pdf", label: "Liability Waiver" },
 ] as const;
 
 export function SiteChrome({

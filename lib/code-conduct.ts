@@ -22,7 +22,7 @@ export const codeOfConductSections: CodeOfConductSection[] = [
     rules: [
       {
         title: "1.1 — Respect",
-        text: "All participants must treat fellow participants, organizers, judges, faculty, and staff with respect and courtesy. Discrimination, harassment, intimidation, bullying, or threatening behaviour will not be tolerated.",
+        text: "All participants must treat fellow participants, organisers, judges, faculty, and staff with respect and courtesy. Discrimination, harassment, intimidation, bullying, or threatening behaviour will not be tolerated.",
       },
       {
         title: "1.2 — Professionalism",
@@ -30,7 +30,7 @@ export const codeOfConductSections: CodeOfConductSection[] = [
       },
       {
         title: "1.3 — Following Instructions",
-        text: "Participants must follow reasonable instructions issued by ACES organizers, event coordinators, judges, and authorized college personnel.",
+        text: "Participants must follow reasonable instructions issued by ACES organisers, event coordinators, judges, and authorised college personnel.",
       },
       {
         title: "1.4 — Punctuality",
@@ -119,13 +119,13 @@ export const codeOfConductSections: CodeOfConductSection[] = [
     list: [
       "Harassment, bullying, discrimination, or threatening behaviour.",
       "Physical violence or deliberate attempts to cause harm.",
-      "Cheating or unauthorized collaboration.",
+      "Cheating or unauthorised collaboration.",
       "Plagiarism or deliberate misrepresentation.",
       "Tampering with competition equipment, software, submissions, or infrastructure.",
-      "Unauthorized access to another participant's account, files, or information.",
+      "Unauthorised access to another participant's account, files, or information.",
       "Deliberately disrupting an event or another participant's performance.",
       "Falsifying documents or competition-related information.",
-      "Attempting to bribe, manipulate, or improperly influence judges or organizers.",
+      "Attempting to bribe, manipulate, or improperly influence judges or organisers.",
       "Any conduct that violates Aitchison College policies or applicable law.",
     ],
   },
@@ -135,7 +135,7 @@ export const codeOfConductSections: CodeOfConductSection[] = [
     title: "Technology & Competition Equipment",
     paragraphs: [
       "Participants must use competition equipment, computers, networks, software, and other resources only for their intended purpose.",
-      "Unauthorized modification, interference, damage, or access to competition systems is prohibited.",
+      "Unauthorised modification, interference, damage, or access to competition systems is prohibited.",
       "Participants are responsible for ensuring that their own devices and materials comply with any technical requirements communicated before an event.",
     ],
   },
@@ -145,7 +145,7 @@ export const codeOfConductSections: CodeOfConductSection[] = [
     title: "Confidentiality",
     paragraphs: [
       "Participants may receive information, materials, prompts, datasets, business ideas, or other content that is intended to remain confidential during a competition.",
-      "Such information must not be shared with competing teams or external parties where the organizers have designated it as confidential.",
+      "Such information must not be shared with competing teams or external parties where the organisers have designated it as confidential.",
     ],
   },
   {
@@ -153,7 +153,7 @@ export const codeOfConductSections: CodeOfConductSection[] = [
     number: "08",
     title: "Reporting Violations",
     paragraphs: [
-      "Participants who believe that a serious violation has occurred should report the matter to an ACES organizer, event coordinator, or designated authority as soon as reasonably possible.",
+      "Participants who believe that a serious violation has occurred should report the matter to an ACES organiser, event coordinator, or designated authority as soon as reasonably possible.",
       "Reports should be made honestly and in good faith. False or deliberately malicious accusations may themselves be considered misconduct.",
     ],
   },
@@ -182,7 +182,7 @@ export const codeOfConductSections: CodeOfConductSection[] = [
     number: "10",
     title: "Appeals",
     paragraphs: [
-      "Where an event provides an official appeal mechanism, participants must submit appeals through the procedure and within the timeframe communicated by the organizers.",
+      "Where an event provides an official appeal mechanism, participants must submit appeals through the procedure and within the timeframe communicated by the organisers.",
       "Appeals must be based on a legitimate procedural or factual concern and must not be used to challenge a judge's decision simply because a participant disagrees with the outcome.",
     ],
   },
@@ -192,7 +192,7 @@ export const codeOfConductSections: CodeOfConductSection[] = [
     title: "Responsibility of Participants",
     paragraphs: [
       "By participating in an ACES event, participants acknowledge that they are responsible for understanding and following the applicable rules and instructions.",
-      "Participants should seek clarification from the organizers if they are uncertain about whether a particular action is permitted.",
+      "Participants should seek clarification from the organisers if they are uncertain about whether a particular action is permitted.",
     ],
   },
   {
