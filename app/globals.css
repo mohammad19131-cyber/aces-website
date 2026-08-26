@@ -2352,7 +2352,7 @@ textarea {
 }
 
 .aces-hero-title {
-  font-family: var(--font-display);
+  font-family: var(--font-aces-title), "DM Serif Display", serif;
   font-weight: 700;
   font-size: clamp(1.55rem, 3.8vw, 2.35rem);
   letter-spacing: 0.18em;
@@ -2457,10 +2457,6 @@ textarea {
   color: rgba(255, 255, 255, 0.62);
 }
 
-.team-branch-lede-spacer {
-  visibility: hidden;
-}
-
 .team-rung-title {
   margin-bottom: 1.35rem;
   font-family: var(--font-display);
@@ -2561,19 +2557,108 @@ textarea {
   min-width: 0;
 }
 
-.team-eh-grid,
-.team-director-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+.team-eh-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
 }
 
-.team-eh-grid {
-  gap: 1.65rem 1.1rem;
+.team-eh-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0.95rem 0.55rem 1.05rem;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(25, 49, 64, 0.42) 0%, transparent 70%),
+    rgba(11, 20, 30, 0.55);
+  box-shadow: inset 0 0 0 1px rgba(198, 205, 212, 0.14);
+}
+
+.team-eh-card .team-seat-mark {
+  width: 3.55rem;
+  height: 3.55rem;
+  margin-top: 0.85rem;
+}
+
+.team-eh-name {
+  margin-top: 0.55rem;
+  min-height: 2.6em;
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .team-director-grid {
   gap: 1.85rem 1.35rem;
+}
+
+.team-director-groups {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.95rem;
+  align-items: stretch;
+}
+
+.team-director-group {
+  display: flex;
+  min-width: 0;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.15rem 0.7rem 1.2rem;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(25, 49, 64, 0.42) 0%, transparent 70%),
+    rgba(11, 20, 30, 0.55);
+  box-shadow: inset 0 0 0 1px rgba(198, 205, 212, 0.14);
+}
+
+.team-director-label {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  background-image: var(--gold-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.team-director-people {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.75rem 0.65rem;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.team-director-people .team-seat-director {
+  width: 7.4rem;
+  flex: 0 0 7.4rem;
+}
+
+.team-director-people .team-vacant-sm {
+  width: 3.85rem;
+  height: 3.85rem;
+}
+
+.team-director-name {
+  margin-top: 0.55rem;
+  min-height: 3.2em;
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .team-seat {
@@ -2732,6 +2817,21 @@ textarea {
     width: 4.7rem;
     height: 4.7rem;
   }
+
+  .team-director-groups {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .team-director-people .team-seat-director {
+    width: 8.4rem;
+    flex-basis: 8.4rem;
+  }
+
+  .team-director-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+  }
 }
 
 @media (min-width: 960px) {
@@ -2759,7 +2859,16 @@ textarea {
   }
 
   .team-eh-grid {
-    gap: 1.8rem 0.7rem;
+    gap: 0.8rem 0.7rem;
+  }
+
+  .team-eh-card {
+    padding: 0.9rem 0.5rem 0.95rem;
+  }
+
+  .team-eh-card .team-seat-mark {
+    width: 3.35rem;
+    height: 3.35rem;
   }
 
   .team-seat {
@@ -2768,6 +2877,24 @@ textarea {
 
   .team-seat-director {
     width: 9.6rem;
+  }
+
+  .team-director-groups {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  .team-director-group {
+    padding: 1.05rem 0.75rem 1.1rem;
+  }
+
+  .team-director-people {
+    gap: 0.85rem 0.65rem;
+  }
+
+  .team-director-people .team-seat-director {
+    width: 7.6rem;
+    flex-basis: 7.6rem;
   }
 }
 
@@ -2785,10 +2912,6 @@ textarea {
   .team-fork-stem {
     left: 50%;
     height: 100%;
-  }
-
-  .team-branch-lede-spacer {
-    display: none;
   }
 
   .team-branch-lede {

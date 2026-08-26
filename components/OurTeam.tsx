@@ -1,7 +1,7 @@
 "use client";
 
 import { Reveal } from "@/components/Reveal";
-import { coreHeads, directors, eventHeadCategories } from "@/lib/team";
+import { coreHeads, directorGroups, eventHeadCategories } from "@/lib/team";
 
 function Stem({ className = "" }: { className?: string }) {
   return <div className={`team-stem ${className}`.trim()} aria-hidden />;
@@ -20,7 +20,7 @@ export function OurTeam() {
     <section id="team" className="page-block pt-2 md:pt-3">
       <div className="mx-auto w-full max-w-[1120px]">
         <div className="council-panel our-team-panel px-5 py-12 sm:px-10 md:px-16 md:py-[4.25rem]">
-          <Reveal>
+          <Reveal immediate>
             <div className="team-level team-ec">
               <h2 className="team-level-title">EXECUTIVE COUNCIL</h2>
               <div className="gold-rule mx-auto mt-5 max-w-[12rem]" />
@@ -165,12 +165,13 @@ export function OurTeam() {
                 <h4 className="team-rung-title">EVENT HEADS</h4>
                 <div className="team-eh-grid">
                   {eventHeadCategories.map((category) => (
-                    <article className="team-seat" key={category.id}>
+                    <article className="team-eh-card" key={category.id}>
+                      <p className="team-director-label">Event Head</p>
+                      <div className="gold-rule mx-auto mt-3 max-w-[3.2rem]" />
                       <div className="team-seat-mark">
                         <img src={category.image} alt={category.name} />
                       </div>
-                      <p className="team-seat-role">Event Head</p>
-                      <p className="team-seat-office">{category.name}</p>
+                      <p className="team-eh-name">{category.name}</p>
                     </article>
                   ))}
                 </div>
@@ -190,18 +191,33 @@ export function OurTeam() {
             <Reveal delay={0.14}>
               <div className="team-branch">
                 <h3 className="team-branch-title">DIRECTORATE</h3>
-                <p className="team-branch-lede team-branch-lede-spacer" />
+                <p className="team-branch-lede">
+                  Responsible for registrations, operations, coordinations, and promotions.
+                </p>
 
                 <Stem className="team-stem-sm" />
 
                 <h4 className="team-rung-title">DIRECTORS</h4>
-                <div className="team-director-grid">
-                  {directors.map((director) => (
-                    <article className="team-seat team-seat-director" key={director.id}>
-                      <VacantFrame size="md" />
-                      <p className="team-seat-role">{director.role}</p>
-                      <p className="team-seat-office">{director.office}</p>
-                    </article>
+                <div className="team-director-groups">
+                  {directorGroups.map((group) => (
+                    <div
+                      className="team-director-group"
+                      data-count={group.members.length}
+                      key={group.id}
+                    >
+                      <p className="team-director-label">
+                        {group.role} {group.office}
+                      </p>
+                      <div className="gold-rule mx-auto mt-3 max-w-[3.6rem]" />
+                      <div className="team-director-people">
+                        {group.members.map((member) => (
+                          <article className="team-seat team-seat-director" key={member.id}>
+                            <VacantFrame size="sm" />
+                            <p className="team-director-name">{member.name}</p>
+                          </article>
+                        ))}
+                      </div>
+                    </div>
                   ))}
                 </div>
 

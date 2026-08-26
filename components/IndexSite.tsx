@@ -3,6 +3,7 @@
 import { useEffect, type ReactNode } from "react";
 import { AcesBenefits } from "@/components/AcesBenefits";
 import { Reveal } from "@/components/Reveal";
+import { dmSerifDisplay } from "@/lib/fonts";
 import { closeMenu, initIndexSite, showTab, toggleMenu } from "@/lib/index-site";
 import { acesHighlights } from "@/lib/recognition";
 import { registerHref, site } from "@/lib/site";
@@ -446,7 +447,7 @@ export function IndexSite({ logo, loaderLogo }: { logo: ReactNode; loaderLogo: R
         <div id="society" className="page active">
           <section className="relative px-5 pb-8 pt-[5.6rem] md:px-10 md:pb-10 md:pt-[6.4rem]">
             <div className="mx-auto flex w-full max-w-[1120px] flex-col items-center text-center">
-              <h1 className="aces-hero-title">
+              <h1 className={`aces-hero-title ${dmSerifDisplay.variable}`}>
                 AITCHISON COLLEGE
                 <br />
                 ENTREPRENEURIAL SOCIETY

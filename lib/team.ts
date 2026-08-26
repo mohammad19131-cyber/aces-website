@@ -29,9 +29,56 @@ export const coreHeads: TeamSeat[] = [
   { id: "core-3", role: "Head of Core Team", office: "" },
 ];
 
-export const directors: TeamSeat[] = [
-  { id: "operations", role: "Director", office: "Operations" },
-  { id: "registrations", role: "Director", office: "Registrations" },
-  { id: "coordinations", role: "Director", office: "Coordinations" },
-  { id: "promotions", role: "Director", office: "Promotions" },
+export type DirectorMember = {
+  id: string;
+  name: string;
+};
+
+export type DirectorGroup = {
+  id: string;
+  role: string;
+  office: string;
+  members: DirectorMember[];
+};
+
+export const directorGroups: DirectorGroup[] = [
+  {
+    id: "registrations",
+    role: "Director",
+    office: "Registrations",
+    members: [
+      { id: "mikail-liaqat", name: "Mikail Liaqat" },
+      { id: "raed-mohsin-khan", name: "Raed Mohsin Khan" },
+    ],
+  },
+  {
+    id: "operations",
+    role: "Director",
+    office: "Operations",
+    members: [
+      { id: "sarmad-nazir", name: "Sarmad Nazir" },
+      { id: "muhammad-umer", name: "Muhammad Umer" },
+      { id: "kanwar-uzair", name: "Kanwar Uzair" },
+    ],
+  },
+  {
+    id: "coordinations",
+    role: "Director",
+    office: "Coordinations",
+    members: [
+      { id: "rao-mateen", name: "Rao Mateen" },
+      { id: "aalay-hasnain", name: "Aalay Hasnain" },
+      { id: "asad-ur-rehman", name: "Asad ur Rehman" },
+      { id: "muhammad-azaan", name: "Muhammad Azaan" },
+    ],
+  },
+  {
+    id: "promotions",
+    role: "Director",
+    office: "Promotions",
+    members: [
+      { id: "owais-joiya", name: "Owais Joiya" },
+      { id: "hashim-amjad-nagra", name: "Hashim Amjad Nagra" },
+    ],
+  },
 ];

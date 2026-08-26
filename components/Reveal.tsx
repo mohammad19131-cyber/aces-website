@@ -7,15 +7,21 @@ type RevealProps = {
   children: ReactNode;
   className?: string;
   delay?: number;
+  immediate?: boolean;
 };
 
-export function Reveal({ children, className, delay = 0 }: RevealProps) {
+export function Reveal({
+  children,
+  className,
+  delay = 0,
+  immediate = false,
+}: RevealProps) {
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, y: 18 }}
+      initial={immediate ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-72px" }}
+      viewport={{ once: true, margin: immediate ? "0px" : "-72px" }}
       transition={{
         duration: 0.7,
         delay,
