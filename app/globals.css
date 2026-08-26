@@ -948,6 +948,209 @@ textarea {
   color: rgba(255, 255, 255, 0.7);
 }
 
+.laurel-board {
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+.laurel-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.9rem;
+  margin-top: 2.1rem;
+}
+
+.laurel-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100%;
+  padding: 1.4rem 1.3rem 1.25rem;
+  overflow: hidden;
+  appearance: none;
+  border: 0;
+  background:
+    radial-gradient(ellipse 90% 70% at 8% 0%, rgba(25, 49, 64, 0.7) 0%, transparent 68%),
+    #0b141e;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  opacity: 0.78;
+  transition:
+    transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.32s ease,
+    opacity 0.32s ease;
+}
+
+.laurel-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  pointer-events: none;
+  background: linear-gradient(
+    165deg,
+    rgba(198, 205, 212, 0.42) 0%,
+    rgba(198, 205, 212, 0.12) 48%,
+    rgba(198, 205, 212, 0.26) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  transition: background 0.32s ease;
+}
+
+.laurel-card::after {
+  content: "";
+  position: absolute;
+  inset: 11px;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    linear-gradient(#d4b36a, #d4b36a) top left / 14px 1px no-repeat,
+    linear-gradient(#d4b36a, #d4b36a) top left / 1px 14px no-repeat,
+    linear-gradient(#c6cdd4, #c6cdd4) top right / 14px 1px no-repeat,
+    linear-gradient(#c6cdd4, #c6cdd4) top right / 1px 14px no-repeat,
+    linear-gradient(#c6cdd4, #c6cdd4) bottom left / 14px 1px no-repeat,
+    linear-gradient(#c6cdd4, #c6cdd4) bottom left / 1px 14px no-repeat,
+    linear-gradient(#d4b36a, #d4b36a) bottom right / 14px 1px no-repeat,
+    linear-gradient(#d4b36a, #d4b36a) bottom right / 1px 14px no-repeat;
+  transition: opacity 0.32s ease;
+}
+
+.laurel-card:hover {
+  transform: translateY(-3px);
+  opacity: 1;
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.3);
+}
+
+.laurel-card:hover::before {
+  background: linear-gradient(
+    165deg,
+    rgba(232, 208, 154, 0.5) 0%,
+    rgba(198, 205, 212, 0.18) 48%,
+    rgba(212, 179, 106, 0.34) 100%
+  );
+}
+
+.laurel-card.is-active {
+  transform: translateY(-3px);
+  opacity: 1;
+  box-shadow:
+    0 20px 42px rgba(0, 0, 0, 0.34),
+    0 0 0 1px rgba(212, 179, 106, 0.08);
+}
+
+.laurel-card.is-active::before {
+  background: linear-gradient(
+    165deg,
+    rgba(247, 237, 208, 0.78) 0%,
+    rgba(198, 205, 212, 0.22) 46%,
+    rgba(212, 179, 106, 0.55) 100%
+  );
+}
+
+.laurel-card.is-active::after {
+  opacity: 1;
+}
+
+.laurel-card:focus-visible {
+  outline: 1px solid rgba(232, 208, 154, 0.7);
+  outline-offset: 3px;
+}
+
+.laurel-card-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.85rem;
+}
+
+.laurel-card-index {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  letter-spacing: 0.28em;
+}
+
+.laurel-card-kicker {
+  font-family: var(--font-display);
+  font-size: 0.58rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.laurel-card-title {
+  margin-top: 0.95rem;
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.laurel-card-desc {
+  margin-top: 0.7rem;
+  flex: 1;
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.laurel-marks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1.1rem;
+}
+
+.laurel-marks li {
+  padding: 0.28rem 0.58rem;
+  border: 1px solid rgba(198, 205, 212, 0.22);
+  font-family: var(--font-display);
+  font-size: 0.52rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.58);
+  transition:
+    border-color 0.28s ease,
+    color 0.28s ease,
+    background 0.28s ease;
+}
+
+.laurel-card:hover .laurel-marks li,
+.laurel-card.is-active .laurel-marks li {
+  border-color: rgba(212, 179, 106, 0.48);
+  color: #e8d09a;
+}
+
+.laurel-card.is-active .laurel-marks li {
+  background: rgba(212, 179, 106, 0.08);
+}
+
+@media (min-width: 768px) {
+  .laurel-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.05rem;
+  }
+
+  .laurel-card {
+    padding: 1.55rem 1.5rem 1.4rem;
+  }
+}
+
+@media (max-width: 639px) {
+  .laurel-card-title {
+    letter-spacing: 0.07em;
+  }
+}
+
 .initiative-label {
   margin-bottom: 0.55rem;
   font-family: var(--font-display);

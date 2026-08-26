@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, type ReactNode } from "react";
+import { AcesBenefits } from "@/components/AcesBenefits";
 import { Reveal } from "@/components/Reveal";
 import { closeMenu, initIndexSite, showTab, toggleMenu } from "@/lib/index-site";
 import { acesHighlights } from "@/lib/recognition";
@@ -538,54 +539,8 @@ export function IndexSite({ logo, loaderLogo }: { logo: ReactNode; loaderLogo: R
             </p>
             </Reveal>
 
-            <div className="section-title mt-12 text-center font-display text-[1.35rem] tracking-[0.24em] text-white">
-              SOCIETY BENEFITS &amp; LAURELS
-            </div>
-            <div className="gold-rule mx-auto mt-5 max-w-[8rem]" />
-
-            <div className="benefits-list mx-auto mt-10 max-w-[44rem] text-left">
-              <div className="benefit-item">
-                <div className="silver-rule-left" />
-                <div className="benefit-body py-5">
-                  <div className="benefit-title">Co-Curricular Blazer Points</div>
-                  <div className="benefit-desc">
-                    Members earn credits toward Aitchison’s Co-Curricular Blazer — 1.5 points for five
-                    national or international competition wins, 1 point for the President, and 0.5 for
-                    the General Secretary.
-                  </div>
-                </div>
-              </div>
-              <div className="benefit-item">
-                <div className="silver-rule-left" />
-                <div className="benefit-body py-5">
-                  <div className="benefit-title">University Laurels</div>
-                  <div className="benefit-desc">
-                    ACES results carry weight in university applications, including Ivy League and
-                    other competitive institutions, supported by a record of alumni acceptances.
-                  </div>
-                </div>
-              </div>
-              <div className="benefit-item">
-                <div className="silver-rule-left" />
-                <div className="benefit-body py-5">
-                  <div className="benefit-title">Executive Skill Mastery</div>
-                  <div className="benefit-desc">
-                    Public speaking, negotiation, crisis management, financial modelling, and commercial
-                    strategy — practised under competition conditions.
-                  </div>
-                </div>
-              </div>
-              <div className="benefit-item">
-                <div className="silver-rule-left" />
-                <div className="benefit-body py-5">
-                  <div className="benefit-title">Podium Track Record</div>
-                  <div className="benefit-desc">
-                    Consistent finishes at LUMS YLES, KGES, the Blue Ocean Challenge, and the
-                    International Business Olympiad.
-                  </div>
-                </div>
-              </div>
-              <div className="silver-rule-left" />
+            <div className="mt-12">
+              <AcesBenefits />
             </div>
 
             <div className="initiatives-list mx-auto mt-16 max-w-[44rem] text-left">
