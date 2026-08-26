@@ -122,17 +122,17 @@ export function IndexSite({ logo, loaderLogo }: { logo: ReactNode; loaderLogo: R
         <div className="absolute inset-x-0 bottom-0 gold-rule" />
         <nav className="mx-auto flex h-[4.35rem] w-full max-w-[1180px] items-center justify-between px-5 md:h-[4.85rem] md:px-8">
           <a
-            href="#abc"
+            href="#society"
             className="site-brand"
             aria-label={site.shortName}
             onClick={(event) => {
               event.preventDefault();
-              showTab("abc");
+              showTab("society");
             }}
           >
             {logo}
             <span id="navBrandText" className="nav-brand-text">
-              <strong>ABC</strong> XIV
+              <strong>ACES</strong>
             </span>
           </a>
           <button
@@ -149,7 +149,7 @@ export function IndexSite({ logo, loaderLogo }: { logo: ReactNode; loaderLogo: R
             <li>
               <a
                 href="#society"
-                className="nav-link"
+                className="nav-link active"
                 id="link-society"
                 onClick={(event) => {
                   event.preventDefault();
@@ -162,7 +162,7 @@ export function IndexSite({ logo, loaderLogo }: { logo: ReactNode; loaderLogo: R
             <li>
               <a
                 href="#abc"
-                className="nav-link active"
+                className="nav-link"
                 id="link-abc"
                 onClick={(event) => {
                   event.preventDefault();
@@ -220,7 +220,7 @@ export function IndexSite({ logo, loaderLogo }: { logo: ReactNode; loaderLogo: R
       </header>
 
       <main>
-        <div id="abc" className="page active">
+        <div id="abc" className="page">
           <section className="relative px-5 pb-12 pt-[5.6rem] md:px-10 md:pb-16 md:pt-[6.4rem]">
             <div className="mx-auto flex w-full max-w-[1120px] flex-col items-center text-center">
               <h1 className="flex flex-col items-center">
@@ -443,7 +443,7 @@ export function IndexSite({ logo, loaderLogo }: { logo: ReactNode; loaderLogo: R
           </section>
         </div>
 
-        <div id="society" className="page">
+        <div id="society" className="page active">
           <section className="relative px-5 pb-8 pt-[5.6rem] md:px-10 md:pb-10 md:pt-[6.4rem]">
             <div className="mx-auto flex w-full max-w-[1120px] flex-col items-center text-center">
               <h1 className="aces-hero-title">

@@ -80,6 +80,8 @@ export function initIndexSite() {
   const initialTab = window.location.hash.replace("#", "");
   if (initialTab === "society" || initialTab === "response" || initialTab === "abc") {
     showTab(initialTab);
+  } else {
+    showTab("society");
   }
 
   async function time() {
