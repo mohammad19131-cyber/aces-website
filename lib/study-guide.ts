@@ -106,6 +106,17 @@ export const studyGuideData: StudyGuideCategory[] = [
       "Rubicon tests economic knowledge and strategic decision-making through quizzes, case studies, economic scenarios, and crisis-based challenges. Teams must apply economic concepts quickly and defend their decisions under pressure.",
   },
   {
+    id: "muney",
+    name: "MUNey",
+    tagline: "CEO Diplomacy & Crisis Simulation",
+    type: "finance",
+    img: "/XIII Vectors/Muney raw.png",
+    overview:
+      "MUNey reimagines Model United Nations by placing delegates in the roles of global CEOs, combining traditional MUN procedure with corporate strategy, alliances, and crisis management.",
+    details:
+      "The flagship public speaking category of the Aitchison Business Concept will follow the rules and technicalities of a Model United Nations conference, where delegates will discuss solutions to the crises pertaining to the business that will be announced during the event. Delegates represent renowned CEOs rather than countries and combine diplomacy, corporate strategy, alliances, private directives, and crisis management.",
+  },
+  {
     id: "tech",
     name: "Techeneurship",
     tagline: "Startup Creation, Expansion & Crisis Management",

@@ -18,7 +18,7 @@ const abcFaqs = [
   },
   {
     q: "Can I participate individually, or do I need a team?",
-    a: "It depends on the category. Build Your Own Idea and Corporate Espionage require teams of two to four. Check the rules for your category before you register.",
+    a: "It depends on the category. MUNey is individual. Build Your Own Idea and Corporate Espionage require teams of two to four. Check the rules for your category before you register.",
   },
   {
     q: "What is the event schedule?",

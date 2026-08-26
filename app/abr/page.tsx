@@ -19,6 +19,7 @@ export default async function AbrPage() {
         </p>
       </section>
       <section className="page-block">
+        {/* Flipbook loader ported from abr.html — realistic page-turn via StPageFlip + PDF.js */}
         <AbrReader />
       </section>
     </SiteFrame>

@@ -16,6 +16,7 @@ export const eventHeadCategories: { id: string; name: string; image: string }[] 
   { id: "mall", name: "Mall Street", image: "/XIII Vectors/Mall raw.png" },
   { id: "juris", name: "Jurisprudential", image: "/XIII Vectors/Juris raw.png" },
   { id: "rubicon", name: "Rubicon", image: "/XIII Vectors/Rubicon raw.png" },
+  { id: "muney", name: "MUNey", image: "/XIII Vectors/Muney raw.png" },
   { id: "race", name: "The Amazing Race", image: "/XIII Vectors/Race raw.png" },
   { id: "tech", name: "Techeneurship", image: "/XIII Vectors/Tech raw.png" },
   { id: "enterprise", name: "The Enterprise", image: "/XIII Vectors/Enterprise raw.png" },

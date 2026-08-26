@@ -7,6 +7,7 @@ const eventsData = [
   { name: "Mall Street", img: "XIII Vectors/Mall raw.png" },
   { name: "Jurisprudential", img: "XIII Vectors/Juris raw.png" },
   { name: "Rubicon", img: "XIII Vectors/Rubicon raw.png" },
+  { name: "MUNey", img: "XIII Vectors/Muney raw.png" },
   { name: "The Amazing Race", img: "XIII Vectors/Race raw.png" },
   { name: "Techeneurship", img: "XIII Vectors/Tech raw.png" },
   { name: "The Enterprise", img: "XIII Vectors/Enterprise raw.png" },
@@ -105,7 +106,8 @@ export function initIndexSite() {
   const timerId = window.setInterval(time, 1000);
 
   const eventsList = document.getElementById("eventsList");
-  if (eventsList && eventsList.childElementCount === 0) {
+  if (eventsList) {
+    eventsList.replaceChildren();
     eventsData.forEach((evt) => {
       const row = document.createElement("div");
       row.className = "event-row category-row";
