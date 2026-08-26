@@ -22,7 +22,9 @@ export function Navbar() {
             <a
               href={link.href}
               className="nav-link font-body text-[0.7rem] font-medium uppercase tracking-[0.24em]"
-              onClick={(event) => onHashLinkClick(event, link.href)}
+              {...(link.href.endsWith(".pdf")
+                ? { download: "Waiver of Liability.pdf" }
+                : { onClick: (event) => onHashLinkClick(event, link.href) })}
             >
               {link.label}
             </a>
@@ -65,9 +67,14 @@ export function Navbar() {
               <li key={link.label}>
                 <a
                   href={link.href}
+                  {...(link.href.endsWith(".pdf")
+                    ? { download: "Waiver of Liability.pdf" }
+                    : {})}
                   onClick={(event) => {
                     setOpen(false);
-                    onHashLinkClick(event, link.href);
+                    if (!link.href.endsWith(".pdf")) {
+                      onHashLinkClick(event, link.href);
+                    }
                   }}
                   className="block py-3.5 font-body text-[0.78rem] font-medium uppercase tracking-[0.22em] text-white/85"
                 >

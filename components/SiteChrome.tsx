@@ -56,7 +56,12 @@ export function SiteChrome({
               if (link.href.endsWith(".pdf")) {
                 return (
                   <li key={link.href}>
-                    <a href={link.href} className={className} onClick={() => setOpen(false)}>
+                    <a
+                      href={link.href}
+                      className={className}
+                      download="Waiver of Liability.pdf"
+                      onClick={() => setOpen(false)}
+                    >
                       {link.label}
                     </a>
                   </li>

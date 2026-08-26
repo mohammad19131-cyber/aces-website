@@ -5,7 +5,7 @@ import { AcesBenefits } from "@/components/AcesBenefits";
 import { Reveal } from "@/components/Reveal";
 import { closeMenu, initIndexSite, showTab, toggleMenu } from "@/lib/index-site";
 import { acesHighlights } from "@/lib/recognition";
-import { site } from "@/lib/site";
+import { registerHref, site } from "@/lib/site";
 
 const abcFaqs = [
   {
@@ -211,7 +211,7 @@ export function IndexSite({ logo, loaderLogo }: { logo: ReactNode; loaderLogo: R
               </a>
             </li>
             <li>
-              <a href="/waiver.pdf" className="nav-link">
+              <a href="/waiver.pdf" className="nav-link" download="Waiver of Liability.pdf">
                 Liability Waiver
               </a>
             </li>
@@ -245,7 +245,7 @@ export function IndexSite({ logo, loaderLogo }: { logo: ReactNode; loaderLogo: R
                 <div className="silver-rule mt-4" />
               </div>
               <a
-                href="https://forms.gle/hwTgDKNLNuLbWNw2A"
+                href={registerHref}
                 className="cta-link mt-8 text-[0.74rem] md:text-[0.8rem]"
                 target="_blank"
                 rel="noreferrer"
@@ -419,7 +419,7 @@ export function IndexSite({ logo, loaderLogo }: { logo: ReactNode; loaderLogo: R
                 {site.eventDateLabel} · {site.host}
               </p>
               <a
-                href="https://forms.gle/hwTgDKNLNuLbWNw2A"
+                href={registerHref}
                 className="cta-link mt-7 text-[0.74rem] md:text-[0.8rem]"
                 target="_blank"
                 rel="noreferrer"
@@ -679,7 +679,7 @@ export function IndexSite({ logo, loaderLogo }: { logo: ReactNode; loaderLogo: R
             >
               Location
             </a>
-            <a className="help-option" href="https://forms.gle/hwTgDKNLNuLbWNw2A" target="_blank" rel="noreferrer">
+            <a className="help-option" href={registerHref} target="_blank" rel="noreferrer">
               Registration
             </a>
           </div>

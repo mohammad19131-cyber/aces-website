@@ -15,7 +15,7 @@ export const site = {
    * Official registration link. Leave empty until the form URL is provided.
    * The navigation and CTA will then point to the Register section.
    */
-  registrationUrl: "https://forms.gle/hwTgDKNLNuLbWNw2A",
+  registrationUrl: "https://forms.gle/6qtuxuDDg2pjSRHm7",
 };
 
 export const registerHref = site.registrationUrl || "#register";
@@ -33,7 +33,7 @@ export const navLinks = [
 ] as const;
 
 export const aboutText =
-  "The Aitchison Business Concept is organised by the Aitchison College Entrepreneurial Society. The fourteenth edition brings students together across fourteen categories to test entrepreneurial skill, judgement, and collaboration.";
+  "The Aitchison Business Concept is organised by the Aitchison College Entrepreneurial Society. The fourteenth edition brings students together across twelve categories to test entrepreneurial skill, judgement, and collaboration.";
 
 export const eventFacts = [
   { label: "Date", value: site.eventDateLabel },

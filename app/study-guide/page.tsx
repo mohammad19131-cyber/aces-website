@@ -20,7 +20,7 @@ export default async function StudyGuidePage() {
         <p className="page-lede">
           Official formats and competition details for Aitchison Business Concept XIV.
         </p>
-        <p className="page-meta">{studyGuideData.length} categories</p>
+        <p className="page-meta">12 categories</p>
       </section>
 
       <section className="page-block">
