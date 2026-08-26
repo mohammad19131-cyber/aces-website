@@ -448,9 +448,8 @@ export function IndexSite({ logo, loaderLogo }: { logo: ReactNode; loaderLogo: R
           <section className="relative px-5 pb-8 pt-[5.6rem] md:px-10 md:pb-10 md:pt-[6.4rem]">
             <div className="mx-auto flex w-full max-w-[1120px] flex-col items-center text-center">
               <h1 className={`aces-hero-title ${dmSerifDisplay.variable}`}>
-                AITCHISON COLLEGE
-                <br />
-                ENTREPRENEURIAL SOCIETY
+                <span>AITCHISON COLLEGE</span>
+                <span>ENTREPRENEURIAL SOCIETY</span>
               </h1>
               <p className="mt-5 font-display text-[0.7rem] tracking-[0.32em] text-white/70 md:text-[0.78rem]">
                 <span className="gold-text">XIV</span>

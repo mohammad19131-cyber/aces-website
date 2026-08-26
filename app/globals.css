@@ -2357,6 +2357,10 @@ textarea {
   font-size: clamp(1.55rem, 3.8vw, 2.35rem);
   letter-spacing: 0.18em;
   line-height: 1.28;
+}
+
+.aces-hero-title span {
+  display: block;
   background-image: var(--gold-gradient);
   background-clip: text;
   -webkit-background-clip: text;
