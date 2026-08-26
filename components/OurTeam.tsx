@@ -1,7 +1,7 @@
 "use client";
 
 import { Reveal } from "@/components/Reveal";
-import { directors, eventHeadCategories } from "@/lib/team";
+import { coreHeads, directors, eventHeadCategories } from "@/lib/team";
 
 function Stem({ className = "" }: { className?: string }) {
   return <div className={`team-stem ${className}`.trim()} aria-hidden />;
@@ -17,18 +17,12 @@ function VacantFrame({ size = "md" }: { size?: "md" | "sm" }) {
 
 export function OurTeam() {
   return (
-    <section id="council" className="px-5 py-12 md:px-10 md:py-14">
-      <div className="silver-rule mb-8 md:mb-10" />
+    <section id="team" className="page-block pt-2 md:pt-3">
       <div className="mx-auto w-full max-w-[1120px]">
-        <div className="council-panel our-team-panel px-5 py-11 sm:px-10 md:px-16 md:py-16">
+        <div className="council-panel our-team-panel px-5 py-12 sm:px-10 md:px-16 md:py-[4.25rem]">
           <Reveal>
-            <h2 className="our-team-title">OUR TEAM</h2>
-            <div className="gold-rule mx-auto mt-5 max-w-[8rem]" />
-          </Reveal>
-
-          <Reveal delay={0.06}>
             <div className="team-level team-ec">
-              <h3 className="team-level-title">EXECUTIVE COUNCIL</h3>
+              <h2 className="team-level-title">EXECUTIVE COUNCIL</h2>
               <div className="gold-rule mx-auto mt-5 max-w-[12rem]" />
 
               <div className="ec-node mt-11 flex flex-col items-center md:mt-12">
@@ -138,6 +132,16 @@ export function OurTeam() {
             <div className="team-level team-core">
               <h3 className="team-core-title">HEADS OF CORE TEAM</h3>
               <div className="gold-rule mx-auto mt-4 max-w-[7.5rem]" />
+              <div className="team-core-row">
+                {coreHeads.map((head) => (
+                  <article className="team-core-seat" key={head.id}>
+                    <div className="core-frame">
+                      <div className="core-frame-inner" />
+                    </div>
+                    <p className="team-seat-role">{head.role}</p>
+                  </article>
+                ))}
+              </div>
             </div>
           </Reveal>
 

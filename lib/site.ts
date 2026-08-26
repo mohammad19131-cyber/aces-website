@@ -23,6 +23,7 @@ export const registerHref = site.registrationUrl || "#register";
 export const navLinks = [
   { href: "#society", label: "ACES", tab: "society" },
   { href: "#abc", label: "ABC", tab: "abc" },
+  { href: "/our-team", label: "Our Team" },
   { href: "/abr", label: "ABR" },
   { href: "/study-guide", label: "Study Guide" },
   { href: "/recognition", label: "Recognition" },

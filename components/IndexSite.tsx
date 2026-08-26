@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, type ReactNode } from "react";
-import { OurTeam } from "@/components/OurTeam";
 import { Reveal } from "@/components/Reveal";
 import { closeMenu, initIndexSite, showTab, toggleMenu } from "@/lib/index-site";
 import { acesHighlights } from "@/lib/recognition";
@@ -173,6 +172,11 @@ export function IndexSite({ logo, loaderLogo }: { logo: ReactNode; loaderLogo: R
               </a>
             </li>
             <li>
+              <a href="/our-team" className="nav-link">
+                Our Team
+              </a>
+            </li>
+            <li>
               <a href="/abr" className="nav-link">
                 ABR
               </a>
@@ -281,7 +285,116 @@ export function IndexSite({ logo, loaderLogo }: { logo: ReactNode; loaderLogo: R
             </div>
           </section>
 
-          <OurTeam />
+          <section id="council" className="px-5 py-12 md:px-10 md:py-14">
+            <div className="silver-rule mb-8 md:mb-10" />
+            <div className="mx-auto w-full max-w-[1120px]">
+              <div className="council-panel ec-tree px-5 py-11 sm:px-10 md:px-16 md:py-14">
+                <h2 className="section-title text-center font-display text-[1.2rem] tracking-[0.28em] text-white md:text-[1.45rem]">
+                  EXECUTIVE COUNCIL
+                </h2>
+                <div className="gold-rule mx-auto mt-5 max-w-[12rem]" />
+
+                <div className="ec-node mt-11 flex flex-col items-center md:mt-12">
+                  <p className="gold-text mb-5 font-display text-[0.62rem] tracking-[0.34em] md:text-[0.7rem]">
+                    PRESIDENT
+                  </p>
+                  <figure className="ec-card president flex w-[var(--portrait)] flex-col items-center">
+                    <div className="portrait-frame">
+                      <div className="portrait-inner">
+                        <img
+                          src="/council/president.png"
+                          alt="President"
+                          className="ec-img h-full w-full bg-navy object-cover object-[center_20%]"
+                        />
+                      </div>
+                    </div>
+                    <figcaption className="ec-name mt-3.5 text-center font-display text-[0.72rem] tracking-[0.08em] text-white md:text-[0.8rem]">
+                      Muhammad Bin Salman
+                    </figcaption>
+                    <div className="ec-role sr-only">President</div>
+                  </figure>
+                </div>
+
+                <div className="silver-rule mx-auto my-10 max-w-[22rem] md:my-12" />
+
+                <div className="ec-node flex flex-col items-center">
+                  <p className="gold-text mb-5 font-display text-[0.62rem] tracking-[0.34em] md:text-[0.7rem]">
+                    GENERAL SECRETARY
+                  </p>
+                  <figure className="ec-card gensec flex w-[var(--portrait)] flex-col items-center">
+                    <div className="portrait-frame">
+                      <div className="portrait-inner">
+                        <img
+                          src="/council/general-secretary.png"
+                          alt="General Secretary"
+                          className="ec-img h-full w-full bg-navy object-cover object-[center_20%]"
+                        />
+                      </div>
+                    </div>
+                    <figcaption className="ec-name mt-3.5 text-center font-display text-[0.72rem] tracking-[0.08em] text-white md:text-[0.8rem]">
+                      Eqaan Ali Syed
+                    </figcaption>
+                    <div className="ec-role sr-only">General Secretary</div>
+                  </figure>
+                </div>
+
+                <div className="silver-rule mx-auto my-10 max-w-[22rem] md:my-12" />
+
+                <div className="flex flex-col items-center">
+                  <p className="gold-text mb-5 font-display text-[0.62rem] tracking-[0.34em] md:text-[0.7rem]">
+                    EXECUTIVE MEMBERS
+                  </p>
+                  <div className="ec-row flex w-full max-w-[46rem] flex-col items-center gap-9 sm:flex-row sm:items-start sm:justify-center sm:gap-8">
+                    <figure className="ec-card exec flex w-[var(--portrait)] flex-col items-center">
+                      <div className="portrait-frame">
+                        <div className="portrait-inner">
+                          <img
+                            src="/council/rai-behram.png"
+                            alt="Executive"
+                            className="ec-img h-full w-full bg-navy object-cover object-[center_20%]"
+                          />
+                        </div>
+                      </div>
+                      <figcaption className="ec-name mt-3.5 text-center font-display text-[0.72rem] tracking-[0.08em] text-white md:text-[0.8rem]">
+                        Rai Behram
+                      </figcaption>
+                      <div className="ec-role sr-only">executive member</div>
+                    </figure>
+                    <figure className="ec-card exec flex w-[var(--portrait)] flex-col items-center">
+                      <div className="portrait-frame">
+                        <div className="portrait-inner">
+                          <img
+                            src="/council/ali-hussein.png"
+                            alt="Executive"
+                            className="ec-img h-full w-full bg-navy object-cover object-[center_20%]"
+                          />
+                        </div>
+                      </div>
+                      <figcaption className="ec-name mt-3.5 text-center font-display text-[0.72rem] tracking-[0.08em] text-white md:text-[0.8rem]">
+                        Ali Hussain
+                      </figcaption>
+                      <div className="ec-role sr-only">executive member</div>
+                    </figure>
+                    <figure className="ec-card exec flex w-[var(--portrait)] flex-col items-center">
+                      <div className="portrait-frame">
+                        <div className="portrait-inner">
+                          <img
+                            src="/council/muahid-ahmad.png"
+                            alt="Executive"
+                            className="ec-img h-full w-full bg-navy object-cover object-[center_20%]"
+                          />
+                        </div>
+                      </div>
+                      <figcaption className="ec-name mt-3.5 text-center font-display text-[0.72rem] tracking-[0.08em] text-white md:text-[0.8rem]">
+                        Muahid Ahmad
+                      </figcaption>
+                      <div className="ec-role sr-only">executive member</div>
+                    </figure>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
 
           <section id="categories" className="px-5 py-12 md:px-10 md:py-14">
             <div className="silver-rule mb-8 md:mb-10" />

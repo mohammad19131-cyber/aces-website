@@ -7,6 +7,7 @@ import { site } from "@/lib/site";
 export const chromeLinks = [
   { href: "/#society", label: "ACES" },
   { href: "/", label: "ABC" },
+  { href: "/our-team", label: "Our Team" },
   { href: "/abr", label: "ABR" },
   { href: "/study-guide", label: "Study Guide" },
   { href: "/recognition", label: "Recognition" },

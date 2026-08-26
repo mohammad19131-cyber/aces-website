@@ -24,6 +24,13 @@ export const eventHeadCategories: { id: string; name: string; image: string }[] 
   { id: "enterprise", name: "The Enterprise", image: "/XIII Vectors/Enterprise raw.png" },
 ];
 
+/** Three Head of Core Team seats. No named people are in the project yet. */
+export const coreHeads: TeamSeat[] = [
+  { id: "core-1", role: "Head of Core Team", office: "" },
+  { id: "core-2", role: "Head of Core Team", office: "" },
+  { id: "core-3", role: "Head of Core Team", office: "" },
+];
+
 export const directors: TeamSeat[] = [
   { id: "operations", role: "Director", office: "Operations" },
   { id: "registrations", role: "Director", office: "Registrations" },
