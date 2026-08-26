@@ -143,18 +143,12 @@ export const optionalCategories: Category[] = [
   },
   {
     number: "10",
-    name: "MUNey",
-    description:
-      "The flagship public speaking category of the Aitchison Business Concept will follow the rules and technicalities of a Model United Nations conference, where delegates will discuss solutions to the crises pertaining to the business that will be announced during the event.",
-  },
-  {
-    number: "11",
     name: "The Amazing Race",
     description:
       "This category will challenge delegates to think on their feet as they navigate high-pressure corporate negotiations and various kinds of crisis situations. Delegates will be required to collaborate, analyse business case studies, and reach mutual agreements under tight deadlines.",
   },
   {
-    number: "12",
+    number: "11",
     name: "Techeneurship",
     description:
       "Innovation defines entrepreneurship, and what better sector is there for innovation than technology? In this high-stakes and intense category, delegates will need to use their wits and knowledge regarding fintech to gain any advantage they can amidst multiple crises.",

@@ -106,39 +106,6 @@ export const studyGuideData: StudyGuideCategory[] = [
       "Rubicon tests economic knowledge and strategic decision-making through quizzes, case studies, economic scenarios, and crisis-based challenges. Teams must apply economic concepts quickly and defend their decisions under pressure.",
   },
   {
-    id: "chess",
-    name: "Chess",
-    tagline: "Strategy & Business Acumen",
-    type: "strategy",
-    img: "/XIII Vectors/Chess raw.png",
-    overview:
-      "Chess combines strategic thinking, foresight, and composure with a business-focused rapid-fire challenge that tests knowledge and decision-making under pressure.",
-    details:
-      "Chess combines strategic thinking, foresight, composure, and business-focused rapid-fire decision-making. Delegates must think several moves ahead while applying knowledge quickly and accurately under pressure.",
-  },
-  {
-    id: "muney",
-    name: "MUNey",
-    tagline: "CEO Diplomacy & Crisis Simulation",
-    type: "finance",
-    img: "/XIII Vectors/Muney raw.png",
-    overview:
-      "MUNey reimagines Model United Nations by placing delegates in the roles of global CEOs, combining traditional MUN procedure with corporate strategy, alliances, and crisis management.",
-    details:
-      "The flagship public speaking category of the Aitchison Business Concept will follow the rules and technicalities of a Model United Nations conference, where delegates will discuss solutions to the crises pertaining to the business that will be announced during the event. Delegates represent renowned CEOs rather than countries and combine diplomacy, corporate strategy, alliances, private directives, and crisis management.",
-  },
-  {
-    id: "canvas",
-    name: "Corporate Canvas",
-    tagline: "Brand Identity & Visual Marketing",
-    type: "creative",
-    img: "/XIII Vectors/Canvas raw.png",
-    overview:
-      "Corporate Canvas tests branding, visual marketing, and the ability to hold a consistent public-facing identity.",
-    details:
-      "Corporate Canvas tests corporate strategy, visual branding, marketing consistency, and the ability to translate a brand identity into a convincing public-facing experience.",
-  },
-  {
     id: "tech",
     name: "Techeneurship",
     tagline: "Startup Creation, Expansion & Crisis Management",

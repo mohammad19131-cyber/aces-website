@@ -7,10 +7,7 @@ const eventsData = [
   { name: "Mall Street", img: "XIII Vectors/Mall raw.png" },
   { name: "Jurisprudential", img: "XIII Vectors/Juris raw.png" },
   { name: "Rubicon", img: "XIII Vectors/Rubicon raw.png" },
-  { name: "Chess", img: "XIII Vectors/Chess raw.png" },
-  { name: "MUNey", img: "XIII Vectors/Muney raw.png" },
   { name: "The Amazing Race", img: "XIII Vectors/Race raw.png" },
-  { name: "Corporate Canvas", img: "XIII Vectors/Canvas raw.png" },
   { name: "Techeneurship", img: "XIII Vectors/Tech raw.png" },
   { name: "The Enterprise", img: "XIII Vectors/Enterprise raw.png" },
 ];

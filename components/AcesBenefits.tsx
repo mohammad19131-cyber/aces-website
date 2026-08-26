@@ -9,8 +9,8 @@ const benefits = [
     index: "01",
     kicker: "Blazer",
     title: "Co-Curricular Blazer Points",
-    desc: "Members earn credits toward Aitchison’s Co-Curricular Blazer — 1.5 points for five national or international competition wins, 1 point for the President, and 0.5 for the General Secretary.",
-    marks: ["1.5 pts · five wins", "1 pt · President", "0.5 · General Secretary"],
+    desc: "Members earn credits toward Aitchison’s Co-Curricular Blazer — 1.5 points for five national or international competition wins, 0.5 for the President, and 0.5 for the General Secretary.",
+    marks: ["1.5 pts · five wins", "0.5 · President", "0.5 · General Secretary"],
   },
   {
     id: "university",
