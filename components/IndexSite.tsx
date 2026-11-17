@@ -241,7 +241,7 @@ export function IndexSite({ logo, loaderLogo }: { logo: ReactNode; loaderLogo: R
               <div className="mt-6 flex w-[13.5rem] flex-col items-center md:mt-7 md:w-[16rem]">
                 <div className="silver-rule mb-4" />
                 <p className="gold-text font-display text-[0.82rem] tracking-[0.28em] md:text-[0.98rem] md:tracking-[0.32em]">
-                  8–9 JANUARY 2027
+                  {site.eventDateLabel.toUpperCase()}
                 </p>
                 <div className="silver-rule mt-4" />
               </div>

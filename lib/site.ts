@@ -7,10 +7,10 @@ export const site = {
   organiser: "Aitchison College Entrepreneurial Society",
   /**
    * Countdown target. Update this when the official start time is confirmed.
-   * Invite date: 8–9 January 2027.
+   * Invite date: 7–9 January 2027.
    */
-  eventStartISO: "2027-01-08T09:00:00+05:00",
-  eventDateLabel: "8–9 January 2027",
+  eventStartISO: "2027-01-07T09:00:00+05:00",
+  eventDateLabel: "7–9 January 2027",
   /**
    * Official registration link. Leave empty until the form URL is provided.
    * The navigation and CTA will then point to the Register section.
