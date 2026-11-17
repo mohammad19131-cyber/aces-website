@@ -49,6 +49,7 @@ export const directorGroups: DirectorGroup[] = [
     members: [
       { id: "mikail-liaqat", name: "Mikail Liaqat" },
       { id: "raed-mohsin-khan", name: "Raed Mohsin Khan" },
+      { id: "rao-mateen", name: "Rao Mateen" },
     ],
   },
   {
@@ -66,10 +67,9 @@ export const directorGroups: DirectorGroup[] = [
     role: "Director",
     office: "Coordinations",
     members: [
-      { id: "rao-mateen", name: "Rao Mateen" },
       { id: "aalay-hasnain", name: "Aalay Hasnain" },
-      { id: "asad-ur-rehman", name: "Asad ur Rehman" },
-      { id: "muhammad-azaan", name: "Muhammad Azaan" },
+      { id: "muhammad-azaan", name: "Azaan Ahmad" },
+      { id: "hashim-amjad-nagra", name: "Hashim Amjad Nagra" },
     ],
   },
   {
@@ -78,7 +78,7 @@ export const directorGroups: DirectorGroup[] = [
     office: "Promotions",
     members: [
       { id: "owais-joiya", name: "Owais Joiya" },
-      { id: "hashim-amjad-nagra", name: "Hashim Amjad Nagra" },
+      { id: "asad-ur-rehman", name: "Asad ur Rehman" },
     ],
   },
 ];

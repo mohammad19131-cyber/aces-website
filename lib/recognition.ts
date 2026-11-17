@@ -16,6 +16,12 @@ export type AcesHighlight = {
   imageAlt: string;
   paragraphs: string[];
   editorial?: NewsEditorial[];
+  /** Cover-crop the hero/carousel image instead of letterboxing. */
+  imageFit?: "cover";
+  /** CSS object-position, e.g. "center 28%". */
+  imagePosition?: string;
+  /** CSS aspect-ratio for article heroes, e.g. "21 / 9". */
+  imageAspect?: string;
 };
 
 /** Society news shown on the ACES highlights carousel. */
@@ -65,8 +71,11 @@ export const acesHighlights: AcesHighlight[] = [
     slug: "markhors-den",
     kicker: "Markhor's Den",
     headline: "Five years. Still unstoppable.",
-    image: "/news/markhors-den-2026.png",
+    image: "/news/markhors-den-2026.jpg",
     imageAlt: "ACES delegation with the Markhor's Den Best Delegation trophy",
+    imageFit: "cover",
+    imagePosition: "center 40%",
+    imageAspect: "21 / 9",
     paragraphs: [
       "The Entrepreneurial Society continued its strong record at Markhor’s Den, one of Pakistan’s most competitive inter-school competitions, hosted by ISL Ring Road Campus from 25th to 27th September 2026. The Society sent a four-team delegation, with its boys delivering an outstanding performance across multiple competitive disciplines.",
       "The Society secured First Place in Conception, Wolf of Wall Street, and Top Trade, alongside Runner-Up positions in Brand Innovators, Economic Prowess, Social Vanguard, Den Chambers, and Stealth Mission.",
@@ -80,8 +89,11 @@ export const acesHighlights: AcesHighlight[] = [
     slug: "jt-empresario",
     kicker: "JT Empresario",
     headline: "Entrepreneurial Society Dominates JT Empresario",
-    image: "/news/jt-empresario-2026.png",
+    image: "/news/jt-empresario-2026-hero.jpg",
     imageAlt: "ACES delegation with Best Delegation and Best Team trophies at JT Empresario",
+    imageFit: "cover",
+    imagePosition: "center",
+    imageAspect: "1024 / 453",
     paragraphs: [
       "The Entrepreneurial Society continued its successful competitive season at JT Empresario, held from 9th to 11th October 2026. The Society sent a delegation to compete against some of the leading schools from across Pakistan in a range of demanding competitive events.",
       "After three days of intense competition, the boys delivered an outstanding performance, securing First Place in Game Theory and Invisible Hand, alongside Runner-Up positions in Court of Cornelius and Frantic Fusion. The events tested participants across strategic thinking, commercial awareness, negotiation, problem-solving, creativity, and decision-making under pressure.",
@@ -94,7 +106,7 @@ export const acesHighlights: AcesHighlight[] = [
     slug: "kges-2026",
     kicker: "KGES",
     headline: "Excellence in Karachi.",
-    image: "/news/kges-2026.jpg",
+    image: "/news/kges-2026-hero.jpg",
     imageAlt: "ACES delegation with the KGES Overall Best Delegation award",
     paragraphs: [
       "The Entrepreneurial Society continued its strong record at KGES, hosted by Karachi Grammar School in Karachi from 22nd to 24th October 2026. As an outstation competition and one of the most challenging events on Pakistan's inter-school circuit, KGES brought together leading schools from across the country for three days of demanding competition.",

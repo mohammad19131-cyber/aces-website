@@ -731,6 +731,12 @@ textarea {
   transform: scale(1.08);
 }
 
+.highlight-image-cover img {
+  object-fit: cover;
+  object-position: var(--image-position, center 38%);
+  transform: none;
+}
+
 .highlight-content {
   position: absolute;
   left: 10px;
@@ -1691,6 +1697,14 @@ textarea {
   object-position: center 42%;
 }
 
+.news-hero-cover img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: var(--image-aspect, 16 / 9);
+  object-fit: cover;
+  object-position: var(--image-position, center 30%);
+}
+
 .news-figure {
   margin: 1.65rem 0 0.35rem;
   overflow: hidden;
@@ -2345,7 +2359,8 @@ textarea {
     height: 16.5rem;
   }
 
-  .news-hero-wide img {
+  .news-hero-wide img,
+  .news-hero-cover img {
     height: auto;
   }
 

@@ -35,8 +35,15 @@ export default async function NewsStoryPage({ params }: PageProps<"/news/[slug]"
         <p className="gold-text page-kicker news-kicker">{story.kicker}</p>
         <h1 className="news-headline">{story.headline}</h1>
         <div className="gold-rule mt-5 max-w-[8rem]" />
-        <figure className={`news-hero${story.editorial?.length ? " news-hero-wide" : ""}`}>
-          <img src={story.image} alt={story.imageAlt} />
+        <figure className={`news-hero${story.imageFit === "cover" ? " news-hero-cover" : " news-hero-wide"}`}>
+          <img
+            src={story.image}
+            alt={story.imageAlt}
+            style={{
+              ...(story.imagePosition ? { objectPosition: story.imagePosition } : {}),
+              ...(story.imageAspect ? { aspectRatio: story.imageAspect } : {}),
+            }}
+          />
         </figure>
         <NewsStoryBody story={story} />
         <Link href="/#society" className="cta-link news-back-end text-[0.68rem]">

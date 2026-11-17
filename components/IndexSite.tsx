@@ -470,8 +470,12 @@ export function IndexSite({ logo, loaderLogo }: { logo: ReactNode; loaderLogo: R
                   key={moment.id}
                 >
                   <a href={`/news/${moment.slug}`} className="highlight-link">
-                    <div className="highlight-image">
-                      <img src={moment.image} alt={moment.imageAlt} />
+                    <div className={`highlight-image${moment.imageFit === "cover" ? " highlight-image-cover" : ""}`}>
+                      <img
+                        src={moment.image}
+                        alt={moment.imageAlt}
+                        style={moment.imagePosition ? { objectPosition: moment.imagePosition } : undefined}
+                      />
                     </div>
                     <div className="highlight-content">
                       <div className="highlight-label">{moment.kicker}</div>
