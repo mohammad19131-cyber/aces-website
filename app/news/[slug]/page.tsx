@@ -39,7 +39,7 @@ export default async function NewsStoryPage({ params }: PageProps<"/news/[slug]"
           className={`news-hero${
             story.imageFit === "cover"
               ? " news-hero-cover"
-              : story.heroImages?.length
+              : story.imageFit === "full" || story.heroImages?.length
                 ? " news-hero-full"
                 : " news-hero-wide"
           }`}

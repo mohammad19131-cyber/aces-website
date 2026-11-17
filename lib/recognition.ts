@@ -16,8 +16,8 @@ export type AcesHighlight = {
   imageAlt: string;
   paragraphs: string[];
   editorial?: NewsEditorial[];
-  /** Cover-crop the hero/carousel image instead of letterboxing. */
-  imageFit?: "cover";
+  /** Cover-crop the hero/carousel image, or show it uncropped. */
+  imageFit?: "cover" | "full";
   /** CSS object-position, e.g. "center 28%". */
   imagePosition?: string;
   /** CSS aspect-ratio for article heroes, e.g. "21 / 9". */
@@ -95,7 +95,7 @@ export const acesHighlights: AcesHighlight[] = [
     imageAlt: "ACES delegation with Best Delegation and Best Team trophies at JT Empresario",
     imageFit: "cover",
     imagePosition: "center",
-    imageAspect: "1024 / 453",
+    imageAspect: "1024 / 492",
     paragraphs: [
       "The Entrepreneurial Society continued its successful competitive season at JT Empresario, held from 9th to 11th October 2026. The Society sent a delegation to compete against some of the leading schools from across Pakistan in a range of demanding competitive events.",
       "After three days of intense competition, the boys delivered an outstanding performance, securing First Place in Game Theory and Invisible Hand, alongside Runner-Up positions in Court of Cornelius and Frantic Fusion. The events tested participants across strategic thinking, commercial awareness, negotiation, problem-solving, creativity, and decision-making under pressure.",
@@ -110,12 +110,7 @@ export const acesHighlights: AcesHighlight[] = [
     headline: "Excellence in Karachi.",
     image: "/news/kges-2026-hall.jpg",
     imageAlt: "ACES delegation with the KGES Overall Best Delegation award",
-    heroImages: [
-      {
-        src: "/news/kges-2026-court.jpg",
-        alt: "ACES delegation at KGES with trophies on the court",
-      },
-    ],
+    imageFit: "full",
     paragraphs: [
       "The Entrepreneurial Society continued its strong record at KGES, hosted by Karachi Grammar School in Karachi from 22nd to 24th October 2026. As an outstation competition and one of the most challenging events on Pakistan's inter-school circuit, KGES brought together leading schools from across the country for three days of demanding competition.",
       "The delegation delivered an outstanding performance, securing First Place in Venture Vista, alongside Runner-Up positions in Crisis at Work, Venture Vista, and Negotiation Conclave. The events tested participants across entrepreneurship, strategic thinking, negotiation, crisis management, and decision-making under pressure.",
