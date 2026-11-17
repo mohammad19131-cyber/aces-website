@@ -63,15 +63,85 @@ export const acesHighlights: AcesHighlight[] = [
   {
     id: "markhors",
     slug: "markhors-den",
-    kicker: "Markhors Den",
-    headline: "Four years. Still unstoppable.",
-    image: "/markhors den.jpeg",
-    imageAlt: "ACES at Markhors Den",
+    kicker: "Markhor's Den",
+    headline: "Five years. Still unstoppable.",
+    image: "/news/markhors-den-2026.png",
+    imageAlt: "ACES delegation with the Markhor's Den Best Delegation trophy",
     paragraphs: [
-      "The society continued its strong record at Markhors Den, one of Pakistan’s most competitive inter-school competitions, with participation from leading schools across the country. The H1 side recorded a particularly strong performance, securing multiple victories across the competition.",
-      "The society secured First Place in Stealth Mission, Conception, and Den Chambers, while also achieving Runner-Up in Wolf of Wall Street and an Honourable Mention in Stealth Mission.",
-      "The strong results reflected the high level of preparation, coordination, and competitive performance demonstrated throughout the event. With demanding rounds requiring strategic thinking, creativity, communication, teamwork, and decision-making under pressure, the competition provided a rigorous test across multiple disciplines.",
-      "Markhors Den continues to stand among the most challenging competitions on Pakistan’s inter-school circuit, attracting participation from some of the country’s leading schools. The society’s multiple category victories and additional podium finishes further strengthen its four-year record of sustained excellence at the competition.",
+      "The Entrepreneurial Society continued its strong record at Markhor’s Den, one of Pakistan’s most competitive inter-school competitions, hosted by ISL Ring Road Campus from 25th to 27th September 2026. The Society sent a four-team delegation, with its boys delivering an outstanding performance across multiple competitive disciplines.",
+      "The Society secured First Place in Conception, Wolf of Wall Street, and Top Trade, alongside Runner-Up positions in Brand Innovators, Economic Prowess, Social Vanguard, Den Chambers, and Stealth Mission.",
+      "In addition to its category achievements, Team X secured the Best Team award, while Aitchison College was named Best Delegation. This marked the first time the Society had won both distinctions simultaneously, further highlighting the strength and consistency of its delegation.",
+      "The competition demanded strategic thinking, creativity, communication, teamwork, and effective decision-making under pressure. The Society’s performance across multiple categories reflected the preparation, coordination, and competitive spirit demonstrated by all four teams.",
+      "These achievements further strengthen the Entrepreneurial Society’s record at Markhor’s Den and reaffirm its position among the leading competing societies on Pakistan’s inter-school circuit.",
+    ],
+  },
+  {
+    id: "jt-empresario",
+    slug: "jt-empresario",
+    kicker: "JT Empresario",
+    headline: "Entrepreneurial Society Dominates JT Empresario",
+    image: "/news/jt-empresario-2026.png",
+    imageAlt: "ACES delegation with Best Delegation and Best Team trophies at JT Empresario",
+    paragraphs: [
+      "The Entrepreneurial Society continued its successful competitive season at JT Empresario, held from 9th to 11th October 2026. The Society sent a delegation to compete against some of the leading schools from across Pakistan in a range of demanding competitive events.",
+      "After three days of intense competition, the boys delivered an outstanding performance, securing First Place in Game Theory and Invisible Hand, alongside Runner-Up positions in Court of Cornelius and Frantic Fusion. The events tested participants across strategic thinking, commercial awareness, negotiation, problem-solving, creativity, and decision-making under pressure.",
+      "A particularly significant achievement was Team X securing the Best Team award, while Aitchison College was named Best Delegation. This marked the first time in JT Empresario's history that the Society had secured both distinctions simultaneously. Furthermore, the Best Delegation title marked the Society's return to the award for the first time in five years.",
+      "These results represent a major milestone for the Entrepreneurial Society and reflect the dedication, preparation, and teamwork demonstrated throughout the competition. The delegation's success further reinforces the Society's standing among the leading entrepreneurial societies on Pakistan's inter-school circuit.",
+    ],
+  },
+  {
+    id: "kges",
+    slug: "kges-2026",
+    kicker: "KGES",
+    headline: "Excellence in Karachi.",
+    image: "/news/kges-2026.jpg",
+    imageAlt: "ACES delegation with the KGES Overall Best Delegation award",
+    paragraphs: [
+      "The Entrepreneurial Society continued its strong record at KGES, hosted by Karachi Grammar School in Karachi from 22nd to 24th October 2026. As an outstation competition and one of the most challenging events on Pakistan's inter-school circuit, KGES brought together leading schools from across the country for three days of demanding competition.",
+      "The delegation delivered an outstanding performance, securing First Place in Venture Vista, alongside Runner-Up positions in Crisis at Work, Venture Vista, and Negotiation Conclave. The events tested participants across entrepreneurship, strategic thinking, negotiation, crisis management, and decision-making under pressure.",
+      "Beyond the team results, seven members of the Society were recognised among the Top 20 Delegates of the competition: Muhammad Umer, Raed Mohsin Khan, Mikail Omer Liaqat, Kanwar Uzair, Aalay Hussnain, Sarmad Nazir Ahmad, and Hashim Amjad Nagra. This distinction also provided them with the opportunity to be considered for selection to the prestigious Pakistan Entrepreneurship Team.",
+      "Capping off an exceptional performance, Aitchison College was named Best Delegation at KGES, further strengthening the Society's record at one of the country's most demanding entrepreneurial competitions. The achievement reflects the preparation, adaptability, and competitive spirit demonstrated by the delegation throughout its outstation participation.",
+    ],
+    editorial: [
+      {
+        type: "wide",
+        after: 0,
+        image: {
+          src: "/news/kges-2026-travel.jpg",
+          alt: "ACES delegation travelling for KGES in Karachi",
+        },
+      },
+    ],
+  },
+  {
+    id: "ja-pakistan",
+    slug: "ja-pakistan-leadership",
+    kicker: "JA Pakistan",
+    headline: "JA Pakistan Leadership Session",
+    image: "/news/ja-pakistan-session-1.jpg",
+    imageAlt: "Hassan Noor Pagganwala speaking at the JA Pakistan Career Readiness Workshop",
+    paragraphs: [
+      "The Entrepreneurial Society had the privilege of hosting Hassan Noor Pagganwala, Chief Executive Officer of JA Pakistan, alongside members of his team for an insightful session introducing students to JA Worldwide and its global network.",
+      "The session provided a comprehensive overview of JA Worldwide, its international reach, programmes, and the opportunities and benefits it offers young entrepreneurs. The visiting team shared valuable insights into the business world, offering practical perspectives on entrepreneurship, professional development, and the realities of working in the corporate sector.",
+      "Beyond the organisational introduction, the session also featured meaningful advice on navigating professional life, developing business acumen, building effective leadership skills, and preparing for future careers. The discussions offered students a valuable opportunity to gain first-hand perspectives from experienced professionals and better understand the expectations and challenges of the corporate world.",
+      "The engagement served as an important learning opportunity for members of the Society, strengthening their understanding of entrepreneurship and the wider professional landscape while encouraging them to think more critically about their future aspirations.",
+    ],
+    editorial: [
+      {
+        type: "pair",
+        after: 1,
+        shape: "wide",
+        images: [
+          {
+            src: "/news/ja-pakistan-session-2.jpg",
+            alt: "JA Pakistan team member addressing students during the leadership session",
+          },
+          {
+            src: "/news/ja-pakistan-session-3.jpg",
+            alt: "Students attending the JA Pakistan leadership session",
+          },
+        ],
+      },
     ],
   },
   {
