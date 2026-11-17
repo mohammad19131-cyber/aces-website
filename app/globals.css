@@ -1705,6 +1705,14 @@ textarea {
   object-position: var(--image-position, center 30%);
 }
 
+.news-hero-full img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
 .news-figure {
   margin: 1.65rem 0 0.35rem;
   overflow: hidden;
@@ -1750,6 +1758,17 @@ textarea {
 
 .news-wide img {
   aspect-ratio: 16 / 9;
+}
+
+.news-wide-full img {
+  aspect-ratio: auto;
+  height: auto;
+  object-fit: contain;
+  transform: none;
+}
+
+.news-wide-full:hover img {
+  transform: none;
 }
 
 @media (min-width: 768px) {
@@ -2360,7 +2379,8 @@ textarea {
   }
 
   .news-hero-wide img,
-  .news-hero-cover img {
+  .news-hero-cover img,
+  .news-hero-full img {
     height: auto;
   }
 

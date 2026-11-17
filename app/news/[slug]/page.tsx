@@ -35,7 +35,15 @@ export default async function NewsStoryPage({ params }: PageProps<"/news/[slug]"
         <p className="gold-text page-kicker news-kicker">{story.kicker}</p>
         <h1 className="news-headline">{story.headline}</h1>
         <div className="gold-rule mt-5 max-w-[8rem]" />
-        <figure className={`news-hero${story.imageFit === "cover" ? " news-hero-cover" : " news-hero-wide"}`}>
+        <figure
+          className={`news-hero${
+            story.imageFit === "cover"
+              ? " news-hero-cover"
+              : story.heroImages?.length
+                ? " news-hero-full"
+                : " news-hero-wide"
+          }`}
+        >
           <img
             src={story.image}
             alt={story.imageAlt}
@@ -45,6 +53,11 @@ export default async function NewsStoryPage({ params }: PageProps<"/news/[slug]"
             }}
           />
         </figure>
+        {story.heroImages?.map((figure) => (
+          <figure className="news-hero news-hero-full" key={figure.src}>
+            <img src={figure.src} alt={figure.alt} />
+          </figure>
+        ))}
         <NewsStoryBody story={story} />
         <Link href="/#society" className="cta-link news-back-end text-[0.68rem]">
           ← ACES HIGHLIGHTS

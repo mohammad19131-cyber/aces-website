@@ -5,7 +5,7 @@ export type NewsFigure = {
 
 export type NewsEditorial =
   | { type: "pair"; after: number; shape?: "wide" | "frame"; images: [NewsFigure, NewsFigure] }
-  | { type: "wide"; after: number; image: NewsFigure };
+  | { type: "wide"; after: number; image: NewsFigure; full?: boolean };
 
 export type AcesHighlight = {
   id: string;
@@ -22,6 +22,8 @@ export type AcesHighlight = {
   imagePosition?: string;
   /** CSS aspect-ratio for article heroes, e.g. "21 / 9". */
   imageAspect?: string;
+  /** Extra full-width hero photos under the main article hero. */
+  heroImages?: NewsFigure[];
 };
 
 /** Society news shown on the ACES highlights carousel. */
@@ -106,8 +108,14 @@ export const acesHighlights: AcesHighlight[] = [
     slug: "kges-2026",
     kicker: "KGES",
     headline: "Excellence in Karachi.",
-    image: "/news/kges-2026-hero.jpg",
+    image: "/news/kges-2026-hall.jpg",
     imageAlt: "ACES delegation with the KGES Overall Best Delegation award",
+    heroImages: [
+      {
+        src: "/news/kges-2026-court.jpg",
+        alt: "ACES delegation at KGES with trophies on the court",
+      },
+    ],
     paragraphs: [
       "The Entrepreneurial Society continued its strong record at KGES, hosted by Karachi Grammar School in Karachi from 22nd to 24th October 2026. As an outstation competition and one of the most challenging events on Pakistan's inter-school circuit, KGES brought together leading schools from across the country for three days of demanding competition.",
       "The delegation delivered an outstanding performance, securing First Place in Venture Vista, alongside Runner-Up positions in Crisis at Work, Venture Vista, and Negotiation Conclave. The events tested participants across entrepreneurship, strategic thinking, negotiation, crisis management, and decision-making under pressure.",
@@ -118,6 +126,16 @@ export const acesHighlights: AcesHighlight[] = [
       {
         type: "wide",
         after: 0,
+        full: true,
+        image: {
+          src: "/news/kges-2026-hero.jpg",
+          alt: "ACES delegation with the KGES Overall Best Delegation award by the pool",
+        },
+      },
+      {
+        type: "wide",
+        after: 1,
+        full: true,
         image: {
           src: "/news/kges-2026-travel.jpg",
           alt: "ACES delegation travelling for KGES in Karachi",

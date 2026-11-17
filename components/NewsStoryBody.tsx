@@ -17,7 +17,7 @@ function EditorialBlock({ block }: { block: NewsEditorial }) {
 
   return (
     <Reveal>
-      <figure className="news-figure news-wide">
+      <figure className={`news-figure news-wide${block.full ? " news-wide-full" : ""}`}>
         <img src={block.image.src} alt={block.image.alt} />
       </figure>
     </Reveal>
