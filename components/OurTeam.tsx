@@ -192,7 +192,7 @@ export function OurTeam() {
               <div className="team-branch">
                 <h3 className="team-branch-title">DIRECTORATE</h3>
                 <p className="team-branch-lede">
-                  Responsible for registrations, operations, coordinations, and promotions.
+                  Responsible for operations, registrations, coordinations, and promotions.
                 </p>
 
                 <Stem className="team-stem-sm" />
@@ -212,7 +212,27 @@ export function OurTeam() {
                       <div className="team-director-people">
                         {group.members.map((member) => (
                           <article className="team-seat team-seat-director" key={member.id}>
-                            <VacantFrame size="sm" />
+                            {member.image ? (
+                              <div className="team-director-photo">
+                                <img
+                                  src={member.image}
+                                  alt={member.name}
+                                  style={{
+                                    ...(member.imagePosition
+                                      ? {
+                                          objectPosition: member.imagePosition,
+                                          transformOrigin: member.imagePosition,
+                                        }
+                                      : {}),
+                                    ...(member.imageScale
+                                      ? { transform: `scale(${member.imageScale})` }
+                                      : {}),
+                                  }}
+                                />
+                              </div>
+                            ) : (
+                              <VacantFrame size="sm" />
+                            )}
                             <p className="team-director-name">{member.name}</p>
                           </article>
                         ))}

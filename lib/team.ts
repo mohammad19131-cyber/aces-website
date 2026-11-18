@@ -32,6 +32,9 @@ export const coreHeads: TeamSeat[] = [
 export type DirectorMember = {
   id: string;
   name: string;
+  image?: string;
+  imagePosition?: string;
+  imageScale?: number;
 };
 
 export type DirectorGroup = {
@@ -43,23 +46,23 @@ export type DirectorGroup = {
 
 export const directorGroups: DirectorGroup[] = [
   {
-    id: "registrations",
-    role: "Director",
-    office: "Registrations",
-    members: [
-      { id: "mikail-liaqat", name: "Mikail Liaqat" },
-      { id: "raed-mohsin-khan", name: "Raed Mohsin Khan" },
-      { id: "rao-mateen", name: "Rao Mateen" },
-    ],
-  },
-  {
     id: "operations",
     role: "Director",
     office: "Operations",
     members: [
-      { id: "sarmad-nazir", name: "Sarmad Nazir" },
-      { id: "muhammad-umer", name: "Muhammad Umer" },
-      { id: "kanwar-uzair", name: "Kanwar Uzair" },
+      { id: "sarmad-nazir", name: "Sarmad Nazir", image: "/directors/sarmad-nazir.jpg" },
+      { id: "muhammad-umer", name: "Muhammad Umer", image: "/directors/muhammad-umer.jpg" },
+      { id: "kanwar-uzair", name: "Kanwar Uzair", image: "/directors/kanwar-uzair.jpg" },
+    ],
+  },
+  {
+    id: "registrations",
+    role: "Director",
+    office: "Registrations",
+    members: [
+      { id: "mikail-liaqat", name: "Mikail Liaqat", image: "/directors/mikail-liaqat.jpg" },
+      { id: "raed-mohsin-khan", name: "Raed Mohsin Khan", image: "/directors/raed-mohsin-khan.jpg" },
+      { id: "rao-mateen", name: "Rao Mateen", image: "/directors/rao-mateen.jpg" },
     ],
   },
   {
@@ -67,9 +70,9 @@ export const directorGroups: DirectorGroup[] = [
     role: "Director",
     office: "Coordinations",
     members: [
-      { id: "aalay-hasnain", name: "Aalay Hasnain" },
-      { id: "muhammad-azaan", name: "Azaan Ahmad" },
-      { id: "hashim-amjad-nagra", name: "Hashim Amjad Nagra" },
+      { id: "aalay-hasnain", name: "Aalay Hasnain", image: "/directors/aalay-hasnain.jpg" },
+      { id: "muhammad-azaan", name: "Azaan Ahmad", image: "/directors/azaan-ahmad.jpg", imagePosition: "center 46%" },
+      { id: "hashim-amjad-nagra", name: "Hashim Amjad Nagra", image: "/directors/hashim-amjad-nagra.jpg" },
     ],
   },
   {
@@ -77,8 +80,8 @@ export const directorGroups: DirectorGroup[] = [
     role: "Director",
     office: "Promotions",
     members: [
-      { id: "owais-joiya", name: "Owais Joiya" },
-      { id: "asad-ur-rehman", name: "Asad ur Rehman" },
+      { id: "owais-joiya", name: "Owais Joiya", image: "/directors/owais-joiya.jpg" },
+      { id: "asad-ur-rehman", name: "Asad ur Rehman", image: "/directors/asad-ur-rehman.jpg", imagePosition: "center 38%", imageScale: 2.15 },
     ],
   },
 ];
