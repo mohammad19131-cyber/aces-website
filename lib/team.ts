@@ -60,8 +60,8 @@ export const directorGroups: DirectorGroup[] = [
     role: "Director",
     office: "Registrations",
     members: [
-      { id: "rao-mateen", name: "Rao Mateen Khalil", image: "/directors/rao-mateen.jpg", imagePosition: "center 28%" },
-      { id: "raed-mohsin-khan", name: "Raed Mohsin Khan", image: "/directors/raed-mohsin-khan.jpg" },
+      { id: "rao-mateen", name: "Rao Mateen Khalil", image: "/directors/rao-mateen.jpg", imagePosition: "center 48%" },
+      { id: "raed-mohsin-khan", name: "Raed Mohsin Khan", image: "/directors/raed-mohsin-khan.jpg", imagePosition: "center 42%" },
       { id: "mikail-liaqat", name: "Mikail Liaqat", image: "/directors/mikail-liaqat.jpg" },
     ],
   },
@@ -71,7 +71,7 @@ export const directorGroups: DirectorGroup[] = [
     office: "Coordinations",
     members: [
       { id: "aalay-hasnain", name: "Aalay Hasnain", image: "/directors/aalay-hasnain.jpg" },
-      { id: "muhammad-azaan", name: "Azaan Ahmad", image: "/directors/azaan-ahmad.jpg", imagePosition: "38% 22%" },
+      { id: "muhammad-azaan", name: "Azaan Ahmad", image: "/directors/azaan-ahmad.jpg", imagePosition: "center 46%" },
       { id: "hashim-amjad-nagra", name: "Hashim Amjad Nagra", image: "/directors/hashim-amjad-nagra.jpg" },
     ],
   },
